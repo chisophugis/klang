@@ -1,0 +1,6 @@
+
+- Token 에서 CurTok 을 제거 
+- CurTok 은 Parser 로 이동
+- Lexer 에서 gettok()의 이름을 Lex()로 변경
+- Parser 만들기
+
