@@ -9,12 +9,10 @@ namespace klang {
 
 		int LastChar;
 
-		/// gettok - Return the next token from standard input.
-		void gettok(Token &Result);
-
 		public:
 		Lexer();
 
+		/// Return the next token from standard input.
 		void Lex(Token &Result);
 
 	};

@@ -4,9 +4,9 @@
 
 using namespace klang;
 
-/// gettok - Return the next token from standard input.
+/// Return the next token from standard input.
 void
-Lexer::gettok(Token &Result) {
+Lexer::Lex(Token &Result) {
 
 	// Skip any whitespace.
 	while (isspace(LastChar))
@@ -49,7 +49,7 @@ Lexer::gettok(Token &Result) {
 		while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
 
 		if (LastChar != EOF) {
-			gettok(Result);
+			Lex(Result);
 			return;
 		}
 	}
@@ -72,13 +72,5 @@ Lexer::Lexer()
 	: LastChar(' ')
 {
 };
-
-
-void
-Lexer::Lex(Token &Result)
-{
-	gettok(Result);
-	return;
-}
 
 

@@ -11,7 +11,7 @@ namespace klang {
 	class Token {
 		friend class Lexer;
 
-		int CurTok;//Kind
+		int Kind;
 
 		std::string IdentifierStr;  // Filled in if tok_identifier
 		double NumVal;              // Filled in if tok_number
