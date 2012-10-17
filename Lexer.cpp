@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <ctype.h>
+#include <cstdio>
 #include "Lexer.h"
 
 using namespace klang;

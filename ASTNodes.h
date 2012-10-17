@@ -1,3 +1,8 @@
+#ifndef KLANG_ASTNODES_H
+#define KLANG_ASTNODES_H
+
+#include <string>
+#include <vector>
 
 //===----------------------------------------------------------------------===//
 // Abstract Syntax Tree (aka Parse Tree)
@@ -62,4 +67,6 @@ class FunctionAST {
 					    : Proto(proto), Body(body) {}
 
 };
+
+#endif //#ifndef KLANG_ASTNODES_H
 
