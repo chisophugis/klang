@@ -7,8 +7,8 @@ INCLUDES    := -I.\
 
 DEFINES	    := 
 
-CFLAGS	    := -O1 -W -Wall $(INCLUDES) $(DEFINES)
-CXXFLAGS    := -O1 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x
+CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES)
+CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x
 
 LDFLAGS	    += 
 
