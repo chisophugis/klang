@@ -1,3 +1,8 @@
 cscope.files
 cscope.out
 tags
+klang
+*.o
+*.gch
+*.swp
+
