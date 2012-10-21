@@ -187,8 +187,13 @@ PrototypeAST *Parser::ParseExtern() {
 //===----------------------------------------------------------------------===//
 
 void Parser::HandleDefinition() {
-	if (ParseDefinition()) {
-		fprintf(stderr, "Parsed a function definition.\n");
+	if (FunctionAST *F = ParseDefinition()) {
+		if (Function *LF = F->Codegen()) {
+			fprintf(stderr, "Read function definition:");
+			LF->dump();
+		}
+		//	if (ParseDefinition()) {}
+		//		fprintf(stderr, "Parsed a function definition.\n");
 	} else {
 		// Skip token for error recovery.
 		GetNextToken();
@@ -196,8 +201,13 @@ void Parser::HandleDefinition() {
 }
 
 void Parser::HandleExtern() {
-	if (ParseExtern()) {
-		fprintf(stderr, "Parsed an extern\n");
+	if (PrototypeAST *P = ParseExtern()) {
+		if (Function *F = P->Codegen()) {
+			fprintf(stderr, "Read extern: ");
+			F->dump();
+		}
+		//	if (ParseExtern()) {}
+		//		fprintf(stderr, "Parsed an extern\n");
 	} else {
 		// Skip token for error recovery.
 		GetNextToken();
@@ -206,8 +216,13 @@ void Parser::HandleExtern() {
 
 void Parser::HandleTopLevelExpression() {
 	// Evaluate a top-level expression into an anonymous function.
-	if (ParseTopLevelExpr()) {
-		fprintf(stderr, "Parsed a top-level expr\n");
+	if (FunctionAST *F = ParseTopLevelExpr()) {
+		if (Function *LF = F->Codegen()) {
+			fprintf(stderr, "Read top-level expression:");
+			LF->dump();
+		}
+		//	if (ParseTopLevelExpr()) {}
+		//		fprintf(stderr, "Parsed a top-level expr\n");
 	} else {
 		// Skip token for error recovery.
 		GetNextToken();

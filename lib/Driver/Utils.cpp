@@ -1,21 +1,26 @@
 #include <cstdio>
 #include "klang/Driver/Utils.h"
 
+using namespace klang;
 
 //Error* - These are little helper functions for error handling.
-klang::ExprAST *klang::Error(const char *Str) { 
+ExprAST *Error(const char *Str) { 
 	fprintf(stderr, "Error: %s\n", Str);
 	return 0;
 }
 
-klang::PrototypeAST *klang::ErrorP(const char *Str) { 
+PrototypeAST *ErrorP(const char *Str) { 
 	Error(Str); 
 	return 0; 
 }
 
-klang::FunctionAST *klang::ErrorF(const char *Str) { 
+FunctionAST *ErrorF(const char *Str) { 
 	Error(Str); 
 	return 0; 
 }
 
+Value *ErrorV(const char *Str) { 
+	Error(Str); 
+	return 0; 
+}
 

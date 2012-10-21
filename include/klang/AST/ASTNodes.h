@@ -3,7 +3,13 @@
 
 #include <string>
 #include <vector>
+#include "llvm/DerivedTypes.h"
+#include "llvm/LLVMContext.h"
+#include "llvm/Module.h"
+#include "llvm/Analysis/Verifier.h"
+#include "llvm/Support/IRBuilder.h"
 
+using namespace llvm;
 
 namespace klang {
 
@@ -15,6 +21,7 @@ namespace klang {
 	class ExprAST {
 		public:
 			virtual ~ExprAST() {}
+			virtual Value *Codegen() = 0;
 	};
 
 	/// NumberExprAST - Expression class for numeric literals like "1.0".
@@ -22,6 +29,7 @@ namespace klang {
 		double Val;
 		public:
 		NumberExprAST(double val) : Val(val) {}
+		virtual Value *Codegen();
 	};
 
 	/// VariableExprAST - Expression class for referencing a variable, like "a".
@@ -29,6 +37,7 @@ namespace klang {
 		std::string Name;
 		public:
 		VariableExprAST(const std::string &name) : Name(name) {}
+		virtual Value *Codegen();
 	};
 
 	/// BinaryExprAST - Expression class for a binary operator.
@@ -38,6 +47,7 @@ namespace klang {
 		public:
 		BinaryExprAST(char op, ExprAST *lhs, ExprAST *rhs) 
 			: Op(op), LHS(lhs), RHS(rhs) {}
+		virtual Value *Codegen();
 	};
 
 	/// CallExprAST - Expression class for function calls.
@@ -47,6 +57,7 @@ namespace klang {
 		public:
 		CallExprAST(const std::string &callee, std::vector<ExprAST*> &args)
 			: Callee(callee), Args(args) {}
+		virtual Value *Codegen();
 	};
 
 	/// PrototypeAST - This class represents the "prototype" for a function,
@@ -58,6 +69,7 @@ namespace klang {
 		public:
 		PrototypeAST(const std::string &name, const std::vector<std::string> &args)
 			: Name(name), Args(args) {}
+		virtual Value *Codegen();
 
 	};
 
@@ -68,6 +80,7 @@ namespace klang {
 		public:
 		FunctionAST(PrototypeAST *proto, ExprAST *body)
 			: Proto(proto), Body(body) {}
+		virtual Value *Codegen();
 
 	};
 

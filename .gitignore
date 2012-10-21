@@ -1,7 +1,7 @@
 cscope.files
 cscope.out
 tags
-klang
+/klang
 *.o
 *.gch
 *.swp
