@@ -69,7 +69,7 @@ namespace klang {
 		public:
 		PrototypeAST(const std::string &name, const std::vector<std::string> &args)
 			: Name(name), Args(args) {}
-		virtual Value *Codegen();
+		Function *Codegen();
 
 	};
 
@@ -80,7 +80,7 @@ namespace klang {
 		public:
 		FunctionAST(PrototypeAST *proto, ExprAST *body)
 			: Proto(proto), Body(body) {}
-		virtual Value *Codegen();
+		Function *Codegen();
 
 	};
 

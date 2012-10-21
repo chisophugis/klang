@@ -2,7 +2,7 @@
 
 TARGET	  := klang
 TOPDIR	  := $(shell /bin/pwd)
-SUBDIRS	  := lib/Driver lib/Lex lib/Parse
+SUBDIRS	  := lib/Driver lib/Lex lib/Parse lib/AST
 
 ######################################
 
