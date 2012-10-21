@@ -13,7 +13,7 @@ int Parser::GetNextToken() {
 /// identifierexpr
 ///   ::= identifier
 ///   ::= identifier '(' expression* ')'
- ExprAST *Parser::ParseIdentifierExpr() {
+ExprAST *Parser::ParseIdentifierExpr() {
 	std::string IdName = Tok.IdentifierStr;
 
 	GetNextToken();  // eat identifier.
@@ -47,14 +47,14 @@ int Parser::GetNextToken() {
 
 
 /// numberexpr ::= number
- ExprAST *Parser::ParseNumberExpr() {
+ExprAST *Parser::ParseNumberExpr() {
 	ExprAST *Result = new NumberExprAST(Tok.NumVal);
 	GetNextToken(); // consume the number
 	return Result;
 }
 
 /// parenexpr ::= '(' expression ')'
- ExprAST *Parser::ParseParenExpr() {
+ExprAST *Parser::ParseParenExpr() {
 	GetNextToken();  // eat (.
 	ExprAST *V = ParseExpression();
 	if (!V) return 0;
@@ -69,7 +69,7 @@ int Parser::GetNextToken() {
 ///   ::= identifierexpr
 ///   ::= numberexpr
 ///   ::= parenexpr
- ExprAST *Parser::ParsePrimary() {
+ExprAST *Parser::ParsePrimary() {
 	switch (Tok.Kind) {
 		default: return Error("unknown token when expecting an expression");
 		case tok::tok_identifier: return ParseIdentifierExpr();
@@ -82,7 +82,7 @@ int Parser::GetNextToken() {
 
 /// binoprhs
 ///   ::= ('+' primary)*
- ExprAST *Parser::ParseBinOpRHS(int ExprPrec, ExprAST *LHS) {
+ExprAST *Parser::ParseBinOpRHS(int ExprPrec, ExprAST *LHS) {
 	// If this is a binop, find its precedence.
 	while (1) {
 		int TokPrec = Tok.GetTokPrecedence();
@@ -119,7 +119,7 @@ int Parser::GetNextToken() {
 /// expression
 ///   ::= primary binoprhs
 ///
- ExprAST *Parser::ParseExpression() {
+ExprAST *Parser::ParseExpression() {
 	ExprAST *LHS = ParsePrimary();
 	if (!LHS) return 0;
 
@@ -128,7 +128,7 @@ int Parser::GetNextToken() {
 
 /// prototype
 ///   ::= id '(' id* ')'
- PrototypeAST *Parser::ParsePrototype() {
+PrototypeAST *Parser::ParsePrototype() {
 	if (Tok.Kind != tok::tok_identifier)
 		return ErrorP("Expected function name in prototype");
 
@@ -154,7 +154,7 @@ int Parser::GetNextToken() {
 
 
 /// definition ::= 'def' prototype expression
- FunctionAST *Parser::ParseDefinition() {
+FunctionAST *Parser::ParseDefinition() {
 	GetNextToken();  // eat def.
 	PrototypeAST *Proto = ParsePrototype();
 	if (Proto == 0) return 0;
@@ -165,7 +165,7 @@ int Parser::GetNextToken() {
 }
 
 /// toplevelexpr ::= expression
- FunctionAST *Parser::ParseTopLevelExpr() {
+FunctionAST *Parser::ParseTopLevelExpr() {
 	if (ExprAST *E = ParseExpression()) {
 		// Make an anonymous proto.
 		PrototypeAST *Proto = new PrototypeAST("", std::vector<std::string>());
@@ -175,7 +175,7 @@ int Parser::GetNextToken() {
 }
 
 /// external ::= 'extern' prototype
- PrototypeAST *Parser::ParseExtern() {
+PrototypeAST *Parser::ParseExtern() {
 	GetNextToken();  // eat extern.
 	return ParsePrototype();
 }
