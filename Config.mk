@@ -5,7 +5,7 @@ LD	    := ld
 LLVM_CONFIG := /home/hum/Projects/llvm31_pure/build/Debug+Asserts/bin/llvm-config
 
 INCLUDES    := -I.\
-	       -I$(TOPDIR)/include
+	-I$(TOPDIR)/include
 
 DEFINES	    := 
 
@@ -22,6 +22,7 @@ LDFLAGS	    += `$(LLVM_CONFIG) --ldflags --libs core`
 
 %.o: %.cpp
 	$(CXX) $< $(CXXFLAGS) -c -o $@
+
 ##################################################################
 
 
