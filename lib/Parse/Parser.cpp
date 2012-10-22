@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include "llvm/Function.h"
 #include "klang/Parse/Parser.h"
 #include "klang/Driver/Utils.h"
 
@@ -33,7 +34,7 @@ ExprAST *Parser::ParseIdentifierExpr() {
 			if (Tok.Kind == ')') break;
 
 			if (Tok.Kind != ',')
-				return Error("Expected ')' or ',' in argument list");
+				return klang::Error("Expected ')' or ',' in argument list");
 			GetNextToken();
 		}
 	}
@@ -60,7 +61,7 @@ ExprAST *Parser::ParseParenExpr() {
 	if (!V) return 0;
 
 	if (Tok.Kind != ')')
-		return Error("expected ')'");
+		return klang::Error("expected ')'");
 	GetNextToken();  // eat ).
 	return V;
 }
@@ -71,7 +72,7 @@ ExprAST *Parser::ParseParenExpr() {
 ///   ::= parenexpr
 ExprAST *Parser::ParsePrimary() {
 	switch (Tok.Kind) {
-		default: return Error("unknown token when expecting an expression");
+		default: return klang::Error("unknown token when expecting an expression");
 		case tok::tok_identifier: return ParseIdentifierExpr();
 		case tok::tok_number:     return ParseNumberExpr();
 		case '(':            return ParseParenExpr();
@@ -130,19 +131,19 @@ ExprAST *Parser::ParseExpression() {
 ///   ::= id '(' id* ')'
 PrototypeAST *Parser::ParsePrototype() {
 	if (Tok.Kind != tok::tok_identifier)
-		return ErrorP("Expected function name in prototype");
+		return klang::ErrorP("Expected function name in prototype");
 
 	std::string FnName = Tok.IdentifierStr;
 	GetNextToken();
 
 	if (Tok.Kind != '(')
-		return ErrorP("Expected '(' in prototype");
+		return klang::ErrorP("Expected '(' in prototype");
 
 	std::vector<std::string> ArgNames;
 	while (GetNextToken() == tok::tok_identifier)
 		ArgNames.push_back(Tok.IdentifierStr);
 	if (Tok.Kind != ')')
-		return ErrorP("Expected ')' in prototype");
+		return klang::ErrorP("Expected ')' in prototype");
 
 	// success.
 	GetNextToken();  // eat ')'.
@@ -188,7 +189,7 @@ PrototypeAST *Parser::ParseExtern() {
 
 void Parser::HandleDefinition() {
 	if (FunctionAST *F = ParseDefinition()) {
-		if (Function *LF = F->Codegen()) {
+		if (llvm::Function *LF = F->Codegen()) {
 			fprintf(stderr, "Read function definition:");
 			LF->dump();
 		}
@@ -202,7 +203,7 @@ void Parser::HandleDefinition() {
 
 void Parser::HandleExtern() {
 	if (PrototypeAST *P = ParseExtern()) {
-		if (Function *F = P->Codegen()) {
+		if (llvm::Function *F = P->Codegen()) {
 			fprintf(stderr, "Read extern: ");
 			F->dump();
 		}
@@ -217,7 +218,7 @@ void Parser::HandleExtern() {
 void Parser::HandleTopLevelExpression() {
 	// Evaluate a top-level expression into an anonymous function.
 	if (FunctionAST *F = ParseTopLevelExpr()) {
-		if (Function *LF = F->Codegen()) {
+		if (llvm::Function *LF = F->Codegen()) {
 			fprintf(stderr, "Read top-level expression:");
 			LF->dump();
 		}
