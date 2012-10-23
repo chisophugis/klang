@@ -2,6 +2,7 @@
 #include <cstdio>
 #include "llvm/Function.h"
 #include "klang/Parse/Parser.h"
+#include "klang/Driver/Driver.h"
 #include "klang/Driver/Utils.h"
 
 using namespace klang;
@@ -221,6 +222,18 @@ void Parser::HandleTopLevelExpression() {
 		if (llvm::Function *LF = F->Codegen()) {
 			fprintf(stderr, "Read top-level expression:");
 			LF->dump();
+
+			//------------------------------------------------
+			// JIT the function, returning a function pointer.
+			//------------------------------------------------
+			void *FPtr = TheExecutionEngine->getPointerToFunction(LF);
+
+			//------------------------------------------------
+			// Cast it to the right type (takes no arguments, returns a double) so we
+			// can call it as a native function.
+			//------------------------------------------------
+			double (*FP)() = (double (*)())(intptr_t)FPtr;
+			fprintf(stderr, "Evaluated to %f\n", FP());
 		}
 		//	if (ParseTopLevelExpr()) {}
 		//		fprintf(stderr, "Parsed a top-level expr\n");

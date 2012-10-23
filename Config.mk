@@ -12,7 +12,7 @@ DEFINES	    :=
 CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES) `$(LLVM_CONFIG) --cflags`
 CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x `$(LLVM_CONFIG) --cxxflags`
 
-LDFLAGS	    += `$(LLVM_CONFIG) --ldflags --libs core`
+LDFLAGS	    += -rdynamic `$(LLVM_CONFIG) --ldflags --libs core jit native`
 
 ##################################################################
 .SUFFIXES : .o .c .cpp
