@@ -9,8 +9,8 @@ INCLUDES    := -I.\
 
 DEFINES	    := 
 
-CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES) `$(LLVM_CONFIG) --cflags`
-CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x `$(LLVM_CONFIG) --cxxflags`
+CFLAGS	    := -O3 -g -W -Wall $(INCLUDES) $(DEFINES) `$(LLVM_CONFIG) --cflags`
+CXXFLAGS    := -O3 -g -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x `$(LLVM_CONFIG) --cxxflags`
 
 LDFLAGS	    += -rdynamic `$(LLVM_CONFIG) --ldflags --libs core jit native`
 

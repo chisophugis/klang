@@ -67,16 +67,90 @@ ExprAST *Parser::ParseParenExpr() {
 	return V;
 }
 
+/// ifexpr ::= 'if' expression 'then' expression 'else' expression
+ExprAST *Parser::ParseIfExpr() {
+	GetNextToken();  // eat the if.
+
+	// condition.
+	ExprAST *Cond = ParseExpression();
+	if (!Cond) return 0;
+
+	if (Tok.Kind != tok::tok_then)
+		return klang::Error("expected then");
+	GetNextToken();  // eat the then
+
+	ExprAST *Then = ParseExpression();
+	if (Then == 0) return 0;
+
+	if (Tok.Kind != tok::tok_else)
+		return klang::Error("expected else");
+
+	GetNextToken();
+
+	ExprAST *Else = ParseExpression();
+	if (!Else) return 0;
+
+	return new IfExprAST(Cond, Then, Else);
+}
+
+/// forexpr ::= 'for' identifier '=' expr ',' expr (',' expr)? 'in' expression
+ExprAST *Parser::ParseForExpr() {
+	GetNextToken();  // eat the for.
+
+	if (Tok.Kind != tok::tok_identifier)
+		return klang::Error("expected identifier after for");
+
+	std::string IdName = Tok.IdentifierStr;
+	GetNextToken();  // eat identifier.
+
+	if (Tok.Kind != '=')
+		return klang::Error("expected '=' after for");
+	GetNextToken();  // eat '='.
+
+
+	ExprAST *Start = ParseExpression();
+	if (Start == 0) return 0;
+	if (Tok.Kind != ',')
+		return klang::Error("expected ',' after for start value");
+	GetNextToken();
+
+	ExprAST *End = ParseExpression();
+	if (End == 0) return 0;
+
+	// The step value is optional.
+	ExprAST *Step = 0;
+	if (Tok.Kind == ',') {
+		GetNextToken();
+		Step = ParseExpression();
+		if (Step == 0) return 0;
+	}
+
+	if (Tok.Kind != tok::tok_in)
+		return klang::Error("expected 'in' after for");
+	GetNextToken();  // eat 'in'.
+
+	ExprAST *Body = ParseExpression();
+	if (Body == 0) return 0;
+
+	return new ForExprAST(IdName, Start, End, Step, Body);
+}
+
+
+
 /// primary
 ///   ::= identifierexpr
 ///   ::= numberexpr
 ///   ::= parenexpr
+///   ::= ifexpr
+///   ::= forexpr
 ExprAST *Parser::ParsePrimary() {
 	switch (Tok.Kind) {
 		default: return klang::Error("unknown token when expecting an expression");
 		case tok::tok_identifier: return ParseIdentifierExpr();
 		case tok::tok_number:     return ParseNumberExpr();
-		case '(':            return ParseParenExpr();
+		case '(':				          return ParseParenExpr();
+		case tok::tok_if:         return ParseIfExpr();
+		case tok::tok_for:        return ParseForExpr();
 	}
 }
 
@@ -220,8 +294,8 @@ void Parser::HandleTopLevelExpression() {
 	// Evaluate a top-level expression into an anonymous function.
 	if (FunctionAST *F = ParseTopLevelExpr()) {
 		if (llvm::Function *LF = F->Codegen()) {
-			fprintf(stderr, "Read top-level expression:");
-			LF->dump();
+			//fprintf(stderr, "Read top-level expression:");
+			//LF->dump();
 
 			//------------------------------------------------
 			// JIT the function, returning a function pointer.

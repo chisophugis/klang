@@ -18,12 +18,25 @@ Lexer::Lex(Token &Result) {
 			Result.IdentifierStr += LastChar;
 
 		if (Result.IdentifierStr == "def") {
-			Result.Kind = tok::tok_def;
-			return;
+			Result.Kind = tok::tok_def; return;
 		}
 		if (Result.IdentifierStr == "extern") {
-			Result.Kind = tok::tok_extern;
-			return;
+			Result.Kind = tok::tok_extern; return;
+		}
+		if (Result.IdentifierStr == "if") {
+			Result.Kind = tok::tok_if; return;
+		}
+		if (Result.IdentifierStr == "then") {
+			Result.Kind = tok::tok_then; return;
+		}
+		if (Result.IdentifierStr == "else") {
+			Result.Kind = tok::tok_else; return;
+		}
+		if (Result.IdentifierStr == "for") {
+			Result.Kind = tok::tok_for; return;
+		}
+		if (Result.IdentifierStr == "in") {
+			Result.Kind = tok::tok_in; return;
 		}
 
 		Result.Kind = tok::tok_identifier;

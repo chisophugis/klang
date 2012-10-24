@@ -54,6 +54,26 @@ namespace klang {
 		virtual llvm::Value *Codegen();
 	};
 
+	/// IfExprAST - Expression class for if/then/else.
+	class IfExprAST : public ExprAST {
+		ExprAST *Cond, *Then, *Else;
+		public:
+		IfExprAST(ExprAST *cond, ExprAST *then, ExprAST *_else)
+			: Cond(cond), Then(then), Else(_else) {}
+		virtual llvm::Value *Codegen();
+	};
+
+	/// ForExprAST - Expression class for for/in.
+	class ForExprAST : public ExprAST {
+		std::string VarName;
+		ExprAST *Start, *End, *Step, *Body;
+		public:
+		ForExprAST(const std::string &varname, ExprAST *start, ExprAST *end,
+				ExprAST *step, ExprAST *body)
+			: VarName(varname), Start(start), End(end), Step(step), Body(body) {}
+		virtual llvm::Value *Codegen();
+	};
+
 	/// PrototypeAST - This class represents the "prototype" for a function,
 	/// which captures its name, and its argument names (thus implicitly the number
 	/// of arguments the function takes).
