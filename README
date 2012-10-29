@@ -1,3 +1,9 @@
 
-Sema, Driver 만 만들면 되겠다~
+This version depends on V.3.1 of LLVM/Clang
+The LLVM version matters.
+
+- Build LLVM/Clang 3.1
+- Modify Config.mk to the built LLVM/Clang 3.1 of yours
+- make to build
+- make clean to clean
 
