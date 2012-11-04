@@ -1,17 +1,18 @@
-.EXPORT_ALL_VARIABLES:
+##===- projects/sample/Makefile ----------------------------*- Makefile -*-===##
+#
+# This is a sample Makefile for a project that uses LLVM.
+#
+##===----------------------------------------------------------------------===##
 
-TARGET	  := klang
-TOPDIR	  := $(shell /bin/pwd)
-SUBDIRS	  := lib/Driver lib/Lex lib/Parse lib/AST
-INCDIRS   := include/klang/AST include/klang/Driver include/klang/Lex include/klang/Parse
+#
+# Indicates our relative path to the top of the project's root directory.
+#
+LEVEL = .
+DIRS = lib tools
+EXTRA_DIST = include
 
-######################################
-
-include $(TOPDIR)/Config.mk
-
-all : compile $(OBJS)
-	$(CXX) $(OBJS) $(addsuffix /built-in.o,$(SUBDIRS)) $(LDFLAGS) -o $(TARGET)
-
-include $(TOPDIR)/Rules.mk
-
+#
+# Include the Master Makefile that knows how to build all.
+#
+include $(LEVEL)/Makefile.common
 

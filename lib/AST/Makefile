@@ -1,17 +1,16 @@
-ifndef TOPDIR
-	TOPDIR := ../..
-endif
+##===- projects/sample/lib/sample/Makefile -----------------*- Makefile -*-===##
 
-include $(TOPDIR)/Config.mk
+#
+# Indicate where we are relative to the top of the source tree.
+#
+LEVEL=../..
 
-TARGET   := built-in.o
-SUBDIRS	 :=
-OBJS	   := $(patsubst %.c, %.o, $(wildcard *.c))\
-	$(patsubst %.cpp, %.o, $(wildcard *.cpp))
+#
+# Give the name of a library.  This will build a dynamic version.
+#
+LIBRARYNAME=klangAST
 
-
-all : compile $(OBJS)
-	$(LD) -r $(addsuffix /$(TARGET),$(SUBDIRS)) $(OBJS) -o $(TARGET)
-
-include $(TOPDIR)/Rules.mk
-
+#
+# Include Makefile.common so we know what to do.
+#
+include $(LEVEL)/Makefile.common
