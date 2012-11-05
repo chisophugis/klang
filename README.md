@@ -23,10 +23,8 @@ $ vi configure
 ```
 - Put 'projects/klang' under 'projects/sample'.
 - Put 'klang)       subdirs="$subdirs projects/klang"' under 'sample)       subdirs="$subdirs projects/sample"'.
-
-Be careful for ;; when doing above.
-
-We are mimicing 'projects/sample'.
+- Be careful for ;; when doing above.
+- We are mimicing 'projects/sample'.
 
 ```
 $ cd LLVM_OBJ_DIR
