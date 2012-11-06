@@ -28,7 +28,7 @@ $ ./AutoRegen.sh
 $ cd ../../../
 $ (cd LLVM_SRC_DIR)
 $ vi configure
-Insert items for klang under items for sample as shown below
+Insert items for klang under items for sample as shown below - This step is the one I am not sure of. If anyone know about this, please share us! This step is not documented ever!! I just found that this is necessary.
 ```
 
 ```
