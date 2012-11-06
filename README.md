@@ -32,24 +32,24 @@ Insert items for klang under items for sample as shown below
 ```
 
 ```
-diff --git a/configure b/../../llvm31/llvm/configure
-index f7f1757..a4c1592 100755
---- a/configure
-+++ b/../../llvm31/llvm/configure
-@@ -809,7 +809,6 @@ projects/llvm-test
+diff --git a/../../llvm31/llvm/configure b/configure
+index a4c1592..f7f1757 100755
+--- a/../../llvm31/llvm/configure
++++ b/configure
+@@ -809,6 +809,7 @@ projects/llvm-test
  projects/poolalloc
  projects/llvm-poolalloc
  projects/sample
--projects/klang
++projects/klang
  projects/privbracket
  projects/llvm-stacker
  projects/llvm-reopt
-@@ -3489,8 +3488,6 @@ do
+@@ -3488,6 +3489,8 @@ do
      case ${i} in
        sample)       subdirs="$subdirs projects/sample"
      ;;
--      klang)       subdirs="$subdirs projects/klang"
--    ;;
++      klang)       subdirs="$subdirs projects/klang"
++    ;;
        privbracket)  subdirs="$subdirs projects/privbracket"
   ;;
        llvm-stacker) subdirs="$subdirs projects/llvm-stacker"
