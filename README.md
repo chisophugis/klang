@@ -1,10 +1,10 @@
 
 ## About
-This project has been started from LLVM tutorial and implement the same compiler - kaleidoscope - but in different structure!
+This project has been started from LLVM tutorial and being implemented to be the same compiler - kaleidoscope - but in different structure!
 The structure of klang is meant to be similar to the one of clang's.
 
 ### Purpose of this work
-This small project is one of means of studying LLVM and Clang.
+This small project is one of the means of studying LLVM and Clang.
 
 ## Guide
 ### Getting the source How-To:
@@ -19,8 +19,8 @@ $ git fetch -u git://github.com/Journeyer/klang.git +refs/heads/*:refs/heads/*
 ### Compile How-To:
 
 ```
-Fetch all branches as shown above first.
-$ cd klang/autoconf
+Fetch all branches as shown above first. And then
+$ cd autoconf
 $ ./AutoRegen.sh
 ```
 
