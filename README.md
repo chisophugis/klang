@@ -7,11 +7,19 @@ The structure of klang is meant to be similar to the one of clang's.
 This small project is one of means of studying LLVM and Clang.
 
 ## Guide
-### Compile How-To:
+### Getting the source How-To:
 
 ```
 $ cd LLVM_SRC_DIR/projects
 $ git clone git://github.com/Journeyer/klang.git
+$ cd klang
+$ git fetch -u git://github.com/Journeyer/klang.git +refs/heads/*:refs/heads/*
+```
+
+### Compile How-To:
+
+```
+Fetch all branches as shown above first.
 $ cd klang/autoconf
 $ ./AutoRegen.sh
 ```
