@@ -28,11 +28,32 @@ $ ./AutoRegen.sh
 $ cd ../../../
 $ (cd LLVM_SRC_DIR)
 $ vi configure
+Insert items for klang under items for sample as shown below
 ```
-- Put 'projects/klang' under 'projects/sample'.
-- Put 'klang)       subdirs="$subdirs projects/klang"' under 'sample)       subdirs="$subdirs projects/sample"'.
-- Be careful for ;; when doing above.
-- We are mimicing 'projects/sample'.
+
+```
+diff --git a/configure b/../../llvm31/llvm/configure
+index f7f1757..a4c1592 100755
+--- a/configure
++++ b/../../llvm31/llvm/configure
+@@ -809,7 +809,6 @@ projects/llvm-test
+ projects/poolalloc
+ projects/llvm-poolalloc
+ projects/sample
+-projects/klang
+ projects/privbracket
+ projects/llvm-stacker
+ projects/llvm-reopt
+@@ -3489,8 +3488,6 @@ do
+     case ${i} in
+       sample)       subdirs="$subdirs projects/sample"
+     ;;
+-      klang)       subdirs="$subdirs projects/klang"
+-    ;;
+       privbracket)  subdirs="$subdirs projects/privbracket"
+  ;;
+       llvm-stacker) subdirs="$subdirs projects/llvm-stacker"
+```
 
 ```
 $ cd LLVM_OBJ_DIR
