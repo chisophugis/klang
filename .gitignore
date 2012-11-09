@@ -4,4 +4,5 @@ tags
 *.swp
 autoconf/autom4te.cache/
 autoconf/aclocal.m4
+.project.vimrc
 
