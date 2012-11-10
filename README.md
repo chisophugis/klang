@@ -18,10 +18,10 @@ This small project is one of the means of studying LLVM and Clang.
   ```
 
 ### Branches
-- ast ..... ch.2
-- ir  ..... ch.3
-- jit ..... ch.4
-- cf  ..... ch.5
+- ast ....... ch.2
+- ir  .......... ch.3
+- jit ......... ch.4
+- cf  ......... ch.5
 - userop .. ch.6
 - master .. up-to-date
 
@@ -34,7 +34,7 @@ This small project is one of the means of studying LLVM and Clang.
   ```
 note : Makefile infrastructure of LLVM project is applied only after
 the branch cf. For the branches before cf, simple Makefile is used.
-But to use this Makefile you need to fix Config.mk to your LLVM path.
+But to use this Makefile you need to fix Config.mk with your LLVM paths.
 
   ```
   $ cd ../../../
