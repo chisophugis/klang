@@ -82,6 +82,7 @@ Later on, you can compile klang under LLVM_OBJ_DIR/projects/klang
   - LLVM Makefile Guide   http://llvm.org/docs/MakefileGuide.html#makefile-guide
 
 ## Klang's plot output for Mandlebrot set!
+```
 ready> mandel(-2.3, -1.3, 0.05, 0.07);
 ready>
 *******************************************************************************
@@ -126,3 +127,4 @@ ready>
 *******************************************************************************
 *******************************************************************************
 Evaluated to 0.000000
+```
