@@ -34,8 +34,8 @@ This small project is one of the means of studying LLVM and Clang.
   $ cd autoconf
   $ ./AutoRegen.sh
   ```
-note : Makefile infrastructure of LLVM project is applied only after
-the branch cf. For the branches before cf, simple Makefile is used.
+Makefile infrastructure of LLVM project is applied only after the
+branch cf. For the branches before cf, simple Makefile is used.
 But to use this Makefile you need to fix Config.mk with your LLVM paths.
 
   ```
@@ -48,27 +48,23 @@ But to use this Makefile you need to fix Config.mk with your LLVM paths.
 This step is the one I am not sure of. If anyone know about this, please share
 us! This step is not documented ever!! I just found that this is necessary.
   ```
-  diff --git a/../../llvm31/llvm/configure b/configure
-  index a4c1592..f7f1757 100755
-  --- a/../../llvm31/llvm/configure
-  +++ b/configure
-  @@ -809,6 +809,7 @@ projects/llvm-test
-  projects/poolalloc
-  projects/llvm-poolalloc
-  projects/sample
+   @@ -809,6 +809,7 @@ projects/llvm-test
+   projects/poolalloc
+   projects/llvm-poolalloc
+   projects/sample
   +projects/klang
-  projects/privbracket
-  projects/llvm-stacker
-  projects/llvm-reopt
-  @@ -3488,6 +3489,8 @@ do
-  case ${i} in
-  sample)       subdirs="$subdirs projects/sample"
-  ;;
+   projects/privbracket
+   projects/llvm-stacker
+   projects/llvm-reopt
+   @@ -3488,6 +3489,8 @@ do
+   case ${i} in
+   sample)       subdirs="$subdirs projects/sample"
+   ;;
   +      klang)       subdirs="$subdirs projects/klang"
   +    ;;
-  privbracket)  subdirs="$subdirs projects/privbracket"
-  ;;
-  llvm-stacker) subdirs="$subdirs projects/llvm-stacker"
+   privbracket)  subdirs="$subdirs projects/privbracket"
+   ;;
+   llvm-stacker) subdirs="$subdirs projects/llvm-stacker"
   ```
 
   ```
