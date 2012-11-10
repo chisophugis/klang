@@ -10,7 +10,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-	double putchard(double X);
+  double putchard(double X);
+  double printd(double X);
 #ifdef __cplusplus
 }
 #endif

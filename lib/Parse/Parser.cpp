@@ -155,9 +155,25 @@ ExprAST *Parser::ParsePrimary() {
 }
 
 
+/// unary
+///   ::= primary
+///   ::= '!' unary
+ExprAST *Parser::ParseUnary() {
+  // If the current token is not an operator, it must be a primary expr.
+  if (!isascii(Tok.Kind) || Tok.Kind == '(' || Tok.Kind == ',')
+    return ParsePrimary();
+
+  // If this is a unary operator, read it.
+  int Opc = Tok.Kind;
+  GetNextToken();
+  if (ExprAST *Operand = ParseUnary())
+    return new UnaryExprAST(Opc, Operand);
+  return 0;
+}
+
 
 /// binoprhs
-///   ::= ('+' primary)*
+///   ::= ('+' unary)*
 ExprAST *Parser::ParseBinOpRHS(int ExprPrec, ExprAST *LHS) {
   // If this is a binop, find its precedence.
   while (1) {
@@ -172,8 +188,8 @@ ExprAST *Parser::ParseBinOpRHS(int ExprPrec, ExprAST *LHS) {
     int BinOp = Tok.Kind;
     GetNextToken();  // eat binop
 
-    // Parse the primary expression after the binary operator.
-    ExprAST *RHS = ParsePrimary();
+    // Parse the unary expression after the binary operator.
+    ExprAST *RHS = ParseUnary();
     if (!RHS) return 0;
 
     // If BinOp binds less tightly with RHS than the operator after RHS, let
@@ -190,43 +206,82 @@ ExprAST *Parser::ParseBinOpRHS(int ExprPrec, ExprAST *LHS) {
 }
 
 
-
-
 /// expression
-///   ::= primary binoprhs
+///   ::= unary binoprhs
 ///
 ExprAST *Parser::ParseExpression() {
-  ExprAST *LHS = ParsePrimary();
+  ExprAST *LHS = ParseUnary();
   if (!LHS) return 0;
 
   return ParseBinOpRHS(0, LHS);
 }
 
+
 /// prototype
 ///   ::= id '(' id* ')'
+///   ::= binary LETTER number? (id, id)
+///   ::= unary LETTER (id)
 PrototypeAST *Parser::ParsePrototype() {
-  if (Tok.Kind != tok::tok_identifier)
-    return klang::ErrorP("Expected function name in prototype");
 
-  std::string FnName = Tok.IdentifierStr;
-  GetNextToken();
+  std::string FnName;
+
+  unsigned Kind = 0; // 0 = identifier, 1 = unary, 2 = binary.
+  unsigned BinaryPrecedence = 30;
+
+  switch (Tok.Kind) {
+  default:
+    return ErrorP("Expected function name in prototype");
+  case tok::tok_identifier:
+    FnName = Tok.IdentifierStr;
+    Kind = 0;
+    GetNextToken();
+    break;
+  case tok::tok_unary:
+    GetNextToken();
+    if (!isascii(Tok.Kind))
+      return ErrorP("Expected unary operator");
+    FnName = "unary";
+    FnName += (char)Tok.Kind;
+    Kind = 1;
+    GetNextToken();
+    break;
+  case tok::tok_binary:
+    GetNextToken();
+    if (!isascii(Tok.Kind))
+      return ErrorP("Expected binary operator");
+    FnName = "binary";
+    FnName += (char)Tok.Kind;
+    Kind = 2;
+    GetNextToken();
+
+    // Read the precedence if present.
+    if (Tok.Kind == tok::tok_number) {
+      if (Tok.NumVal < 1 || Tok.NumVal > 100)
+        return ErrorP("Invalid precedecnce: must be 1..100");
+      BinaryPrecedence = (unsigned)(Tok.NumVal);
+      GetNextToken();
+    }
+    break;
+  }
 
   if (Tok.Kind != '(')
-    return klang::ErrorP("Expected '(' in prototype");
+    return ErrorP("Expected '(' in prototype");
 
   std::vector<std::string> ArgNames;
   while (GetNextToken() == tok::tok_identifier)
     ArgNames.push_back(Tok.IdentifierStr);
   if (Tok.Kind != ')')
-    return klang::ErrorP("Expected ')' in prototype");
+    return ErrorP("Expected ')' in prototype");
 
   // success.
   GetNextToken();  // eat ')'.
 
-  return new PrototypeAST(FnName, ArgNames);
+  // Verify right number of names for operator.
+  if (Kind && ArgNames.size() != Kind)
+    return ErrorP("Invalid number of operands for operator");
+
+  return new PrototypeAST(FnName, ArgNames, Kind != 0, BinaryPrecedence);
 }
-
-
 
 
 /// definition ::= 'def' prototype expression

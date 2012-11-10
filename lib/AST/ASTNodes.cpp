@@ -28,6 +28,17 @@ llvm::Value *VariableExprAST::Codegen() {
   return V ? V : ErrorV("Unknown variable name");
 }
 
+llvm::Value *UnaryExprAST::Codegen() {
+  llvm::Value *OperandV = Operand->Codegen();
+  if (OperandV == 0) return 0;
+
+  llvm::Function *F = TheModule->getFunction(std::string("unary")+Opcode);
+  if (F == 0)
+    return ErrorV("Unknown unary operator");
+
+  return Builder.CreateCall(F, OperandV, "unop");
+}
+
 llvm::Value *BinaryExprAST::Codegen() {
   llvm::Value *L = LHS->Codegen();
   llvm::Value *R = RHS->Codegen();
@@ -44,8 +55,16 @@ llvm::Value *BinaryExprAST::Codegen() {
               L,
               llvm::Type::getDoubleTy(llvm::getGlobalContext()),
               "booltmp");
-  default: return ErrorV("invalid binary operator");
+  default: break;
   }
+
+  // If it wasn't a builtin binary operator, it must be a user defined one. Emit
+  // a call to it.
+  llvm::Function *F = TheModule->getFunction(std::string("binary")+Op);
+  assert(F && "binary operator not found!");
+
+  llvm::Value *Ops[2] = { L, R };
+  return Builder.CreateCall(F, Ops, "binop");
 }
 
 llvm::Value *CallExprAST::Codegen() {
@@ -290,6 +309,11 @@ llvm::Function *FunctionAST::Codegen() {
   if (TheFunction == 0)
     return 0;
 
+  // If this is an operator, install it.
+  if (Proto->isBinaryOp())
+    Token::BinopPrecedence[Proto->getOperatorName()] =
+      Proto->getBinaryPrecedence();
+
   // Create a new basic block to start insertion into.
   llvm::BasicBlock *BB = llvm::BasicBlock::Create(
     llvm::getGlobalContext(),
@@ -314,6 +338,9 @@ llvm::Function *FunctionAST::Codegen() {
 
   // Error reading body, remove function.
   TheFunction->eraseFromParent();
+
+  if (Proto->isBinaryOp())
+    Token::BinopPrecedence.erase(Proto->getOperatorName());
   return 0;
 }
 

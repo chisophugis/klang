@@ -39,6 +39,12 @@ Lexer::Lex(Token &Result) {
     if (Result.IdentifierStr == "in") {
       Result.Kind = tok::tok_in; return;
     }
+    if (Result.IdentifierStr == "binary") {
+      Result.Kind = tok::tok_binary; return;
+    }
+    if (Result.IdentifierStr == "unary") {
+      Result.Kind = tok::tok_unary; return;
+    }
 
     Result.Kind = tok::tok_identifier;
     return;
