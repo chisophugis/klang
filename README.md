@@ -18,11 +18,13 @@ This small project is one of the means of studying LLVM and Clang.
   ```
 
 ### Branches
-- ast ....... ch.2
-- ir  .......... ch.3
-- jit ......... ch.4
-- cf  ......... ch.5
-- userop .. ch.6
+- ast ....... ch.2 Implementing a Parser and AST
+- ir  .......... ch.3 Implementing Code Generation to LLVM IR
+- jit ......... ch.4 Adding JIT and Optimizer Support
+- cf  ......... ch.5 Extending the language: control flow
+- userop .. ch.6 Extending the language: user-defined operators
+- ssa   ......... ch.7 Extending the language: mutable variables
+                                               SSA construction
 - master .. up-to-date
 
 ### Compile How-To:
