@@ -14,7 +14,7 @@ TOOLNAME=klang
 # List libraries that we'll need
 # We use LIBS because sample is a dynamic library.
 #
-USEDLIBS = klangParse.a klangAST.a klangLex.a 
+USEDLIBS = klangParse.a klangAST.a klangLex.a klangBuiltin.a
 LINK_COMPONENTS = core jit native
 
 #

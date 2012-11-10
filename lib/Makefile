@@ -8,6 +8,6 @@ LEVEL=..
 #
 # List all of the subdirectories that we will compile.
 #
-DIRS=AST Lex Parse
+DIRS=AST Lex Parse Builtin
 
 include $(LEVEL)/Makefile.common

@@ -85,6 +85,6 @@ Lexer::Lex(Token &Result) {
 Lexer::Lexer()
   : LastChar(' ')
 {
-};
+}
 
 

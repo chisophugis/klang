@@ -1,5 +1,6 @@
 
 #include "klang/AST/ASTNodes.h"
+#include "klang/Builtin/Tutorial.h"
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
 #include "llvm/Module.h"
@@ -34,6 +35,7 @@ namespace klang {
 
 
 int main() {
+
   llvm::InitializeNativeTarget();
   llvm::LLVMContext &Context = llvm::getGlobalContext();
 
@@ -89,6 +91,11 @@ int main() {
 
   // Print out all of the generated code.
   klang::TheModule->dump();
+
+	// Calls an unused function just not to lose it in the final binary
+	// Without this call klangBuiltin.a is just ignored during linking
+	putchard(100);
+
   return 0;
 }
 
