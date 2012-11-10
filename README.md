@@ -34,9 +34,9 @@ This small project is one of the means of studying LLVM and Clang.
   $ cd autoconf
   $ ./AutoRegen.sh
   ```
-Makefile infrastructure of LLVM project is applied only after the
-branch cf. For the branches before cf, simple Makefile is used.
-But to use this Makefile you need to fix Config.mk with your LLVM paths.
+Makefile infrastructure of LLVM project is applied only after the branch
+'cf'. For the branches before 'cf', simple Makefile is used. To use this
+simple Makefile you need to modify Config.mk with your own LLVM paths.
 
   ```
   $ cd ../../../
