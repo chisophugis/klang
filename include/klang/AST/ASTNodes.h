@@ -31,6 +31,7 @@ namespace klang {
     std::string Name;
   public:
     VariableExprAST(const std::string &name) : Name(name) {}
+    const std::string &getName() const { return Name; }
     virtual llvm::Value *Codegen();
   };
 
@@ -84,6 +85,20 @@ namespace klang {
     virtual llvm::Value *Codegen();
   };
 
+
+  /// VarExprAST - Expression class for var/in
+  class VarExprAST : public ExprAST {
+    std::vector<std::pair<std::string, ExprAST*> > VarNames;
+    ExprAST *Body;
+  public:
+    VarExprAST(const std::vector<std::pair<std::string, ExprAST*> > &varnames,
+               ExprAST *body)
+      : VarNames(varnames), Body(body) {}
+
+    virtual llvm::Value *Codegen();
+  };
+
+
   /// PrototypeAST - This class represents the "prototype" for a function,
   /// which captures its name, and its argument names
   /// (thus implicitly the number of arguments the function takes),
@@ -110,6 +125,7 @@ namespace klang {
 
     llvm::Function *Codegen();
 
+    void CreateArgumentAllocas(llvm::Function *F);
   };
 
   /// FunctionAST - This class represents a function definition itself.

@@ -45,6 +45,9 @@ Lexer::Lex(Token &Result) {
     if (Result.IdentifierStr == "unary") {
       Result.Kind = tok::tok_unary; return;
     }
+    if (Result.IdentifierStr == "var") {
+      Result.Kind = tok::tok_var; return;
+    }
 
     Result.Kind = tok::tok_identifier;
     return;

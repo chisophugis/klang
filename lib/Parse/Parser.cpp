@@ -135,6 +135,50 @@ ExprAST *Parser::ParseForExpr() {
   return new ForExprAST(IdName, Start, End, Step, Body);
 }
 
+/// varexpr ::= 'var' identifier ('=' expression)?
+//                    (',' identifier ('=' expression)?)* 'in' expression
+ExprAST *Parser::ParseVarExpr() {
+  GetNextToken();  // eat the var.
+
+  std::vector<std::pair<std::string, ExprAST*> > VarNames;
+
+  // At least one variable name is required.
+  if (Tok.Kind != tok::tok_identifier)
+    return Error("expected identifier after var");
+
+  while (1) {
+    std::string Name = Tok.IdentifierStr;
+    GetNextToken();  // eat identifier.
+
+    // Read the optional initializer.
+    ExprAST *Init = 0;
+    if (Tok.Kind == '=') {
+      GetNextToken(); // eat the '='.
+
+      Init = ParseExpression();
+      if (Init == 0) return 0;
+    }
+
+    VarNames.push_back(std::make_pair(Name, Init));
+
+    // End of var list, exit loop.
+    if (Tok.Kind != ',') break;
+    GetNextToken(); // eat the ','.
+
+    if (Tok.Kind != tok::tok_identifier)
+      return Error("expected identifier list after var");
+  }
+
+  // At this point, we have to have 'in'.
+  if (Tok.Kind != tok::tok_in)
+    return Error("expected 'in' keyword after 'var'");
+  GetNextToken();  // eat 'in'.
+
+  ExprAST *Body = ParseExpression();
+  if (Body == 0) return 0;
+
+  return new VarExprAST(VarNames, Body);
+}
 
 
 /// primary
@@ -143,6 +187,7 @@ ExprAST *Parser::ParseForExpr() {
 ///   ::= parenexpr
 ///   ::= ifexpr
 ///   ::= forexpr
+///   ::= varexpr
 ExprAST *Parser::ParsePrimary() {
   switch (Tok.Kind) {
   default: return Error("unknown token when expecting an expression");
@@ -151,6 +196,7 @@ ExprAST *Parser::ParsePrimary() {
   case '(':				          return ParseParenExpr();
   case tok::tok_if:         return ParseIfExpr();
   case tok::tok_for:        return ParseForExpr();
+  case tok::tok_var:        return ParseVarExpr();
   }
 }
 

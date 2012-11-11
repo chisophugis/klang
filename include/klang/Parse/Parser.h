@@ -24,10 +24,9 @@ namespace klang {
     ExprAST *ParseIdentifierExpr();
     ExprAST *ParseNumberExpr();
     ExprAST *ParseParenExpr();
-
     ExprAST *ParseIfExpr();
     ExprAST *ParseForExpr();
-
+    ExprAST *ParseVarExpr();
     ExprAST *ParsePrimary();
     ExprAST *ParseUnary();
     ExprAST *ParseBinOpRHS(int ExprPrec, ExprAST *LHS);

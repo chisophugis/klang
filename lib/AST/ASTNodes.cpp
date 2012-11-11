@@ -18,6 +18,20 @@
 
 using namespace klang;
 
+
+/// Now temporarily place this as a global function.
+/// Later, this function could be placed in some class.
+///
+/// CreateEntryBlockAlloca - Create an alloca instruction in the entry block of
+/// the function.  This is used for mutable variables etc.
+static llvm::AllocaInst *CreateEntryBlockAlloca(llvm::Function *TheFunction,
+                                          const std::string &VarName) {
+  llvm::IRBuilder<> TmpB(&TheFunction->getEntryBlock(),
+                   TheFunction->getEntryBlock().begin());
+  return TmpB.CreateAlloca(llvm::Type::getDoubleTy(llvm::getGlobalContext()), 0,
+                           VarName.c_str());
+}
+
 llvm::Value *NumberExprAST::Codegen() {
   return llvm::ConstantFP::get(llvm::getGlobalContext(), llvm::APFloat(Val));
 }
@@ -25,7 +39,10 @@ llvm::Value *NumberExprAST::Codegen() {
 llvm::Value *VariableExprAST::Codegen() {
   // Look this variable up in the function.
   llvm::Value *V = NamedValues[Name];
-  return V ? V : ErrorV("Unknown variable name");
+  if (V == 0) return ErrorV("Unknown variable name");
+
+  // Load the value.
+  return Builder.CreateLoad(V, Name.c_str());
 }
 
 llvm::Value *UnaryExprAST::Codegen() {
@@ -40,6 +57,24 @@ llvm::Value *UnaryExprAST::Codegen() {
 }
 
 llvm::Value *BinaryExprAST::Codegen() {
+  // Special case '=' because we don't want to emit the LHS as an expression.
+  if (Op == '=') {
+    // Assignment requires the LHS to be an identifier.
+    VariableExprAST *LHSE = dynamic_cast<VariableExprAST*>(LHS);
+    if (!LHSE)
+      return ErrorV("destination of '=' must be a variable");
+    // Codegen the RHS.
+    llvm::Value *Val = RHS->Codegen();
+    if (Val == 0) return 0;
+
+    // Look up the name.
+    llvm::Value *Variable = NamedValues[LHSE->getName()];
+    if (Variable == 0) return ErrorV("Unknown variable name");
+
+    Builder.CreateStore(Val, Variable);
+    return Val;
+  }
+
   llvm::Value *L = LHS->Codegen();
   llvm::Value *R = RHS->Codegen();
   if (L == 0 || R == 0) return 0;
@@ -149,29 +184,39 @@ llvm::Value *IfExprAST::Codegen() {
 
 llvm::Value *ForExprAST::Codegen() {
   // Output this as:
+  //   var = alloca double
   //   ...
   //   start = startexpr
+  //   store start -> var
   //   goto loop
   // loop:
-  //   variable = phi [start, loopheader], [nextvariable, loopend]
   //   ...
   //   bodyexpr
   //   ...
   // loopend:
   //   step = stepexpr
-  //   nextvariable = variable + step
   //   endcond = endexpr
+  //
+  //   curvar = load var
+  //   nextvar = curvar + step
+  //   store nextvar -> var
   //   br endcond, loop, endloop
   // outloop:
+
+  llvm::Function *TheFunction = Builder.GetInsertBlock()->getParent();
+
+  // Create an alloca for the variable in the entry block.
+  llvm::AllocaInst *Alloca = CreateEntryBlockAlloca(TheFunction, VarName);
 
   // Emit the start code first, without 'variable' in scope.
   llvm::Value *StartVal = Start->Codegen();
   if (StartVal == 0) return 0;
 
+  // Store the value into the alloca.
+  Builder.CreateStore(StartVal, Alloca);
+
   // Make the new basic block for the loop header, inserting after current
   // block.
-  llvm::Function *TheFunction = Builder.GetInsertBlock()->getParent();
-  llvm::BasicBlock *PreheaderBB = Builder.GetInsertBlock();
   llvm::BasicBlock *LoopBB = llvm::BasicBlock::Create(
     llvm::getGlobalContext(),
     "loop",
@@ -183,17 +228,10 @@ llvm::Value *ForExprAST::Codegen() {
   // Start insertion in LoopBB.
   Builder.SetInsertPoint(LoopBB);
 
-  // Start the PHI node with an entry for Start.
-  llvm::PHINode *Variable = Builder.CreatePHI(
-    llvm::Type::getDoubleTy(llvm::getGlobalContext()),
-    2,
-    VarName.c_str());
-  Variable->addIncoming(StartVal, PreheaderBB);
-
   // Within the loop, the variable is defined equal to the PHI node.  If it
   // shadows an existing variable, we have to restore it, so save it now.
-  llvm::Value *OldVal = NamedValues[VarName];
-  NamedValues[VarName] = Variable;
+  llvm::AllocaInst *OldVal = NamedValues[VarName];
+  NamedValues[VarName] = Alloca;
 
   // Emit the body of the loop.  This, like any other expr, can change the
   // current BB.  Note that we ignore the value computed by the body, but don't
@@ -213,11 +251,15 @@ llvm::Value *ForExprAST::Codegen() {
       llvm::APFloat(1.0));
   }
 
-  llvm::Value *NextVar = Builder.CreateFAdd(Variable, StepVal, "nextvar");
-
   // Compute the end condition.
   llvm::Value *EndCond = End->Codegen();
   if (EndCond == 0) return EndCond;
+
+  // Reload, increment, and restore the alloca.  This handles the case where
+  // the body of the loop mutates the variable.
+  llvm::Value *CurVar = Builder.CreateLoad(Alloca, VarName.c_str());
+  llvm::Value *NextVar = Builder.CreateFAdd(CurVar, StepVal, "nextvar");
+  Builder.CreateStore(NextVar, Alloca);
 
   // Convert condition to a bool by comparing equal to 0.0.
   EndCond = Builder.CreateFCmpONE(
@@ -226,7 +268,6 @@ llvm::Value *ForExprAST::Codegen() {
     "loopcond");
 
   // Create the "after loop" block and insert it.
-  llvm::BasicBlock *LoopEndBB = Builder.GetInsertBlock();
   llvm::BasicBlock *AfterBB = llvm::BasicBlock::Create(
     llvm::getGlobalContext(),
     "afterloop",
@@ -238,9 +279,6 @@ llvm::Value *ForExprAST::Codegen() {
   // Any new code will be inserted in AfterBB.
   Builder.SetInsertPoint(AfterBB);
 
-  // Add a new entry to the PHI node for the backedge.
-  Variable->addIncoming(NextVar, LoopEndBB);
-
   // Restore the unshadowed variable.
   if (OldVal)
     NamedValues[VarName] = OldVal;
@@ -250,6 +288,54 @@ llvm::Value *ForExprAST::Codegen() {
   // for expr always returns 0.0.
   return llvm::Constant::getNullValue(
     llvm::Type::getDoubleTy(llvm::getGlobalContext()));
+}
+
+
+llvm::Value *VarExprAST::Codegen() {
+  std::vector<llvm::AllocaInst *> OldBindings;
+
+  llvm::Function *TheFunction = Builder.GetInsertBlock()->getParent();
+
+  // Register all variables and emit their initializer.
+  for (unsigned i = 0, e = VarNames.size(); i != e; ++i) {
+    const std::string &VarName = VarNames[i].first;
+    ExprAST *Init = VarNames[i].second;
+
+    // Emit the initializer before adding the variable to scope, this prevents
+    // the initializer from referencing the variable itself, and permits stuff
+    // like this:
+    //  var a = 1 in
+    //    var a = a in ...   # refers to outer 'a'.
+    llvm::Value *InitVal;
+    if (Init) {
+      InitVal = Init->Codegen();
+      if (InitVal == 0) return 0;
+    } else { // If not specified, use 0.0.
+      InitVal = llvm::ConstantFP::get(llvm::getGlobalContext(),
+                                      llvm::APFloat(0.0));
+    }
+
+    llvm::AllocaInst *Alloca = CreateEntryBlockAlloca(TheFunction, VarName);
+    Builder.CreateStore(InitVal, Alloca);
+
+    // Remember the old variable binding so that we can restore the binding when
+    // we unrecurse.
+    OldBindings.push_back(NamedValues[VarName]);
+
+    // Remember this binding.
+    NamedValues[VarName] = Alloca;
+  }
+
+  // Codegen the body, now that all vars are in scope.
+  llvm::Value *BodyVal = Body->Codegen();
+  if (BodyVal == 0) return 0;
+
+  // Pop all our variables from scope.
+  for (unsigned i = 0, e = VarNames.size(); i != e; ++i)
+    NamedValues[VarNames[i].first] = OldBindings[i];
+
+  // Return the body computation.
+  return BodyVal;
 }
 
 
@@ -292,15 +378,29 @@ llvm::Function *PrototypeAST::Codegen() {
   // Set names for all arguments.
   unsigned Idx = 0;
   for (llvm::Function::arg_iterator AI = F->arg_begin(); Idx != Args.size();
-       ++AI, ++Idx) {
+       ++AI, ++Idx)
     AI->setName(Args[Idx]);
-
-    // Add arguments to variable symbol table.
-    NamedValues[Args[Idx]] = AI;
-  }
 
   return F;
 }
+
+
+/// CreateArgumentAllocas - Create an alloca for each argument and register the
+/// argument in the symbol table so that references to it will succeed.
+void PrototypeAST::CreateArgumentAllocas(llvm::Function *F) {
+  llvm::Function::arg_iterator AI = F->arg_begin();
+  for (unsigned Idx = 0, e = Args.size(); Idx != e; ++Idx, ++AI) {
+    // Create an alloca for this variable.
+    llvm::AllocaInst *Alloca = CreateEntryBlockAlloca(F, Args[Idx]);
+
+    // Store the initial value into the alloca.
+    Builder.CreateStore(AI, Alloca);
+
+    // Add arguments to variable symbol table.
+    NamedValues[Args[Idx]] = Alloca;
+  }
+}
+
 
 llvm::Function *FunctionAST::Codegen() {
   NamedValues.clear();
@@ -320,6 +420,9 @@ llvm::Function *FunctionAST::Codegen() {
     "entry",
     TheFunction);
   Builder.SetInsertPoint(BB);
+
+  // Add all arguments to the symbol table and create their allocas.
+  Proto->CreateArgumentAllocas(TheFunction);
 
   if (llvm::Value *RetVal = Body->Codegen()) {
     // Finish off the function.

@@ -26,7 +26,7 @@ namespace klang {
 
   llvm::Module *TheModule;
   llvm::IRBuilder<> Builder(llvm::getGlobalContext());
-  std::map<std::string, llvm::Value*> NamedValues;
+  std::map<std::string, llvm::AllocaInst*> NamedValues;
 
   llvm::FunctionPassManager *TheFPM;
   llvm::ExecutionEngine *TheExecutionEngine;
@@ -44,6 +44,7 @@ int main() {
 
   // Install standard binary operators.
   // 1 is lowest precedence.
+  klang::Token::BinopPrecedence['='] = 2;
   klang::Token::BinopPrecedence['<'] = 10;
   klang::Token::BinopPrecedence['+'] = 20;
   klang::Token::BinopPrecedence['-'] = 20;
@@ -69,6 +70,8 @@ int main() {
   OurFPM.add(new llvm::TargetData(*klang::TheExecutionEngine->getTargetData()));
   // Provide basic AliasAnalysis support for GVN.
   OurFPM.add(llvm::createBasicAliasAnalysisPass());
+  // Promote allocas to registers.
+  OurFPM.add(llvm::createPromoteMemoryToRegisterPass());
   // Do simple "peephole" optimizations and bit-twiddling optzns.
   OurFPM.add(llvm::createInstructionCombiningPass());
   // Reassociate expressions.

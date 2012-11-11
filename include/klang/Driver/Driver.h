@@ -16,7 +16,7 @@ namespace klang {
 
   extern llvm::Module *TheModule;
   extern llvm::IRBuilder<> Builder;
-  extern std::map<std::string, llvm::Value*> NamedValues;
+  extern std::map<std::string, llvm::AllocaInst*> NamedValues;
 
   extern llvm::FunctionPassManager *TheFPM;
   extern llvm::ExecutionEngine *TheExecutionEngine;
