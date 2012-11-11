@@ -35,7 +35,7 @@ ExprAST *Parser::ParseIdentifierExpr() {
       if (Tok.Kind == ')') break;
 
       if (Tok.Kind != ',')
-        return klang::Error("Expected ')' or ',' in argument list");
+        return Error("Expected ')' or ',' in argument list");
       GetNextToken();
     }
   }
@@ -62,7 +62,7 @@ ExprAST *Parser::ParseParenExpr() {
   if (!V) return 0;
 
   if (Tok.Kind != ')')
-    return klang::Error("expected ')'");
+    return Error("expected ')'");
   GetNextToken();  // eat ).
   return V;
 }
@@ -76,14 +76,14 @@ ExprAST *Parser::ParseIfExpr() {
   if (!Cond) return 0;
 
   if (Tok.Kind != tok::tok_then)
-    return klang::Error("expected then");
+    return Error("expected then");
   GetNextToken();  // eat the then
 
   ExprAST *Then = ParseExpression();
   if (Then == 0) return 0;
 
   if (Tok.Kind != tok::tok_else)
-    return klang::Error("expected else");
+    return Error("expected else");
 
   GetNextToken();
 
@@ -98,20 +98,20 @@ ExprAST *Parser::ParseForExpr() {
   GetNextToken();  // eat the for.
 
   if (Tok.Kind != tok::tok_identifier)
-    return klang::Error("expected identifier after for");
+    return Error("expected identifier after for");
 
   std::string IdName = Tok.IdentifierStr;
   GetNextToken();  // eat identifier.
 
   if (Tok.Kind != '=')
-    return klang::Error("expected '=' after for");
+    return Error("expected '=' after for");
   GetNextToken();  // eat '='.
 
 
   ExprAST *Start = ParseExpression();
   if (Start == 0) return 0;
   if (Tok.Kind != ',')
-    return klang::Error("expected ',' after for start value");
+    return Error("expected ',' after for start value");
   GetNextToken();
 
   ExprAST *End = ParseExpression();
@@ -126,7 +126,7 @@ ExprAST *Parser::ParseForExpr() {
   }
 
   if (Tok.Kind != tok::tok_in)
-    return klang::Error("expected 'in' after for");
+    return Error("expected 'in' after for");
   GetNextToken();  // eat 'in'.
 
   ExprAST *Body = ParseExpression();
@@ -145,7 +145,7 @@ ExprAST *Parser::ParseForExpr() {
 ///   ::= forexpr
 ExprAST *Parser::ParsePrimary() {
   switch (Tok.Kind) {
-  default: return klang::Error("unknown token when expecting an expression");
+  default: return Error("unknown token when expecting an expression");
   case tok::tok_identifier: return ParseIdentifierExpr();
   case tok::tok_number:     return ParseNumberExpr();
   case '(':				          return ParseParenExpr();
