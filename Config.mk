@@ -3,14 +3,14 @@ CXX	    := g++
 LD	    := ld
 
 INCLUDES    := -I.\
-	       -I$(TOPDIR)/include
+	-I$(TOPDIR)/include
 
-DEFINES	    := 
+DEFINES	    :=
 
 CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES)
 CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x
 
-LDFLAGS	    += 
+LDFLAGS	    +=
 
 ##################################################################
 .SUFFIXES : .o .c .cpp
