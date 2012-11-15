@@ -5,17 +5,17 @@
 
 namespace klang {
 
-	class Lexer {
+  class Lexer {
 
-		int LastChar;
+    int LastChar;
 
-		public:
-		Lexer();
+  public:
+    Lexer();
 
-		/// Return the next token from standard input.
-		void Lex(Token &Result);
+    /// Return the next token from standard input.
+    void Lex(Token &Result);
 
-	};
+  };
 
 }
 

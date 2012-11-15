@@ -1,16 +1,18 @@
-CC	    := /home/hum/Projects/llvm31_pure/build/Debug+Asserts/bin/clang
-CXX	    := /home/hum/Projects/llvm31_pure/build/Debug+Asserts/bin/clang++
+CC	    := /home/hum/Projects/llvm31_pure/build/Release/bin/clang
+CXX	    := /home/hum/Projects/llvm31_pure/build/Release/bin/clang++
 LD	    := ld
 
-LLVM_CONFIG := /home/hum/Projects/llvm31_pure/build/Debug+Asserts/bin/llvm-config
+LLVM_CONFIG := /home/hum/Projects/llvm31_pure/build/Release/bin/llvm-config
 
 INCLUDES    := -I.\
 	-I$(TOPDIR)/include
 
-DEFINES	    := 
+DEFINES	    :=
 
-CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES) `$(LLVM_CONFIG) --cflags`
-CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) -std=c++0x `$(LLVM_CONFIG) --cxxflags`
+CFLAGS	    := -O2 -W -Wall $(INCLUDES) $(DEFINES) \
+	`$(LLVM_CONFIG) --cflags`
+CXXFLAGS    := -O2 -W -Wall $(INCLUDES) $(DEFINES) \
+	-std=c++0x `$(LLVM_CONFIG) --cxxflags`
 
 LDFLAGS	    += `$(LLVM_CONFIG) --ldflags --libs core`
 
