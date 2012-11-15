@@ -7,25 +7,26 @@
 
 namespace klang {
 
-	class Token {
-		friend class Lexer;
-		friend class Parser;
+  class Token {
+    friend class Lexer;
+    friend class Parser;
 
-		int Kind;
+    int Kind;
 
-		std::string IdentifierStr;  // Filled in if tok_identifier
-		double NumVal;              // Filled in if tok_number
+    std::string IdentifierStr;  // Filled in if tok_identifier
+    double NumVal;              // Filled in if tok_number
 
 
-		/// GetTokPrecedence - Get the precedence of the pending binary operator token.
-		int GetTokPrecedence();
+    /// GetTokPrecedence - Get the precedence of the pending binary operator
+    /// token.
+    int GetTokPrecedence();
 
-		public:
+  public:
 
-		/// BinopPrecedence - This holds the precedence for each binary operator that is
-		/// defined.
-		static std::map<char, int> BinopPrecedence;
-	};
+    /// BinopPrecedence - This holds the precedence for each binary operator
+    /// that is defined.
+    static std::map<char, int> BinopPrecedence;
+  };
 
 }
 
