@@ -1,3 +1,16 @@
+//===--- Utils.h - ----------------------------------------------*- C++ -*-===//
+//
+//                     The LLVM Compiler Infrastructure
+//
+// This file is distributed under the University of Illinois Open Source
+// License. See LICENSE.TXT for details.
+//
+//===----------------------------------------------------------------------===//
+//
+// This file defines utility functions.
+//
+//===----------------------------------------------------------------------===//
+
 #ifndef KLANG_UTIL_H
 #define KLANG_UTIL_H
 

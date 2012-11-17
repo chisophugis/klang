@@ -1,3 +1,16 @@
+//===--- Lexer.h - ----------------------------------------------*- C++ -*-===//
+//
+//                     The LLVM Compiler Infrastructure
+//
+// This file is distributed under the University of Illinois Open Source
+// License. See LICENSE.TXT for details.
+//
+//===----------------------------------------------------------------------===//
+//
+// This file defines lexer class.
+//
+//===----------------------------------------------------------------------===//
+
 #ifndef KLANG_LEXER_H
 #define KLANG_LEXER_H
 
