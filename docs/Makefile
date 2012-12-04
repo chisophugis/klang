@@ -153,3 +153,9 @@ doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
+
+gh-pages: html
+	git checkout gh-pages; cd ..; git rm -rf .; \
+	mv docs/_build/html/* .; rm -rf docs/; \
+	touch .nojekyll; git add -A; \
+	git commit -m "gh-pages for `git log -1 master --pretty=format:'%h'`"
