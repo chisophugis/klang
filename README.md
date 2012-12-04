@@ -1,8 +1,10 @@
-
 ## About
 This project has been started from LLVM tutorial and being implemented to be the
 same compiler - kaleidoscope - but in different structure!
 The structure of klang is meant to be similar to the one of clang's.
+
+Klang's website now opened, thanks to a contributor, though contents are poor yet.
+http://journeyer.github.com/klang/
 
 ### Purpose of this work
 This small project is one of the means of studying LLVM and Clang.
