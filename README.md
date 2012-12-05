@@ -5,7 +5,7 @@ The structure of klang is meant to be similar to the one of clang's.
 
 Klang's website now opened, thanks to a contributor, though contents are poor yet.
 
-http://journeyer.github.com/klang/
+<http://journeyer.github.com/klang/>
 
 
 ### Purpose of this work
