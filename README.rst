@@ -6,7 +6,7 @@ The structure of klang is meant to be similar to the one of clang's.
 
 Klang's website now opened, thanks to a contributor, though contents are poor yet.
 
-<http://journeyer.github.com/klang/>
+http://journeyer.github.com/klang/
 
 
 Purpose of this work
@@ -16,12 +16,11 @@ Guide
 =====
 Getting the source How-To:
 
-  ```
   $ cd LLVM_SRC_DIR/projects
   $ git clone git://github.com/Journeyer/klang.git
   $ cd klang
   $ git fetch -u git://github.com/Journeyer/klang.git +refs/heads/*:refs/heads/*
-  ```
+
 
 Branches
 * ast ......... ch.2 Implementing a Parser and AST
@@ -35,25 +34,25 @@ Branches
 
 Compile How-To:
 
-  ```
+
   $ git checkout master
   $ cd autoconf
   $ ./AutoRegen.sh
-  ```
+
 Makefile infrastructure of LLVM project is applied only after the branch
 'cf'. For the branches before 'cf', simple Makefile is used. To use this
 simple Makefile you need to modify Config.mk with your own LLVM paths.
 
-  ```
+
   $ cd ../../../
   $ (cd LLVM_SRC_DIR)
   $ vi configure
   Insert items for klang under items for sample as shown below
-  ```
+
 
 This step is the one I am not sure of. If anyone know about this, please share
 us! This step is not documented ever!! I just found that this is necessary.
-  ```
+
    @@ -809,6 +809,7 @@ projects/llvm-test
    projects/poolalloc
    projects/llvm-poolalloc
@@ -71,20 +70,20 @@ us! This step is not documented ever!! I just found that this is necessary.
    privbracket)  subdirs="$subdirs projects/privbracket"
    ;;
    llvm-stacker) subdirs="$subdirs projects/llvm-stacker"
-  ```
 
-  ```
+
+
   $ cd LLVM_OBJ_DIR
   $ ../llvm/configure
   $ make
-  ```
+
 
 Later on, you can compile klang under LLVM_OBJ_DIR/projects/klang
 
 
 Mandelbrot set plotted out using Klang!
 =======================================
-```
+
 ready> mandel(-2.3, -1.3, 0.05, 0.07);
 ready>
 *******************************************************************************
@@ -129,7 +128,7 @@ ready>
 *******************************************************************************
 *******************************************************************************
 Evaluated to 0.000000
-```
+
 
 References
 ==========
