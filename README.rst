@@ -41,7 +41,7 @@ Guide
   $ ./AutoRegen.sh
 
 Makefile infrastructure of LLVM project is applied only after the branch
-'cf'. For the branches before 'cf', simple Makefile is used. To use this
+``cf``. For the branches before ``cf``, simple Makefile is used. To use this
 simple Makefile you need to modify Config.mk with your own LLVM paths::
 
   $ cd ../../../
@@ -78,13 +78,12 @@ us! This step is not documented ever!! I just found that this is necessary::
   $ make
 
 
-Later on, you can compile klang under LLVM_OBJ_DIR/projects/klang
+Later on, you can compile klang under ``LLVM_OBJ_DIR/projects/klang``
 
 
 Mandelbrot set plotted out using Klang!
 =======================================
-
-output::
+on terminal::
 
  ready> mandel(-2.3, -1.3, 0.05, 0.07);
  ready>
