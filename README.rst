@@ -9,12 +9,12 @@ Klang's website now opened, thanks to a contributor, though contents are poor ye
 <http://journeyer.github.com/klang/>
 
 
-### Purpose of this work
+Purpose of this work
 This small project is one of the means of studying LLVM and Clang.
 
 Guide
 =====
-### Getting the source How-To:
+Getting the source How-To:
 
   ```
   $ cd LLVM_SRC_DIR/projects
@@ -23,17 +23,17 @@ Guide
   $ git fetch -u git://github.com/Journeyer/klang.git +refs/heads/*:refs/heads/*
   ```
 
-### Branches
-- ast ......... ch.2 Implementing a Parser and AST
-- ir  ............ ch.3 Implementing Code Generation to LLVM IR
-- jit ........... ch.4 Adding JIT and Optimizer Support
-- cf  ........... ch.5 Extending the language: control flow
-- userop ... ch.6 Extending the language: user-defined operators
-- ssa   ........ ch.7 Extending the language: mutable variables 
+Branches
+* ast ......... ch.2 Implementing a Parser and AST
+* ir  ............ ch.3 Implementing Code Generation to LLVM IR
+* jit ........... ch.4 Adding JIT and Optimizer Support
+* cf  ........... ch.5 Extending the language: control flow
+* userop ... ch.6 Extending the language: user-defined operators
+* ssa   ........ ch.7 Extending the language: mutable variables 
                                               / SSA construction
-- master ... up-to-date
+* master ... up-to-date
 
-### Compile How-To:
+Compile How-To:
 
   ```
   $ git checkout master
@@ -133,9 +133,9 @@ Evaluated to 0.000000
 
 References
 ==========
-  - LLVM tutorial         <http://llvm.org/docs/tutorial/>
-  - Creating an LLVM Project    <http://llvm.org/docs/Projects.html>
-  - LLVM Makefile Guide   <http://llvm.org/docs/MakefileGuide.html#makefile-guide>
-  - Mandelbrot set      <http://en.wikipedia.org/wiki/Mandelbrot_set>
+* LLVM tutorial             <http://llvm.org/docs/tutorial/>
+* Creating an LLVM Project    <http://llvm.org/docs/Projects.html>
+* LLVM Makefile Guide       <http://llvm.org/docs/MakefileGuide.html#makefile-guide>
+* Mandelbrot set            <http://en.wikipedia.org/wiki/Mandelbrot_set>
 
 
