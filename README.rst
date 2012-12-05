@@ -1,4 +1,5 @@
-## About
+About
+=====
 This project has been started from LLVM tutorial and being implemented to be the
 same compiler - kaleidoscope - but in different structure!
 The structure of klang is meant to be similar to the one of clang's.
@@ -11,7 +12,8 @@ Klang's website now opened, thanks to a contributor, though contents are poor ye
 ### Purpose of this work
 This small project is one of the means of studying LLVM and Clang.
 
-## Guide
+Guide
+=====
 ### Getting the source How-To:
 
   ```
@@ -80,7 +82,8 @@ us! This step is not documented ever!! I just found that this is necessary.
 Later on, you can compile klang under LLVM_OBJ_DIR/projects/klang
 
 
-## Mandelbrot set plotted out using Klang!
+Mandelbrot set plotted out using Klang!
+=======================================
 ```
 ready> mandel(-2.3, -1.3, 0.05, 0.07);
 ready>
@@ -128,7 +131,8 @@ ready>
 Evaluated to 0.000000
 ```
 
-## References
+References
+==========
   - LLVM tutorial         <http://llvm.org/docs/tutorial/>
   - Creating an LLVM Project    <http://llvm.org/docs/Projects.html>
   - LLVM Makefile Guide   <http://llvm.org/docs/MakefileGuide.html#makefile-guide>
