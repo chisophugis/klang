@@ -129,9 +129,9 @@ Evaluated to 0.000000
 ```
 
 ## References
-  - LLVM tutorial         http://llvm.org/docs/tutorial/
-  - Creating an LLVM Project    http://llvm.org/docs/Projects.html
-  - LLVM Makefile Guide   http://llvm.org/docs/MakefileGuide.html#makefile-guide
-  - Mandelbrot set      http://en.wikipedia.org/wiki/Mandelbrot_set
+  - LLVM tutorial         <http://llvm.org/docs/tutorial/>
+  - Creating an LLVM Project    <http://llvm.org/docs/Projects.html>
+  - LLVM Makefile Guide   <http://llvm.org/docs/MakefileGuide.html#makefile-guide>
+  - Mandelbrot set      <http://en.wikipedia.org/wiki/Mandelbrot_set>
 
 
