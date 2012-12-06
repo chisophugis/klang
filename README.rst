@@ -142,5 +142,5 @@ References
 * Creating an LLVM Project    http://llvm.org/docs/Projects.html
 * LLVM Makefile Guide         http://llvm.org/docs/MakefileGuide.html#makefile-guide
 * Mandelbrot set              http://en.wikipedia.org/wiki/Mandelbrot_set
-
+* Sphinx Quickstart Template  http://www.llvm.org/docs/SphinxQuickstartTemplate.html
 
