@@ -36,7 +36,7 @@ Guide
  userop ........ ch.6 Extending the language: user-defined operators
  ssa   ......... ch.7 Extending the language: mutable variables 
                                                / SSA construction
- master ... up-to-date
+ master ........ up-to-date
 
 
 **Compile How-To**::
