@@ -12,7 +12,7 @@ This small project is one of the means of studying LLVM and Clang.
 
 News
 ====
-Klang's website now opened, thanks to a very much kind contributor(https://github.com/chisophugis), though contents are poor yet.
+Klang's website is now open, thanks to a very much kind contributor(https://github.com/chisophugis), though contents are poor yet.
 
 http://journeyer.github.com/klang/
 
