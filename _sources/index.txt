@@ -10,6 +10,9 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   
+   class_diagram.rst
+   sequence_diagram.rst
 
 
 
