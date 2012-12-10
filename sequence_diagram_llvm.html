@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Class Diagram &mdash; klang 0.1 documentation</title>
+    <title>Sequence Diagram of Klang including related LLVM Classes &mdash; klang 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -29,34 +29,39 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="klang 0.1 documentation" href="index.html" />
-    <link rel="next" title="Sequence Diagram of Klang" href="sequence_diagram.html" />
-    <link rel="prev" title="Welcome to klang’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Sequence Diagram of Klang" href="sequence_diagram.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="index.html">
           <span>klang 0.1 documentation</span></a></h1>
-        <h2 class="heading"><span>Class Diagram</span></h2>
+        <h2 class="heading"><span>Sequence Diagram of Klang including related LLVM Classes</span></h2>
       </div>
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="index.html">Welcome to klang&#8217;s documentation!</a>
+        «&#160;&#160;<a href="sequence_diagram.html">Sequence Diagram of Klang</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sequence_diagram.html">Sequence Diagram of Klang</a>&#160;&#160;»
         </p>
 
       </div>
       <div class="content">
         
         
-  <div class="section" id="class-diagram">
-<h1>Class Diagram<a class="headerlink" href="#class-diagram" title="Permalink to this headline">¶</a></h1>
-<p><strong>Overview of Klang</strong></p>
-<img alt="_images/OverviewofKlang.jpg" src="_images/OverviewofKlang.jpg" />
-<p><strong>LLVM Classes Involved</strong></p>
-<img alt="_images/LLVMClassesInvolved.jpg" src="_images/LLVMClassesInvolved.jpg" />
+  <div class="section" id="sequence-diagram-of-klang-including-related-llvm-classes">
+<h1>Sequence Diagram of Klang including related LLVM Classes<a class="headerlink" href="#sequence-diagram-of-klang-including-related-llvm-classes" title="Permalink to this headline">¶</a></h1>
+<p><strong>input code</strong>:</p>
+<div class="highlight-python"><pre>extern putchard(char)
+def printstar(n)
+  for i = 1, i &lt; n, 1.0 in
+    putchard(42);  # ascii 42 = '*'
+
+# print 100 '*' characters
+printstar(100);</pre>
+</div>
+<p>This code is introduced in 5.3 &#8216;for&#8217; Loop Expression. &lt;<a class="reference external" href="http://llvm.org/docs/tutorial/LangImpl5.html#for-loop-expression">http://llvm.org/docs/tutorial/LangImpl5.html#for-loop-expression</a>&gt;</p>
+<p><strong>Call Sequences in UML</strong></p>
+<img alt="_images/KlangLLVMSequenceDiagram.jpg" src="_images/KlangLLVMSequenceDiagram.jpg" />
 </div>
 
 
@@ -64,11 +69,9 @@
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="index.html">Welcome to klang&#8217;s documentation!</a>
+        «&#160;&#160;<a href="sequence_diagram.html">Sequence Diagram of Klang</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="sequence_diagram.html">Sequence Diagram of Klang</a>&#160;&#160;»
         </p>
 
       </div>

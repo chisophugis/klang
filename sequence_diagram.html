@@ -29,7 +29,8 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="klang 0.1 documentation" href="index.html" />
-    <link rel="prev" title="Class Diagram of Klang" href="class_diagram.html" /> 
+    <link rel="next" title="Sequence Diagram of Klang including related LLVM Classes" href="sequence_diagram_llvm.html" />
+    <link rel="prev" title="Class Diagram" href="class_diagram.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="index.html">
@@ -39,9 +40,11 @@
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="class_diagram.html">Class Diagram of Klang</a>
+        «&#160;&#160;<a href="class_diagram.html">Class Diagram</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sequence_diagram_llvm.html">Sequence Diagram of Klang including related LLVM Classes</a>&#160;&#160;»
         </p>
 
       </div>
@@ -51,13 +54,13 @@
   <div class="section" id="sequence-diagram-of-klang">
 <h1>Sequence Diagram of Klang<a class="headerlink" href="#sequence-diagram-of-klang" title="Permalink to this headline">¶</a></h1>
 <p><strong>input code</strong>:</p>
-<div class="highlight-python"><pre>  extern putchard(char)
+<div class="highlight-python"><pre>extern putchard(char)
 def printstar(n)
   for i = 1, i &lt; n, 1.0 in
-  putchard(42);  # ascii 42 = '*'
+    putchard(42);  # ascii 42 = '*'
 
 # print 100 '*' characters
-  printstar(100);</pre>
+printstar(100);</pre>
 </div>
 <p>This code is introduced in 5.3 &#8216;for&#8217; Loop Expression. &lt;<a class="reference external" href="http://llvm.org/docs/tutorial/LangImpl5.html#for-loop-expression">http://llvm.org/docs/tutorial/LangImpl5.html#for-loop-expression</a>&gt;</p>
 <p><strong>Call Sequences in UML</strong></p>
@@ -69,9 +72,11 @@ def printstar(n)
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="class_diagram.html">Class Diagram of Klang</a>
+        «&#160;&#160;<a href="class_diagram.html">Class Diagram</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sequence_diagram_llvm.html">Sequence Diagram of Klang including related LLVM Classes</a>&#160;&#160;»
         </p>
 
       </div>
