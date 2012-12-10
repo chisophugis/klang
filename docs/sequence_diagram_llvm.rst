@@ -1,5 +1,5 @@
-Sequence Diagram of Klang
-=========================
+Sequence Diagram of Klang including related LLVM Classes
+========================================================
 
 **input code**::
 
@@ -15,5 +15,5 @@ This code is introduced in 5.3 'for' Loop Expression. <http://llvm.org/docs/tuto
 
 **Call Sequences in UML**
 
-.. image:: _static/KlangSequenceDiagram.jpg
+.. image:: _static/KlangLLVMSequenceDiagram.jpg
 

@@ -13,6 +13,7 @@ Contents:
    
    class_diagram.rst
    sequence_diagram.rst
+   sequence_diagram_llvm.rst
 
 
 
