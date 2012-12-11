@@ -15,6 +15,7 @@
 #define KLANG_ASTNODES_H
 
 #include "llvm/Module.h"
+#include "llvm/Support/Casting.h"
 #include <string>
 #include <vector>
 
@@ -27,6 +28,25 @@ namespace klang {
   /// ExprAST - Base class for all expression nodes.
   class ExprAST {
   public:
+		/// Discriminator for LLVM-style RTTI (dyn_cast<> et al.)
+		enum ExprKind {
+			EK_If,
+			EK_For,
+			EK_Call,
+			EK_Number,
+			EK_Binary,
+			EK_Var,
+			EK_Unary,
+			EK_Variable
+		};
+
+	private:
+		const ExprKind Kind;
+
+	public:
+		ExprKind getKind() const { return Kind; }
+
+		ExprAST(ExprKind K) : Kind(K) {}
     virtual ~ExprAST() {}
     virtual llvm::Value *Codegen() = 0;
   };
@@ -35,7 +55,12 @@ namespace klang {
   class NumberExprAST : public ExprAST {
     double Val;
   public:
-    NumberExprAST(double val) : Val(val) {}
+    NumberExprAST(double val) : ExprAST(EK_Number), Val(val) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Number;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -43,7 +68,12 @@ namespace klang {
   class VariableExprAST : public ExprAST {
     std::string Name;
   public:
-    VariableExprAST(const std::string &name) : Name(name) {}
+    VariableExprAST(const std::string &name) : ExprAST(EK_Variable), Name(name) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Variable;
+		}
+
     const std::string &getName() const { return Name; }
     virtual llvm::Value *Codegen();
   };
@@ -54,7 +84,12 @@ namespace klang {
     ExprAST *Operand;
   public:
     UnaryExprAST(char opcode, ExprAST *operand)
-      : Opcode(opcode), Operand(operand) {}
+      : ExprAST(EK_Unary), Opcode(opcode), Operand(operand) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Unary;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -64,7 +99,12 @@ namespace klang {
     ExprAST *LHS, *RHS;
   public:
     BinaryExprAST(char op, ExprAST *lhs, ExprAST *rhs)
-      : Op(op), LHS(lhs), RHS(rhs) {}
+      : ExprAST(EK_Binary), Op(op), LHS(lhs), RHS(rhs) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Binary;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -74,7 +114,12 @@ namespace klang {
     std::vector<ExprAST*> Args;
   public:
     CallExprAST(const std::string &callee, std::vector<ExprAST*> &args)
-      : Callee(callee), Args(args) {}
+      : ExprAST(EK_Call), Callee(callee), Args(args) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Call;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -83,7 +128,12 @@ namespace klang {
     ExprAST *Cond, *Then, *Else;
   public:
     IfExprAST(ExprAST *cond, ExprAST *then, ExprAST *_else)
-      : Cond(cond), Then(then), Else(_else) {}
+      : ExprAST(EK_If), Cond(cond), Then(then), Else(_else) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_If;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -94,7 +144,12 @@ namespace klang {
   public:
     ForExprAST(const std::string &varname, ExprAST *start, ExprAST *end,
                ExprAST *step, ExprAST *body)
-      : VarName(varname), Start(start), End(end), Step(step), Body(body) {}
+      : ExprAST(EK_For), VarName(varname), Start(start), End(end), Step(step), Body(body) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_For;
+		}
+
     virtual llvm::Value *Codegen();
   };
 
@@ -106,7 +161,11 @@ namespace klang {
   public:
     VarExprAST(const std::vector<std::pair<std::string, ExprAST*> > &varnames,
                ExprAST *body)
-      : VarNames(varnames), Body(body) {}
+      : ExprAST(EK_Var), VarNames(varnames), Body(body) {}
+
+		static bool classof(const ExprAST *E) {
+			return E->getKind() == EK_Var;
+		}
 
     virtual llvm::Value *Codegen();
   };
