@@ -145,3 +145,5 @@ References
 * LLVM Makefile Guide         http://llvm.org/docs/MakefileGuide.html#makefile-guide
 * Sphinx Quickstart Template  http://www.llvm.org/docs/SphinxQuickstartTemplate.html
 * Mandelbrot set              http://en.wikipedia.org/wiki/Mandelbrot_set
+* How to set up LLVM-style RTTI for your class hierarchy http://llvm.org/docs/HowToSetUpLLVMStyleRTTI.html#how-to-set-up-llvm-style-rtti
+
