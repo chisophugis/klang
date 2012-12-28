@@ -15,6 +15,7 @@ News
 Klang's website is now open, thanks to the very kind helper(https://github.com/chisophugis), though contents are poor yet.
 
 http://journeyer.github.com/klang/
+
 http://journeyer.github.com/klang/doxygen
 
 
