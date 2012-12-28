@@ -1,0 +1,5877 @@
+cscope 15 $HOME/Projects/llvm31_pure/llvm/projects/klang               0000030380
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/AST/ASTNodes.h
+
+14 #iâdeà
+KLANG_ASTNODES_H
+
+
+15 
+	#KLANG_ASTNODES_H
+
+
+	)
+
+17 
+	~"Îvm/ModuË.h
+"
+
+18 
+	~"Îvm/SuµÜt/Ca¡šg.h
+"
+
+19 
+	~<¡ršg
+>
+
+20 
+	~<veùÜ
+>
+
+22 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+29 şas 
+	cEx´AST
+ {
+
+30 
+	gpublic
+:
+
+32 
+	eEx´Kšd
+ {
+
+33 
+EK_If
+,
+
+34 
+	gEK_FÜ
+,
+
+35 
+	gEK_C®l
+,
+
+36 
+	gEK_Numb”
+,
+
+37 
+	gEK_Bš¬y
+,
+
+38 
+	gEK_V¬
+,
+
+39 
+	gEK_UÇry
+,
+
+40 
+	gEK_V¬ŸbË
+
+
+43 
+	g´iv©e
+:
+
+44 cÚ¡ 
+Ex´Kšd
+ 
+Kšd
+;
+
+46 
+	gpublic
+:
+
+47 
+Ex´Kšd
+ 
+g‘Kšd
+(ècÚ¡ {  
+Kšd
+; }
+
+49 
+Ex´AST
+(
+Ex´Kšd
+ 
+K
+è: 
+Kšd
+(K) {}
+
+50 
+vœtu®
+ ~
+Ex´AST
+() {}
+
+51 
+vœtu®
+ 
+Îvm
+::
+V®ue
+ *
+Codeg’
+() = 0;
+
+55 şas 
+	cNumb”Ex´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+56 
+V®
+;
+
+57 
+	gpublic
+:
+
+58 
+Numb”Ex´AST
+(
+v®
+è: 
+Ex´AST
+(
+EK_Numb”
+), 
+V®
+(val) {}
+
+60 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+61  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_Numb”
+;
+
+64 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+68 şas 
+	cV¬ŸbËEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+69 
+¡d
+::
+¡ršg
+ 
+Name
+;
+
+70 
+	gpublic
+:
+
+71 
+V¬ŸbËEx´AST
+(cÚ¡ 
+¡d
+::
+¡ršg
+ &
+Çme
+è: 
+Ex´AST
+(
+EK_V¬ŸbË
+), 
+Name
+(name) {}
+
+73 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+74  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_V¬ŸbË
+;
+
+77 cÚ¡ 
+	g¡d
+::
+¡ršg
+ &
+g‘Name
+(ècÚ¡ {  
+Name
+; }
+
+78 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+82 şas 
+	cUÇryEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+83 
+Opcode
+;
+
+84 
+Ex´AST
+ *
+	gO³¿nd
+;
+
+85 
+	gpublic
+:
+
+86 
+UÇryEx´AST
+(
+İcode
+, 
+Ex´AST
+ *
+İ”ªd
+)
+
+87 : 
+Ex´AST
+(
+EK_UÇry
+), 
+Opcode
+(
+İcode
+), 
+O³¿nd
+(
+İ”ªd
+) {}
+
+89 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+90  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_UÇry
+;
+
+93 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+97 şas 
+	cBš¬yEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+98 
+Op
+;
+
+99 
+Ex´AST
+ *
+	gLHS
+, *
+	gRHS
+;
+
+100 
+	gpublic
+:
+
+101 
+Bš¬yEx´AST
+(
+İ
+, 
+Ex´AST
+ *
+lhs
+, Ex´AST *
+rhs
+)
+
+102 : 
+Ex´AST
+(
+EK_Bš¬y
+), 
+Op
+(
+İ
+), 
+LHS
+(
+lhs
+), 
+RHS
+(
+rhs
+) {}
+
+104 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+105  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_Bš¬y
+;
+
+108 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+112 şas 
+	cC®lEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+113 
+¡d
+::
+¡ršg
+ 
+C®Ëe
+;
+
+114 
+	g¡d
+::
+veùÜ
+<
+Ex´AST
+*> 
+Args
+;
+
+115 
+	gpublic
+:
+
+116 
+C®lEx´AST
+(cÚ¡ 
+¡d
+::
+¡ršg
+ &
+ÿÎ“
+, std::
+veùÜ
+<
+Ex´AST
+*> &
+¬gs
+)
+
+117 : 
+Ex´AST
+(
+EK_C®l
+), 
+C®Ëe
+(
+ÿÎ“
+), 
+Args
+(
+¬gs
+) {}
+
+119 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+120  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_C®l
+;
+
+123 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+127 şas 
+	cIfEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+128 
+Ex´AST
+ *
+CÚd
+, *
+	gTh’
+, *
+	gEl£
+;
+
+129 
+	gpublic
+:
+
+130 
+IfEx´AST
+(
+Ex´AST
+ *
+cÚd
+, Ex´AST *
+th’
+, Ex´AST *
+_–£
+)
+
+131 : 
+Ex´AST
+(
+EK_If
+), 
+CÚd
+(
+cÚd
+), 
+Th’
+(
+th’
+), 
+El£
+(
+_–£
+) {}
+
+133 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+134  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_If
+;
+
+137 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+141 şas 
+	cFÜEx´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+142 
+¡d
+::
+¡ršg
+ 
+V¬Name
+;
+
+143 
+Ex´AST
+ *
+	gS¹
+, *
+	gEnd
+, *
+	gS‹p
+, *
+	gBody
+;
+
+144 
+	gpublic
+:
+
+145 
+FÜEx´AST
+(cÚ¡ 
+¡d
+::
+¡ršg
+ &
+v¬Çme
+, 
+Ex´AST
+ *
+¡¬t
+, Ex´AST *
+’d
+,
+
+146 
+Ex´AST
+ *
+¡•
+, Ex´AST *
+body
+)
+
+147 : 
+Ex´AST
+(
+EK_FÜ
+), 
+V¬Name
+(
+v¬Çme
+), 
+S¹
+(
+¡¬t
+), 
+End
+(
+’d
+), 
+S‹p
+(
+¡•
+), 
+Body
+(
+body
+) {}
+
+149 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+150  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_FÜ
+;
+
+153 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+158 şas 
+	cV¬Ex´AST
+ : 
+public
+ 
+Ex´AST
+ {
+
+159 
+¡d
+::
+veùÜ
+<¡d::
+·œ
+<¡d::
+¡ršg
+, 
+	gEx´AST
+*> > 
+	gV¬Names
+;
+
+160 
+Ex´AST
+ *
+	gBody
+;
+
+161 
+	gpublic
+:
+
+162 
+V¬Ex´AST
+(cÚ¡ 
+¡d
+::
+veùÜ
+<¡d::
+·œ
+<¡d::
+¡ršg
+, 
+Ex´AST
+*> > &
+v¬Çmes
+,
+
+163 
+Ex´AST
+ *
+body
+)
+
+164 : 
+Ex´AST
+(
+EK_V¬
+), 
+V¬Names
+(
+v¬Çmes
+), 
+Body
+(
+body
+) {}
+
+166 
+boŞ
+ 
+şassof
+(cÚ¡ 
+Ex´AST
+ *
+E
+) {
+
+167  
+	gE
+->
+g‘Kšd
+(è=ğ
+EK_V¬
+;
+
+170 
+vœtu®
+ 
+	gÎvm
+::
+V®ue
+ *
+Codeg’
+();
+
+178 şas 
+	cPrÙÙy³AST
+ {
+
+179 
+	g¡d
+::
+¡ršg
+ 
+Name
+;
+
+180 
+	g¡d
+::
+veùÜ
+<
+¡d
+::
+¡ršg
+> 
+Args
+;
+
+181 
+boŞ
+ 
+	gisO³¿tÜ
+;
+
+182 
+	gP»ûd’û
+;
+
+183 
+	gpublic
+:
+
+184 
+PrÙÙy³AST
+(cÚ¡ 
+¡d
+::
+¡ršg
+ &
+Çme
+, cÚ¡ std::
+veùÜ
+<¡d::¡ršg> &
+¬gs
+,
+
+185 
+boŞ
+ 
+isİ”©Ü
+ = 
+çl£
+, 
+´ec
+ = 0)
+
+186 : 
+Name
+(
+Çme
+), 
+Args
+(
+¬gs
+), 
+isO³¿tÜ
+(
+isİ”©Ü
+), 
+P»ûd’û
+(
+´ec
+) {}
+
+188 
+boŞ
+ 
+isUÇryOp
+(ècÚ¡ {  
+	gisO³¿tÜ
+ && 
+	gArgs
+.
+size
+() == 1; }
+
+189 
+boŞ
+ 
+isBš¬yOp
+(ècÚ¡ {  
+	gisO³¿tÜ
+ && 
+	gArgs
+.
+size
+() == 2; }
+
+191 
+g‘O³¿tÜName
+() const {
+
+192 
+as£¹
+(
+isUÇryOp
+(è|| 
+isBš¬yOp
+());
+
+193  
+	gName
+[
+Name
+.
+size
+()-1];
+
+196 
+g‘Bš¬yP»ûd’û
+(ècÚ¡ {  
+	gP»ûd’û
+; }
+
+198 
+	gÎvm
+::
+FunùiÚ
+ *
+Codeg’
+();
+
+200 
+C»©eArgum’tAÎoÿs
+(
+Îvm
+::
+FunùiÚ
+ *
+F
+);
+
+204 şas 
+	cFunùiÚAST
+ {
+
+205 
+PrÙÙy³AST
+ *
+	gPrÙo
+;
+
+206 
+Ex´AST
+ *
+	gBody
+;
+
+207 
+	gpublic
+:
+
+208 
+FunùiÚAST
+(
+PrÙÙy³AST
+ *
+´Ùo
+, 
+Ex´AST
+ *
+body
+)
+
+209 : 
+PrÙo
+(
+´Ùo
+), 
+Body
+(
+body
+) {}
+
+210 
+	gÎvm
+::
+FunùiÚ
+ *
+Codeg’
+();
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Builtin/Tutorial.h
+
+14 #iâdeà
+KLANG_TUTORIAL_H
+
+
+15 
+	#KLANG_TUTORIAL_H
+
+
+	)
+
+22 #ifdeà
+__ılu¥lus
+
+
+25 
+putch¬d
+(
+X
+);
+
+26 
+´štd
+(
+X
+);
+
+27 #ifdeà
+__ılu¥lus
+
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Driver/Driver.h
+
+14 #iâdeà
+KLANG_DRIVER_H
+
+
+15 
+	#KLANG_DRIVER_H
+
+
+	)
+
+17 
+	~"kÏng/AST/ASTNodes.h
+"
+
+18 
+	~"kÏng/Lex/Lex”.h
+"
+
+19 
+	~"kÏng/P¬£/P¬£r.h
+"
+
+20 
+	~"Îvm/ModuË.h
+"
+
+21 
+	~"Îvm/PassMªag”.h
+"
+
+22 
+	~"Îvm/ExecutiÚEngše/ExecutiÚEngše.h
+"
+
+23 
+	~"Îvm/SuµÜt/IRBud”.h
+"
+
+24 
+	~<m­
+>
+
+27 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+29 
+Îvm
+::
+ModuË
+ *
+TheModuË
+;
+
+30 
+Îvm
+::
+IRBud”
+<> 
+Bud”
+;
+
+31 
+¡d
+::
+m­
+<¡d::
+¡ršg
+, 
+Îvm
+::
+AÎoÿIn¡
+*> 
+NamedV®ues
+;
+
+33 
+Îvm
+::
+FunùiÚPassMªag”
+ *
+TheFPM
+;
+
+34 
+Îvm
+::
+ExecutiÚEngše
+ *
+TheExecutiÚEngše
+;
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Driver/Utils.h
+
+14 #iâdeà
+KLANG_UTIL_H
+
+
+15 
+	#KLANG_UTIL_H
+
+
+	)
+
+17 
+	~"kÏng/AST/ASTNodes.h
+"
+
+18 
+	~"Îvm/ModuË.h
+"
+
+20 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+23 
+Ex´AST
+ *
+E¼Ü
+(cÚ¡ *
+SŒ
+);
+
+24 
+PrÙÙy³AST
+ *
+E¼ÜP
+(cÚ¡ *
+SŒ
+);
+
+25 
+FunùiÚAST
+ *
+E¼ÜF
+(cÚ¡ *
+SŒ
+);
+
+26 
+	gÎvm
+::
+V®ue
+ *
+E¼ÜV
+(cÚ¡ *
+SŒ
+);
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/Lexer.h
+
+14 #iâdeà
+KLANG_LEXER_H
+
+
+15 
+	#KLANG_LEXER_H
+
+
+	)
+
+17 
+	~"kÏng/Lex/Tok’.h
+"
+
+19 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+21 şas 
+	cLex”
+ {
+
+23 
+	gLa¡Ch¬
+;
+
+25 
+	gpublic
+:
+
+26 
+Lex”
+();
+
+29 
+Lex
+(
+Tok’
+ &
+ResuÉ
+);
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/Token.h
+
+14 #iâdeà
+KLANG_TOKEN_H
+
+
+15 
+	#KLANG_TOKEN_H
+
+
+	)
+
+17 
+	~"kÏng/Lex/Tok’Kšds.h
+"
+
+18 
+	~<m­
+>
+
+19 
+	~<¡ršg
+>
+
+21 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+23 şas 
+	cTok’
+ {
+
+24 
+ä›nd
+ 
+şass
+ 
+	gLex”
+;
+
+25 
+ä›nd
+ 
+şass
+ 
+	gP¬£r
+;
+
+27 
+	gKšd
+;
+
+29 
+	g¡d
+::
+¡ršg
+ 
+Id’tif›rSŒ
+;
+
+30 
+	gNumV®
+;
+
+35 
+G‘TokP»ûd’û
+();
+
+37 
+	gpublic
+:
+
+41 
+¡d
+::
+m­
+<, > 
+	gBšİP»ûd’û
+;
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/TokenKinds.h
+
+15 #iâdeà
+KLANG_TOKENKINDS_H
+
+
+16 
+	#KLANG_TOKENKINDS_H
+
+
+	)
+
+18 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+19 
+Çme¥aû
+ 
+	gtok
+ {
+
+21 
+	eTok’Kšd
+ {
+
+22 
+	gtok_eof
+ = -1,
+
+25 
+	gtok_def
+ = -2,
+
+26 
+	gtok_ex‹º
+ = -3,
+
+29 
+	gtok_id’tif›r
+ = -4,
+
+30 
+	gtok_numb”
+ = -5,
+
+33 
+	gtok_if
+ = -6,
+
+34 
+	gtok_th’
+ = -7,
+
+35 
+	gtok_–£
+ = -8,
+
+36 
+	gtok_fÜ
+ = -9,
+
+37 
+	gtok_š
+ = -10,
+
+40 
+	gtok_bš¬y
+ = -11,
+
+41 
+	gtok_uÇry
+ = -12,
+
+44 
+	gtok_v¬
+ = -13
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Parse/Parser.h
+
+14 #iâdeà
+KLANG_PARSER_H
+
+
+15 
+	#KLANG_PARSER_H
+
+
+	)
+
+17 
+	~"kÏng/AST/ASTNodes.h
+"
+
+18 
+	~"kÏng/Lex/Lex”.h
+"
+
+20 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+22 şas 
+	cP¬£r
+ {
+
+24 
+	gLex”
+ &
+	gLxr
+;
+
+28 
+Tok’
+ 
+	gTok
+;
+
+30 
+	gpublic
+:
+
+31 
+P¬£r
+(
+Lex”
+ &
+_Lxr
+)
+
+32 : 
+Lxr
+(
+_Lxr
+)
+
+35 
+G‘NextTok’
+();
+
+37 
+Ex´AST
+ *
+P¬£Id’tif›rEx´
+();
+
+38 
+Ex´AST
+ *
+P¬£Numb”Ex´
+();
+
+39 
+Ex´AST
+ *
+P¬£P¬’Ex´
+();
+
+40 
+Ex´AST
+ *
+P¬£IfEx´
+();
+
+41 
+Ex´AST
+ *
+P¬£FÜEx´
+();
+
+42 
+Ex´AST
+ *
+P¬£V¬Ex´
+();
+
+43 
+Ex´AST
+ *
+P¬£Prim¬y
+();
+
+44 
+Ex´AST
+ *
+P¬£UÇry
+();
+
+45 
+Ex´AST
+ *
+P¬£BšOpRHS
+(
+Ex´P»c
+, Ex´AST *
+LHS
+);
+
+46 
+Ex´AST
+ *
+P¬£Ex´essiÚ
+();
+
+47 
+PrÙÙy³AST
+ *
+P¬£PrÙÙy³
+();
+
+48 
+FunùiÚAST
+ *
+P¬£Defš™iÚ
+();
+
+49 
+FunùiÚAST
+ *
+P¬£TİLev–Ex´
+();
+
+50 
+PrÙÙy³AST
+ *
+P¬£Ex‹º
+();
+
+56 
+HªdËDefš™iÚ
+();
+
+57 
+HªdËEx‹º
+();
+
+58 
+HªdËTİLev–Ex´essiÚ
+();
+
+60 
+Go
+();
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/AST/ASTNodes.cpp
+
+14 
+	~"kÏng/AST/ASTNodes.h
+"
+
+15 
+	~"kÏng/Driv”/Driv”.h
+"
+
+16 
+	~"kÏng/Driv”/Uts.h
+"
+
+17 
+	~"Îvm/CÚ¡ªt.h
+"
+
+18 
+	~"Îvm/CÚ¡ªts.h
+"
+
+19 
+	~"Îvm/In¡ruùiÚs.h
+"
+
+20 
+	~"Îvm/ModuË.h
+"
+
+21 
+	~"Îvm/Ty³.h
+"
+
+22 
+	~"Îvm/AÇlysis/V”if›r.h
+"
+
+23 
+	~"Îvm/SuµÜt/Ca¡šg.h
+"
+
+24 
+	~"Îvm/SuµÜt/IRBud”.h
+"
+
+25 
+	~<m­
+>
+
+32 
+usšg
+ 
+Çme¥aû
+ 
+	gkÏng
+;
+
+40 
+	gÎvm
+::
+AÎoÿIn¡
+ *
+C»©eEÁryBlockAÎoÿ
+(
+Îvm
+::
+FunùiÚ
+ *
+TheFunùiÚ
+,
+
+41 cÚ¡ 
+¡d
+::
+¡ršg
+ &
+V¬Name
+) {
+
+42 
+Îvm
+::
+IRBud”
+<> 
+TmpB
+(&
+TheFunùiÚ
+->
+g‘EÁryBlock
+(),
+
+43 
+TheFunùiÚ
+->
+g‘EÁryBlock
+().
+begš
+());
+
+44  
+	gTmpB
+.
+C»©eAÎoÿ
+(
+Îvm
+::
+Ty³
+::
+g‘DoubËTy
+Ölvm::
+g‘Glob®CÚ‹xt
+()), 0,
+
+45 
+V¬Name
+.
+c_¡r
+());
+
+48 
+	gÎvm
+::
+V®ue
+ *
+Numb”Ex´AST
+::
+	$Codeg’
+() {
+
+49  
+Îvm
+::
+CÚ¡ªtFP
+::
+	`g‘
+Ölvm::
+	`g‘Glob®CÚ‹xt
+(),†lvm::
+	`APFlßt
+(
+V®
+));
+
+50 
+	}
+}
+
+52 
+	gÎvm
+::
+V®ue
+ *
+V¬ŸbËEx´AST
+::
+	$Codeg’
+() {
+
+54 
+Îvm
+::
+V®ue
+ *
+V
+ = 
+NamedV®ues
+[
+Name
+];
+
+55 ià(
+V
+ =ğ0è 
+	`E¼ÜV
+("Unknown variable‚ame");
+
+58  
+Bud”
+.
+	`C»©eLßd
+(
+V
+, 
+Name
+.
+	`c_¡r
+());
+
+59 
+	}
+}
+
+61 
+	gÎvm
+::
+V®ue
+ *
+UÇryEx´AST
+::
+	$Codeg’
+() {
+
+62 
+Îvm
+::
+V®ue
+ *
+O³¿ndV
+ = 
+O³¿nd
+->
+	`Codeg’
+();
+
+63 ià(
+O³¿ndV
+ == 0)  0;
+
+65 
+Îvm
+::
+FunùiÚ
+ *
+F
+ = 
+TheModuË
+->
+	`g‘FunùiÚ
+(
+¡d
+::
+	`¡ršg
+("uÇry")+
+Opcode
+);
+
+66 ià(
+F
+ == 0)
+
+67  
+	`E¼ÜV
+("Unknown unary operator");
+
+69  
+Bud”
+.
+	`C»©eC®l
+(
+F
+, 
+O³¿ndV
+, "unop");
+
+70 
+	}
+}
+
+72 
+	gÎvm
+::
+V®ue
+ *
+Bš¬yEx´AST
+::
+	$Codeg’
+() {
+
+74 ià(
+Op
+ == '=') {
+
+76 
+V¬ŸbËEx´AST
+ *
+LHSE
+ = 
+Îvm
+::
+dyn_ÿ¡
+<V¬ŸbËEx´AST>(
+LHS
+);
+
+77 ià(!
+LHSE
+)
+
+78  
+	`E¼ÜV
+("destination of '=' must be‡ variable");
+
+80 
+Îvm
+::
+V®ue
+ *
+V®
+ = 
+RHS
+->
+	`Codeg’
+();
+
+81 ià(
+V®
+ == 0)  0;
+
+84 
+Îvm
+::
+V®ue
+ *
+V¬ŸbË
+ = 
+NamedV®ues
+[
+LHSE
+->
+	`g‘Name
+()];
+
+85 ià(
+V¬ŸbË
+ =ğ0è 
+	`E¼ÜV
+("Unknown variable‚ame");
+
+87 
+Bud”
+.
+	`C»©eStÜe
+(
+V®
+, 
+V¬ŸbË
+);
+
+88  
+V®
+;
+
+91 
+Îvm
+::
+V®ue
+ *
+L
+ = 
+LHS
+->
+	`Codeg’
+();
+
+92 
+Îvm
+::
+V®ue
+ *
+R
+ = 
+RHS
+->
+	`Codeg’
+();
+
+93 ià(
+L
+ =ğ0 || 
+R
+ == 0)  0;
+
+95 
+Op
+) {
+
+96 '+':  
+Bud”
+.
+	`C»©eFAdd
+(
+L
+, 
+R
+, "addtmp");
+
+97 '-':  
+Bud”
+.
+	`C»©eFSub
+(
+L
+, 
+R
+, "subtmp");
+
+98 '*':  
+Bud”
+.
+	`C»©eFMul
+(
+L
+, 
+R
+, "multmp");
+
+100 
+L
+ = 
+Bud”
+.
+	`C»©eFCmpULT
+(L, 
+R
+, "cmptmp");
+
+102  
+Bud”
+.
+	`C»©eUIToFP
+(
+
+103 
+L
+,
+
+104 
+Îvm
+::
+Ty³
+::
+	`g‘DoubËTy
+Ölvm::
+	`g‘Glob®CÚ‹xt
+()),
+
+111 
+Îvm
+::
+FunùiÚ
+ *
+F
+ = 
+TheModuË
+->
+	`g‘FunùiÚ
+(
+¡d
+::
+	`¡ršg
+("bš¬y")+
+Op
+);
+
+112 
+	`as£¹
+(
+F
+ && "binary operator‚ot found!");
+
+114 
+Îvm
+::
+V®ue
+ *
+Ops
+[2] = { 
+L
+, 
+R
+ };
+
+115  
+Bud”
+.
+	`C»©eC®l
+(
+F
+, 
+Ops
+, "binop");
+
+116 
+	}
+}
+
+118 
+	gÎvm
+::
+V®ue
+ *
+C®lEx´AST
+::
+	$Codeg’
+() {
+
+120 
+Îvm
+::
+FunùiÚ
+ *
+C®ËeF
+ = 
+TheModuË
+->
+	`g‘FunùiÚ
+(
+C®Ëe
+);
+
+121 ià(
+C®ËeF
+ == 0)
+
+122  
+	`E¼ÜV
+("Unknown function„eferenced");
+
+125 ià(
+C®ËeF
+->
+	`¬g_size
+(è!ğ
+Args
+.
+	`size
+())
+
+126  
+	`E¼ÜV
+("Incorrect #‡rguments…assed");
+
+128 
+¡d
+::
+veùÜ
+<
+Îvm
+::
+V®ue
+*> 
+ArgsV
+;
+
+129 
+i
+ = 0, 
+e
+ = 
+Args
+.
+	`size
+(); i !=ƒ; ++i) {
+
+130 
+ArgsV
+.
+	`push_back
+(
+Args
+[
+i
+]->
+	`Codeg’
+());
+
+131 ià(
+ArgsV
+.
+	`back
+() == 0)  0;
+
+134  
+Bud”
+.
+	`C»©eC®l
+(
+C®ËeF
+, 
+ArgsV
+, "calltmp");
+
+135 
+	}
+}
+
+137 
+	gÎvm
+::
+V®ue
+ *
+IfEx´AST
+::
+	$Codeg’
+() {
+
+138 
+Îvm
+::
+V®ue
+ *
+CÚdV
+ = 
+CÚd
+->
+	`Codeg’
+();
+
+139 ià(
+CÚdV
+ == 0)  0;
+
+142 
+CÚdV
+ = 
+Bud”
+.
+	`C»©eFCmpONE
+(
+
+143 
+CÚdV
+,
+
+144 
+Îvm
+::
+CÚ¡ªtFP
+::
+	`g‘
+Ölvm::
+	`g‘Glob®CÚ‹xt
+(),†lvm::
+	`APFlßt
+(0.0)),
+
+147 
+Îvm
+::
+FunùiÚ
+ *
+TheFunùiÚ
+ = 
+Bud”
+.
+	`G‘In£¹Block
+()->
+	`g‘P¬’t
+();
+
+151 
+Îvm
+::
+BasicBlock
+ *
+Th’BB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+152 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+154 
+TheFunùiÚ
+);
+
+155 
+Îvm
+::
+BasicBlock
+ *
+El£BB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+156 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+158 
+Îvm
+::
+BasicBlock
+ *
+M”geBB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+159 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+162 
+Bud”
+.
+	`C»©eCÚdBr
+(
+CÚdV
+, 
+Th’BB
+, 
+El£BB
+);
+
+165 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+Th’BB
+);
+
+167 
+Îvm
+::
+V®ue
+ *
+Th’V
+ = 
+Th’
+->
+	`Codeg’
+();
+
+168 ià(
+Th’V
+ == 0)  0;
+
+170 
+Bud”
+.
+	`C»©eBr
+(
+M”geBB
+);
+
+172 
+Th’BB
+ = 
+Bud”
+.
+	`G‘In£¹Block
+();
+
+175 
+TheFunùiÚ
+->
+	`g‘BasicBlockLi¡
+().
+	`push_back
+(
+El£BB
+);
+
+176 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+El£BB
+);
+
+178 
+Îvm
+::
+V®ue
+ *
+El£V
+ = 
+El£
+->
+	`Codeg’
+();
+
+179 ià(
+El£V
+ == 0)  0;
+
+181 
+Bud”
+.
+	`C»©eBr
+(
+M”geBB
+);
+
+183 
+El£BB
+ = 
+Bud”
+.
+	`G‘In£¹Block
+();
+
+186 
+TheFunùiÚ
+->
+	`g‘BasicBlockLi¡
+().
+	`push_back
+(
+M”geBB
+);
+
+187 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+M”geBB
+);
+
+188 
+Îvm
+::
+PHINode
+ *
+PN
+ = 
+Bud”
+.
+	`C»©ePHI
+(
+
+189 
+Îvm
+::
+Ty³
+::
+	`g‘DoubËTy
+Ölvm::
+	`g‘Glob®CÚ‹xt
+()),
+
+193 
+PN
+->
+	`addIncomšg
+(
+Th’V
+, 
+Th’BB
+);
+
+194 
+PN
+->
+	`addIncomšg
+(
+El£V
+, 
+El£BB
+);
+
+195  
+PN
+;
+
+196 
+	}
+}
+
+198 
+	gÎvm
+::
+V®ue
+ *
+FÜEx´AST
+::
+	$Codeg’
+() {
+
+219 
+Îvm
+::
+FunùiÚ
+ *
+TheFunùiÚ
+ = 
+Bud”
+.
+	`G‘In£¹Block
+()->
+	`g‘P¬’t
+();
+
+222 
+Îvm
+::
+AÎoÿIn¡
+ *
+AÎoÿ
+ = 
+	`C»©eEÁryBlockAÎoÿ
+(
+TheFunùiÚ
+, 
+V¬Name
+);
+
+225 
+Îvm
+::
+V®ue
+ *
+S¹V®
+ = 
+S¹
+->
+	`Codeg’
+();
+
+226 ià(
+S¹V®
+ == 0)  0;
+
+229 
+Bud”
+.
+	`C»©eStÜe
+(
+S¹V®
+, 
+AÎoÿ
+);
+
+233 
+Îvm
+::
+BasicBlock
+ *
+LoİBB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+234 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+236 
+TheFunùiÚ
+);
+
+239 
+Bud”
+.
+	`C»©eBr
+(
+LoİBB
+);
+
+242 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+LoİBB
+);
+
+246 
+Îvm
+::
+AÎoÿIn¡
+ *
+OldV®
+ = 
+NamedV®ues
+[
+V¬Name
+];
+
+247 
+NamedV®ues
+[
+V¬Name
+] = 
+AÎoÿ
+;
+
+252 ià(
+Body
+->
+	`Codeg’
+() == 0)
+
+256 
+Îvm
+::
+V®ue
+ *
+S‹pV®
+;
+
+257 ià(
+S‹p
+) {
+
+258 
+S‹pV®
+ = 
+S‹p
+->
+	`Codeg’
+();
+
+259 ià(
+S‹pV®
+ == 0)  0;
+
+262 
+S‹pV®
+ = 
+Îvm
+::
+CÚ¡ªtFP
+::
+	`g‘
+(
+
+263 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+264 
+Îvm
+::
+	`APFlßt
+(1.0));
+
+268 
+Îvm
+::
+V®ue
+ *
+EndCÚd
+ = 
+End
+->
+	`Codeg’
+();
+
+269 ià(
+EndCÚd
+ == 0)  EndCond;
+
+273 
+Îvm
+::
+V®ue
+ *
+CurV¬
+ = 
+Bud”
+.
+	`C»©eLßd
+(
+AÎoÿ
+, 
+V¬Name
+.
+	`c_¡r
+());
+
+274 
+Îvm
+::
+V®ue
+ *
+NextV¬
+ = 
+Bud”
+.
+	`C»©eFAdd
+(
+CurV¬
+, 
+S‹pV®
+, "nextvar");
+
+275 
+Bud”
+.
+	`C»©eStÜe
+(
+NextV¬
+, 
+AÎoÿ
+);
+
+278 
+EndCÚd
+ = 
+Bud”
+.
+	`C»©eFCmpONE
+(
+
+279 
+EndCÚd
+,
+
+280 
+Îvm
+::
+CÚ¡ªtFP
+::
+	`g‘
+Ölvm::
+	`g‘Glob®CÚ‹xt
+(),†lvm::
+	`APFlßt
+(0.0)),
+
+284 
+Îvm
+::
+BasicBlock
+ *
+Aá”BB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+285 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+287 
+TheFunùiÚ
+);
+
+290 
+Bud”
+.
+	`C»©eCÚdBr
+(
+EndCÚd
+, 
+LoİBB
+, 
+Aá”BB
+);
+
+293 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+Aá”BB
+);
+
+296 ià(
+OldV®
+)
+
+297 
+NamedV®ues
+[
+V¬Name
+] = 
+OldV®
+;
+
+299 
+NamedV®ues
+.
+	`”a£
+(
+V¬Name
+);
+
+302  
+Îvm
+::
+CÚ¡ªt
+::
+	`g‘NuÎV®ue
+(
+
+303 
+Îvm
+::
+Ty³
+::
+	`g‘DoubËTy
+Ölvm::
+	`g‘Glob®CÚ‹xt
+()));
+
+304 
+	}
+}
+
+307 
+	gÎvm
+::
+V®ue
+ *
+V¬Ex´AST
+::
+	$Codeg’
+() {
+
+308 
+¡d
+::
+veùÜ
+<
+Îvm
+::
+AÎoÿIn¡
+ *> 
+OldBšdšgs
+;
+
+310 
+Îvm
+::
+FunùiÚ
+ *
+TheFunùiÚ
+ = 
+Bud”
+.
+	`G‘In£¹Block
+()->
+	`g‘P¬’t
+();
+
+313 
+i
+ = 0, 
+e
+ = 
+V¬Names
+.
+	`size
+(); i !=ƒ; ++i) {
+
+314 cÚ¡ 
+¡d
+::
+¡ršg
+ &
+V¬Name
+ = 
+V¬Names
+[
+i
+].
+fœ¡
+;
+
+315 
+Ex´AST
+ *
+In™
+ = 
+V¬Names
+[
+i
+].
+£cÚd
+;
+
+322 
+Îvm
+::
+V®ue
+ *
+In™V®
+;
+
+323 ià(
+In™
+) {
+
+324 
+In™V®
+ = 
+In™
+->
+	`Codeg’
+();
+
+325 ià(
+In™V®
+ == 0)  0;
+
+327 
+In™V®
+ = 
+Îvm
+::
+CÚ¡ªtFP
+::
+	`g‘
+Ölvm::
+	`g‘Glob®CÚ‹xt
+(),
+
+328 
+Îvm
+::
+	`APFlßt
+(0.0));
+
+331 
+Îvm
+::
+AÎoÿIn¡
+ *
+AÎoÿ
+ = 
+	`C»©eEÁryBlockAÎoÿ
+(
+TheFunùiÚ
+, 
+V¬Name
+);
+
+332 
+Bud”
+.
+	`C»©eStÜe
+(
+In™V®
+, 
+AÎoÿ
+);
+
+336 
+OldBšdšgs
+.
+	`push_back
+(
+NamedV®ues
+[
+V¬Name
+]);
+
+339 
+NamedV®ues
+[
+V¬Name
+] = 
+AÎoÿ
+;
+
+343 
+Îvm
+::
+V®ue
+ *
+BodyV®
+ = 
+Body
+->
+	`Codeg’
+();
+
+344 ià(
+BodyV®
+ == 0)  0;
+
+347 
+i
+ = 0, 
+e
+ = 
+V¬Names
+.
+	`size
+(); i !=ƒ; ++i)
+
+348 
+NamedV®ues
+[
+V¬Names
+[
+i
+].
+fœ¡
+] = 
+OldBšdšgs
+[i];
+
+351  
+BodyV®
+;
+
+352 
+	}
+}
+
+355 
+	gÎvm
+::
+FunùiÚ
+ *
+PrÙÙy³AST
+::
+	$Codeg’
+() {
+
+357 
+¡d
+::
+veùÜ
+<
+Îvm
+::
+Ty³
+*> 
+	`DoubËs
+(
+
+358 
+Args
+.
+	`size
+(),
+
+359 
+Îvm
+::
+Ty³
+::
+	`g‘DoubËTy
+Ölvm::
+	`g‘Glob®CÚ‹xt
+()));
+
+360 
+Îvm
+::
+FunùiÚTy³
+ *
+FT
+ =†lvm::FunùiÚTy³::
+	`g‘
+(
+
+361 
+Îvm
+::
+Ty³
+::
+	`g‘DoubËTy
+Ölvm::
+	`g‘Glob®CÚ‹xt
+()),
+
+362 
+DoubËs
+,
+
+363 
+çl£
+);
+
+365 
+Îvm
+::
+FunùiÚ
+ *
+F
+ =†lvm::FunùiÚ::
+	`C»©e
+(
+
+366 
+FT
+,
+
+367 
+Îvm
+::
+FunùiÚ
+::
+Ex‹º®Lškage
+,
+
+368 
+Name
+,
+
+369 
+TheModuË
+);
+
+373 ià(
+F
+->
+	`g‘Name
+(è!ğ
+Name
+) {
+
+375 
+F
+->
+	`”a£FromP¬’t
+();
+
+376 
+F
+ = 
+TheModuË
+->
+	`g‘FunùiÚ
+(
+Name
+);
+
+379 ià(!
+F
+->
+	`em±y
+()) {
+
+380 
+	`E¼ÜF
+("redefinition of function");
+
+385 ià(
+F
+->
+	`¬g_size
+(è!ğ
+Args
+.
+	`size
+()) {
+
+386 
+	`E¼ÜF
+("redefinition of function with different #‡rgs");
+
+392 
+Idx
+ = 0;
+
+393 
+Îvm
+::
+FunùiÚ
+::
+¬g_™”©Ü
+ 
+AI
+ = 
+F
+->
+	`¬g_begš
+(); 
+Idx
+ !ğ
+Args
+.
+	`size
+();
+
+394 ++
+AI
+, ++
+Idx
+)
+
+395 
+AI
+->
+	`£tName
+(
+Args
+[
+Idx
+]);
+
+397  
+F
+;
+
+398 
+	}
+}
+
+403 
+	gPrÙÙy³AST
+::
+C»©eArgum’tAÎoÿs
+(
+Îvm
+::
+FunùiÚ
+ *
+F
+) {
+
+404 
+Îvm
+::
+FunùiÚ
+::
+¬g_™”©Ü
+ 
+AI
+ = 
+F
+->
+¬g_begš
+();
+
+405 
+	gIdx
+ = 0, 
+	ge
+ = 
+Args
+.
+size
+(); Idx !ğ
+e
+; ++Idx, ++
+	gAI
+) {
+
+407 
+	gÎvm
+::
+AÎoÿIn¡
+ *
+AÎoÿ
+ = 
+C»©eEÁryBlockAÎoÿ
+(
+F
+, 
+Args
+[
+Idx
+]);
+
+410 
+	gBud”
+.
+C»©eStÜe
+(
+AI
+, 
+AÎoÿ
+);
+
+413 
+	gNamedV®ues
+[
+Args
+[
+Idx
+]] = 
+AÎoÿ
+;
+
+418 
+	gÎvm
+::
+FunùiÚ
+ *
+FunùiÚAST
+::
+	$Codeg’
+() {
+
+419 
+NamedV®ues
+.
+	`ş—r
+();
+
+421 
+Îvm
+::
+FunùiÚ
+ *
+TheFunùiÚ
+ = 
+PrÙo
+->
+	`Codeg’
+();
+
+422 ià(
+TheFunùiÚ
+ == 0)
+
+426 ià(
+PrÙo
+->
+	`isBš¬yOp
+())
+
+427 
+Tok’
+::
+BšİP»ûd’û
+[
+PrÙo
+->
+	`g‘O³¿tÜName
+()] =
+
+428 
+PrÙo
+->
+	`g‘Bš¬yP»ûd’û
+();
+
+431 
+Îvm
+::
+BasicBlock
+ *
+BB
+ =†lvm::BasicBlock::
+	`C»©e
+(
+
+432 
+Îvm
+::
+	`g‘Glob®CÚ‹xt
+(),
+
+434 
+TheFunùiÚ
+);
+
+435 
+Bud”
+.
+	`S‘In£¹Pošt
+(
+BB
+);
+
+438 
+PrÙo
+->
+	`C»©eArgum’tAÎoÿs
+(
+TheFunùiÚ
+);
+
+440 ià(
+Îvm
+::
+V®ue
+ *
+R‘V®
+ = 
+Body
+->
+	`Codeg’
+()) {
+
+442 
+Bud”
+.
+	`C»©eR‘
+(
+R‘V®
+);
+
+445 
+Îvm
+::
+	`v”ifyFunùiÚ
+(*
+TheFunùiÚ
+);
+
+450 
+TheFPM
+->
+	`run
+(*
+TheFunùiÚ
+);
+
+452  
+TheFunùiÚ
+;
+
+456 
+TheFunùiÚ
+->
+	`”a£FromP¬’t
+();
+
+458 ià(
+PrÙo
+->
+	`isBš¬yOp
+())
+
+459 
+Tok’
+::
+BšİP»ûd’û
+.
+	`”a£
+(
+PrÙo
+->
+	`g‘O³¿tÜName
+());
+
+461 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Builtin/Tutorial.cpp
+
+14 
+	~"kÏng/Butš/TutÜŸl.h
+"
+
+15 
+	~<c¡dio
+>
+
+22 
+	$putch¬d
+(
+X
+) {
+
+23 
+	`putch¬
+(()
+X
+);
+
+25 
+	}
+}
+
+28 
+	$´štd
+(
+X
+) {
+
+29 
+	`´štf
+("%f\n", 
+X
+);
+
+31 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Lex/Lexer.cpp
+
+14 
+	~"kÏng/Lex/Lex”.h
+"
+
+15 
+	~<c¡dio
+>
+
+16 
+	~<c¡dlib
+>
+
+18 
+usšg
+ 
+Çme¥aû
+ 
+	gkÏng
+;
+
+22 
+	gLex”
+::
+	$Lex
+(
+Tok’
+ &
+ResuÉ
+) {
+
+25 
+	`is¥aû
+(
+La¡Ch¬
+))
+
+26 
+La¡Ch¬
+ = 
+	`g‘ch¬
+();
+
+28 ià(
+	`i§Íha
+(
+La¡Ch¬
+)) {
+
+29 
+ResuÉ
+.
+Id’tif›rSŒ
+ = 
+La¡Ch¬
+;
+
+30 
+	`i§Êum
+((
+La¡Ch¬
+ = 
+	`g‘ch¬
+())))
+
+31 
+ResuÉ
+.
+Id’tif›rSŒ
+ +ğ
+La¡Ch¬
+;
+
+33 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "def") {
+
+34 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_def
+; ;
+
+36 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "extern") {
+
+37 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_ex‹º
+; ;
+
+39 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "if") {
+
+40 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_if
+; ;
+
+42 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "then") {
+
+43 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_th’
+; ;
+
+45 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "else") {
+
+46 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_–£
+; ;
+
+48 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "for") {
+
+49 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_fÜ
+; ;
+
+51 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "in") {
+
+52 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_š
+; ;
+
+54 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "binary") {
+
+55 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_bš¬y
+; ;
+
+57 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "unary") {
+
+58 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_uÇry
+; ;
+
+60 ià(
+ResuÉ
+.
+Id’tif›rSŒ
+ == "var") {
+
+61 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_v¬
+; ;
+
+64 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_id’tif›r
+;
+
+68 ià(
+	`isdig™
+(
+La¡Ch¬
+) || LastChar == '.') {
+
+69 
+¡d
+::
+¡ršg
+ 
+NumSŒ
+;
+
+71 
+NumSŒ
+ +ğ
+La¡Ch¬
+;
+
+72 
+La¡Ch¬
+ = 
+	`g‘ch¬
+();
+
+73 } 
+	`isdig™
+(
+La¡Ch¬
+) || LastChar == '.');
+
+75 
+ResuÉ
+.
+NumV®
+ = 
+	`¡¹od
+(
+NumSŒ
+.
+	`c_¡r
+(), 0);
+
+77 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_numb”
+;
+
+81 ià(
+La¡Ch¬
+ == '#') {
+
+83 dØ
+La¡Ch¬
+ = 
+	`g‘ch¬
+();
+
+84 
+La¡Ch¬
+ !ğ
+EOF
+ && LastChar != '\n' && LastChar != '\r');
+
+86 ià(
+La¡Ch¬
+ !ğ
+EOF
+) {
+
+87 
+	`Lex
+(
+ResuÉ
+);
+
+93 ià(
+La¡Ch¬
+ =ğ
+EOF
+) {
+
+94 
+ResuÉ
+.
+Kšd
+ = 
+tok
+::
+tok_eof
+;
+
+99 
+ThisCh¬
+ = 
+La¡Ch¬
+;
+
+100 
+La¡Ch¬
+ = 
+	`g‘ch¬
+();
+
+101 
+ResuÉ
+.
+Kšd
+ = 
+ThisCh¬
+;
+
+103 
+	}
+}
+
+106 
+	gLex”
+::
+	$Lex”
+()
+
+107 : 
+	`La¡Ch¬
+(' ')
+
+109 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Lex/Token.cpp
+
+14 
+	~"kÏng/Lex/Tok’.h
+"
+
+16 
+usšg
+ 
+Çme¥aû
+ 
+	gkÏng
+;
+
+19 
+	gTok’
+::
+	$G‘TokP»ûd’û
+() {
+
+20 ià(!
+	`i§scii
+(
+Kšd
+))
+
+24 
+TokP»c
+ = 
+BšİP»ûd’û
+[
+Kšd
+];
+
+25 ià(
+TokP»c
+ <= 0)  -1;
+
+26  
+TokP»c
+;
+
+27 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Parse/Parser.cpp
+
+14 
+	~"kÏng/Driv”/Driv”.h
+"
+
+15 
+	~"kÏng/Driv”/Uts.h
+"
+
+16 
+	~"kÏng/P¬£/P¬£r.h
+"
+
+17 
+	~"Îvm/FunùiÚ.h
+"
+
+18 
+	~<c¡dio
+>
+
+20 
+usšg
+ 
+Çme¥aû
+ 
+	gkÏng
+;
+
+22 
+	gP¬£r
+::
+	$G‘NextTok’
+() {
+
+23 
+Lxr
+.
+	`Lex
+(
+Tok
+);
+
+24  
+Tok
+.
+Kšd
+;
+
+25 
+	}
+}
+
+30 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£Id’tif›rEx´
+() {
+
+31 
+¡d
+::
+¡ršg
+ 
+IdName
+ = 
+Tok
+.
+Id’tif›rSŒ
+;
+
+33 
+	`G‘NextTok’
+();
+
+35 ià(
+Tok
+.
+Kšd
+ != '(')
+
+36  
+Ãw
+ 
+	`V¬ŸbËEx´AST
+(
+IdName
+);
+
+39 
+	`G‘NextTok’
+();
+
+40 
+¡d
+::
+veùÜ
+<
+Ex´AST
+*> 
+Args
+;
+
+41 ià(
+Tok
+.
+Kšd
+ != ')') {
+
+43 
+Ex´AST
+ *
+Arg
+ = 
+	`P¬£Ex´essiÚ
+();
+
+44 ià(!
+Arg
+)  0;
+
+45 
+Args
+.
+	`push_back
+(
+Arg
+);
+
+47 ià(
+Tok
+.
+Kšd
+ == ')') ;
+
+49 ià(
+Tok
+.
+Kšd
+ != ',')
+
+50  
+	`E¼Ü
+("Expected ')' or ',' in‡rgument†ist");
+
+51 
+	`G‘NextTok’
+();
+
+56 
+	`G‘NextTok’
+();
+
+58  
+Ãw
+ 
+	`C®lEx´AST
+(
+IdName
+, 
+Args
+);
+
+59 
+	}
+}
+
+64 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£Numb”Ex´
+() {
+
+65 
+Ex´AST
+ *
+ResuÉ
+ = 
+Ãw
+ 
+	`Numb”Ex´AST
+(
+Tok
+.
+NumV®
+);
+
+66 
+	`G‘NextTok’
+();
+
+67  
+ResuÉ
+;
+
+68 
+	}
+}
+
+71 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£P¬’Ex´
+() {
+
+72 
+	`G‘NextTok’
+();
+
+73 
+Ex´AST
+ *
+V
+ = 
+	`P¬£Ex´essiÚ
+();
+
+74 ià(!
+V
+)  0;
+
+76 ià(
+Tok
+.
+Kšd
+ != ')')
+
+77  
+	`E¼Ü
+("expected ')'");
+
+78 
+	`G‘NextTok’
+();
+
+79  
+V
+;
+
+80 
+	}
+}
+
+83 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£IfEx´
+() {
+
+84 
+	`G‘NextTok’
+();
+
+87 
+Ex´AST
+ *
+CÚd
+ = 
+	`P¬£Ex´essiÚ
+();
+
+88 ià(!
+CÚd
+)  0;
+
+90 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_th’
+)
+
+91  
+	`E¼Ü
+("expectedhen");
+
+92 
+	`G‘NextTok’
+();
+
+94 
+Ex´AST
+ *
+Th’
+ = 
+	`P¬£Ex´essiÚ
+();
+
+95 ià(
+Th’
+ == 0)  0;
+
+97 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_–£
+)
+
+98  
+	`E¼Ü
+("expectedƒlse");
+
+100 
+	`G‘NextTok’
+();
+
+102 
+Ex´AST
+ *
+El£
+ = 
+	`P¬£Ex´essiÚ
+();
+
+103 ià(!
+El£
+)  0;
+
+105  
+Ãw
+ 
+	`IfEx´AST
+(
+CÚd
+, 
+Th’
+, 
+El£
+);
+
+106 
+	}
+}
+
+109 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£FÜEx´
+() {
+
+110 
+	`G‘NextTok’
+();
+
+112 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_id’tif›r
+)
+
+113  
+	`E¼Ü
+("expected identifier‡fter for");
+
+115 
+¡d
+::
+¡ršg
+ 
+IdName
+ = 
+Tok
+.
+Id’tif›rSŒ
+;
+
+116 
+	`G‘NextTok’
+();
+
+118 ià(
+Tok
+.
+Kšd
+ != '=')
+
+119  
+	`E¼Ü
+("expected '='‡fter for");
+
+120 
+	`G‘NextTok’
+();
+
+123 
+Ex´AST
+ *
+S¹
+ = 
+	`P¬£Ex´essiÚ
+();
+
+124 ià(
+S¹
+ == 0)  0;
+
+125 ià(
+Tok
+.
+Kšd
+ != ',')
+
+126  
+	`E¼Ü
+("expected ','‡fter for start value");
+
+127 
+	`G‘NextTok’
+();
+
+129 
+Ex´AST
+ *
+End
+ = 
+	`P¬£Ex´essiÚ
+();
+
+130 ià(
+End
+ == 0)  0;
+
+133 
+Ex´AST
+ *
+S‹p
+ = 0;
+
+134 ià(
+Tok
+.
+Kšd
+ == ',') {
+
+135 
+	`G‘NextTok’
+();
+
+136 
+S‹p
+ = 
+	`P¬£Ex´essiÚ
+();
+
+137 ià(
+S‹p
+ == 0)  0;
+
+140 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_š
+)
+
+141  
+	`E¼Ü
+("expected 'in'‡fter for");
+
+142 
+	`G‘NextTok’
+();
+
+144 
+Ex´AST
+ *
+Body
+ = 
+	`P¬£Ex´essiÚ
+();
+
+145 ià(
+Body
+ == 0)  0;
+
+147  
+Ãw
+ 
+	`FÜEx´AST
+(
+IdName
+, 
+S¹
+, 
+End
+, 
+S‹p
+, 
+Body
+);
+
+148 
+	}
+}
+
+152 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£V¬Ex´
+() {
+
+153 
+	`G‘NextTok’
+();
+
+155 
+¡d
+::
+veùÜ
+<¡d::
+·œ
+<¡d::
+¡ršg
+, 
+Ex´AST
+*> > 
+V¬Names
+;
+
+158 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_id’tif›r
+)
+
+159  
+	`E¼Ü
+("expected identifier‡fter var");
+
+162 
+¡d
+::
+¡ršg
+ 
+Name
+ = 
+Tok
+.
+Id’tif›rSŒ
+;
+
+163 
+	`G‘NextTok’
+();
+
+166 
+Ex´AST
+ *
+In™
+ = 0;
+
+167 ià(
+Tok
+.
+Kšd
+ == '=') {
+
+168 
+	`G‘NextTok’
+();
+
+170 
+In™
+ = 
+	`P¬£Ex´essiÚ
+();
+
+171 ià(
+In™
+ == 0)  0;
+
+174 
+V¬Names
+.
+	`push_back
+(
+¡d
+::
+	`make_·œ
+(
+Name
+, 
+In™
+));
+
+177 ià(
+Tok
+.
+Kšd
+ != ',') ;
+
+178 
+	`G‘NextTok’
+();
+
+180 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_id’tif›r
+)
+
+181  
+	`E¼Ü
+("expected identifier†ist‡fter var");
+
+185 ià(
+Tok
+.
+Kšd
+ !ğ
+tok
+::
+tok_š
+)
+
+186  
+	`E¼Ü
+("expected 'in' keyword‡fter 'var'");
+
+187 
+	`G‘NextTok’
+();
+
+189 
+Ex´AST
+ *
+Body
+ = 
+	`P¬£Ex´essiÚ
+();
+
+190 ià(
+Body
+ == 0)  0;
+
+192  
+Ãw
+ 
+	`V¬Ex´AST
+(
+V¬Names
+, 
+Body
+);
+
+193 
+	}
+}
+
+203 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£Prim¬y
+() {
+
+204 
+Tok
+.
+Kšd
+) {
+
+205 :  
+	`E¼Ü
+("unknownoken whenƒxpecting‡nƒxpression");
+
+206 
+tok
+::
+tok_id’tif›r
+:  
+	`P¬£Id’tif›rEx´
+();
+
+207 
+tok
+::
+tok_numb”
+:  
+	`P¬£Numb”Ex´
+();
+
+208 '(':  
+	`P¬£P¬’Ex´
+();
+
+209 
+tok
+::
+tok_if
+:  
+	`P¬£IfEx´
+();
+
+210 
+tok
+::
+tok_fÜ
+:  
+	`P¬£FÜEx´
+();
+
+211 
+tok
+::
+tok_v¬
+:  
+	`P¬£V¬Ex´
+();
+
+213 
+	}
+}
+
+219 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£UÇry
+() {
+
+221 ià(!
+	`i§scii
+(
+Tok
+.
+Kšd
+) || Tok.Kind == '(' || Tok.Kind == ',')
+
+222  
+	`P¬£Prim¬y
+();
+
+225 
+Opc
+ = 
+Tok
+.
+Kšd
+;
+
+226 
+	`G‘NextTok’
+();
+
+227 ià(
+Ex´AST
+ *
+O³¿nd
+ = 
+	`P¬£UÇry
+())
+
+228  
+Ãw
+ 
+	`UÇryEx´AST
+(
+Opc
+, 
+O³¿nd
+);
+
+230 
+	}
+}
+
+235 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£BšOpRHS
+(
+Ex´P»c
+, 
+Ex´AST
+ *
+LHS
+) {
+
+238 
+TokP»c
+ = 
+Tok
+.
+	`G‘TokP»ûd’û
+();
+
+242 ià(
+TokP»c
+ < 
+Ex´P»c
+)
+
+243  
+LHS
+;
+
+246 
+BšOp
+ = 
+Tok
+.
+Kšd
+;
+
+247 
+	`G‘NextTok’
+();
+
+250 
+Ex´AST
+ *
+RHS
+ = 
+	`P¬£UÇry
+();
+
+251 ià(!
+RHS
+)  0;
+
+255 
+NextP»c
+ = 
+Tok
+.
+	`G‘TokP»ûd’û
+();
+
+256 ià(
+TokP»c
+ < 
+NextP»c
+) {
+
+257 
+RHS
+ = 
+	`P¬£BšOpRHS
+(
+TokP»c
++1, RHS);
+
+258 ià(
+RHS
+ == 0)  0;
+
+262 
+LHS
+ = 
+Ãw
+ 
+	`Bš¬yEx´AST
+(
+BšOp
+, LHS, 
+RHS
+);
+
+264 
+	}
+}
+
+270 
+Ex´AST
+ *
+	gP¬£r
+::
+	$P¬£Ex´essiÚ
+() {
+
+271 
+Ex´AST
+ *
+LHS
+ = 
+	`P¬£UÇry
+();
+
+272 ià(!
+LHS
+)  0;
+
+274  
+	`P¬£BšOpRHS
+(0, 
+LHS
+);
+
+275 
+	}
+}
+
+282 
+PrÙÙy³AST
+ *
+	gP¬£r
+::
+	$P¬£PrÙÙy³
+() {
+
+284 
+¡d
+::
+¡ršg
+ 
+FnName
+;
+
+286 
+Kšd
+ = 0;
+
+287 
+Bš¬yP»ûd’û
+ = 30;
+
+289 
+Tok
+.
+Kšd
+) {
+
+291  
+	`E¼ÜP
+("Expected function‚ame in…rototype");
+
+292 
+tok
+::
+tok_id’tif›r
+:
+
+293 
+FnName
+ = 
+Tok
+.
+Id’tif›rSŒ
+;
+
+294 
+Kšd
+ = 0;
+
+295 
+	`G‘NextTok’
+();
+
+297 
+tok
+::
+tok_uÇry
+:
+
+298 
+	`G‘NextTok’
+();
+
+299 ià(!
+	`i§scii
+(
+Tok
+.
+Kšd
+))
+
+300  
+	`E¼ÜP
+("Expected unary operator");
+
+301 
+FnName
+ = "unary";
+
+302 
+FnName
+ +ğ()
+Tok
+.
+Kšd
+;
+
+303 
+Kšd
+ = 1;
+
+304 
+	`G‘NextTok’
+();
+
+306 
+tok
+::
+tok_bš¬y
+:
+
+307 
+	`G‘NextTok’
+();
+
+308 ià(!
+	`i§scii
+(
+Tok
+.
+Kšd
+))
+
+309  
+	`E¼ÜP
+("Expected binary operator");
+
+310 
+FnName
+ = "binary";
+
+311 
+FnName
+ +ğ()
+Tok
+.
+Kšd
+;
+
+312 
+Kšd
+ = 2;
+
+313 
+	`G‘NextTok’
+();
+
+316 ià(
+Tok
+.
+Kšd
+ =ğ
+tok
+::
+tok_numb”
+) {
+
+317 ià(
+Tok
+.
+NumV®
+ < 1 || Tok.NumVal > 100)
+
+318  
+	`E¼ÜP
+("Invalid…recedecnce: must be 1..100");
+
+319 
+Bš¬yP»ûd’û
+ = ()(
+Tok
+.
+NumV®
+);
+
+320 
+	`G‘NextTok’
+();
+
+325 ià(
+Tok
+.
+Kšd
+ != '(')
+
+326  
+	`E¼ÜP
+("Expected '(' in…rototype");
+
+328 
+¡d
+::
+veùÜ
+<¡d::
+¡ršg
+> 
+ArgNames
+;
+
+329 
+	`G‘NextTok’
+(è=ğ
+tok
+::
+tok_id’tif›r
+)
+
+330 
+ArgNames
+.
+	`push_back
+(
+Tok
+.
+Id’tif›rSŒ
+);
+
+331 ià(
+Tok
+.
+Kšd
+ != ')')
+
+332  
+	`E¼ÜP
+("Expected ')' in…rototype");
+
+335 
+	`G‘NextTok’
+();
+
+338 ià(
+Kšd
+ && 
+ArgNames
+.
+	`size
+() != Kind)
+
+339  
+	`E¼ÜP
+("Invalid‚umber of operands for operator");
+
+341  
+Ãw
+ 
+	`PrÙÙy³AST
+(
+FnName
+, 
+ArgNames
+, 
+Kšd
+ !ğ0, 
+Bš¬yP»ûd’û
+);
+
+342 
+	}
+}
+
+346 
+FunùiÚAST
+ *
+	gP¬£r
+::
+	$P¬£Defš™iÚ
+() {
+
+347 
+	`G‘NextTok’
+();
+
+348 
+PrÙÙy³AST
+ *
+PrÙo
+ = 
+	`P¬£PrÙÙy³
+();
+
+349 ià(
+PrÙo
+ == 0)  0;
+
+351 ià(
+Ex´AST
+ *
+E
+ = 
+	`P¬£Ex´essiÚ
+())
+
+352  
+Ãw
+ 
+	`FunùiÚAST
+(
+PrÙo
+, 
+E
+);
+
+354 
+	}
+}
+
+357 
+FunùiÚAST
+ *
+	gP¬£r
+::
+	$P¬£TİLev–Ex´
+() {
+
+358 ià(
+Ex´AST
+ *
+E
+ = 
+	`P¬£Ex´essiÚ
+()) {
+
+360 
+PrÙÙy³AST
+ *
+PrÙo
+ = 
+Ãw
+ 
+	`PrÙÙy³AST
+("", 
+¡d
+::
+veùÜ
+<¡d::
+¡ršg
+>());
+
+361  
+Ãw
+ 
+	`FunùiÚAST
+(
+PrÙo
+, 
+E
+);
+
+364 
+	}
+}
+
+367 
+PrÙÙy³AST
+ *
+	gP¬£r
+::
+	$P¬£Ex‹º
+() {
+
+368 
+	`G‘NextTok’
+();
+
+369  
+	`P¬£PrÙÙy³
+();
+
+370 
+	}
+}
+
+378 
+	gP¬£r
+::
+	$HªdËDefš™iÚ
+() {
+
+379 ià(
+FunùiÚAST
+ *
+F
+ = 
+	`P¬£Defš™iÚ
+()) {
+
+380 ià(
+Îvm
+::
+FunùiÚ
+ *
+LF
+ = 
+F
+->
+	`Codeg’
+()) {
+
+381 
+	`årštf
+(
+¡d”r
+, "Read function definition:");
+
+382 
+LF
+->
+	`dump
+();
+
+388 
+	`G‘NextTok’
+();
+
+390 
+	}
+}
+
+392 
+	gP¬£r
+::
+	$HªdËEx‹º
+() {
+
+393 ià(
+PrÙÙy³AST
+ *
+P
+ = 
+	`P¬£Ex‹º
+()) {
+
+394 ià(
+Îvm
+::
+FunùiÚ
+ *
+F
+ = 
+P
+->
+	`Codeg’
+()) {
+
+395 
+	`årštf
+(
+¡d”r
+, "Readƒxtern: ");
+
+396 
+F
+->
+	`dump
+();
+
+402 
+	`G‘NextTok’
+();
+
+404 
+	}
+}
+
+406 
+	gP¬£r
+::
+	$HªdËTİLev–Ex´essiÚ
+() {
+
+408 ià(
+FunùiÚAST
+ *
+F
+ = 
+	`P¬£TİLev–Ex´
+()) {
+
+409 ià(
+Îvm
+::
+FunùiÚ
+ *
+LF
+ = 
+F
+->
+	`Codeg’
+()) {
+
+416 *
+FPŒ
+ = 
+TheExecutiÚEngše
+->
+	`g‘Poš‹rToFunùiÚ
+(
+LF
+);
+
+422 (*
+FP
+)(èğ((*)())(
+šŒ_t
+)
+FPŒ
+;
+
+423 
+	`årštf
+(
+¡d”r
+, "Ev®u©edØ%f\n", 
+	`FP
+());
+
+429 
+	`G‘NextTok’
+();
+
+431 
+	}
+}
+
+435 
+	gP¬£r
+::
+	$Go
+() {
+
+438 
+	`årštf
+(
+¡d”r
+, "ready> ");
+
+439 
+	`G‘NextTok’
+();
+
+442 
+	`årštf
+(
+¡d”r
+, "ready> ");
+
+443 
+Tok
+.
+Kšd
+) {
+
+444 
+tok
+::
+tok_eof
+:
+
+447 
+	`G‘NextTok’
+();
+
+449 
+tok
+::
+tok_def
+:
+
+450 
+	`HªdËDefš™iÚ
+();
+
+452 
+tok
+::
+tok_ex‹º
+:
+
+453 
+	`HªdËEx‹º
+();
+
+456 
+	`HªdËTİLev–Ex´essiÚ
+();
+
+460 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/tools/driver/Driver.cpp
+
+14 
+	~"kÏng/AST/ASTNodes.h
+"
+
+15 
+	~"kÏng/Butš/TutÜŸl.h
+"
+
+16 
+	~"kÏng/Lex/Lex”.h
+"
+
+17 
+	~"kÏng/P¬£/P¬£r.h
+"
+
+18 
+	~"Îvm/ModuË.h
+"
+
+19 
+	~"Îvm/PassMªag”.h
+"
+
+20 
+	~"Îvm/AÇlysis/Pas£s.h
+"
+
+21 
+	~"Îvm/ExecutiÚEngše/ExecutiÚEngše.h
+"
+
+22 
+	~"Îvm/ExecutiÚEngše/JIT.h
+"
+
+23 
+	~"Îvm/SuµÜt/IRBud”.h
+"
+
+24 
+	~"Îvm/SuµÜt/T¬g‘S–eù.h
+"
+
+25 
+	~"Îvm/T¬g‘/T¬g‘D©a.h
+"
+
+26 
+	~"Îvm/T¿nsfÜms/SÿÏr.h
+"
+
+27 
+	~<c¡dio
+>
+
+28 
+	~<m­
+>
+
+35 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+37 
+	g¡d
+::
+m­
+<, > 
+	gTok’
+::
+BšİP»ûd’û
+;
+
+39 
+	gÎvm
+::
+ModuË
+ *
+TheModuË
+;
+
+40 
+	gÎvm
+::
+IRBud”
+<> 
+Bud”
+(
+Îvm
+::
+g‘Glob®CÚ‹xt
+());
+
+41 
+	g¡d
+::
+m­
+<
+¡d
+::
+¡ršg
+, 
+	gÎvm
+::
+AÎoÿIn¡
+*> 
+NamedV®ues
+;
+
+43 
+	gÎvm
+::
+FunùiÚPassMªag”
+ *
+TheFPM
+;
+
+44 
+	gÎvm
+::
+ExecutiÚEngše
+ *
+TheExecutiÚEngše
+;
+
+49 
+	$maš
+() {
+
+51 
+Îvm
+::
+	`In™ŸlizeN©iveT¬g‘
+();
+
+52 
+Îvm
+::
+LLVMCÚ‹xt
+ &
+CÚ‹xt
+ =†lvm::
+	`g‘Glob®CÚ‹xt
+();
+
+54 
+kÏng
+::
+Lex”
+ 
+myLex”
+;
+
+55 
+kÏng
+::
+P¬£r
+ 
+	`myP¬£r
+(
+myLex”
+);
+
+59 
+kÏng
+::
+Tok’
+::
+BšİP»ûd’û
+['='] = 2;
+
+60 
+kÏng
+::
+Tok’
+::
+BšİP»ûd’û
+['<'] = 10;
+
+61 
+kÏng
+::
+Tok’
+::
+BšİP»ûd’û
+['+'] = 20;
+
+62 
+kÏng
+::
+Tok’
+::
+BšİP»ûd’û
+['-'] = 20;
+
+63 
+kÏng
+::
+Tok’
+::
+BšİP»ûd’û
+['*'] = 40;
+
+66 
+kÏng
+::
+TheModuË
+ = 
+Ãw
+ 
+Îvm
+::
+	`ModuË
+("my coŞ j™", 
+CÚ‹xt
+);
+
+70 
+¡d
+::
+¡ršg
+ 
+E¼SŒ
+;
+
+71 
+kÏng
+::
+TheExecutiÚEngše
+ =
+
+72 
+Îvm
+::
+	`EngšeBud”
+(
+kÏng
+::
+TheModuË
+).
+	`£tE¼ÜSŒ
+(&
+E¼SŒ
+).
+	`ü—‹
+();
+
+73 ià(!
+kÏng
+::
+TheExecutiÚEngše
+) {
+
+74 
+	`årštf
+(
+¡d”r
+, "Could‚Ù c»©ExecutiÚEngše: %s\n", 
+E¼SŒ
+.
+	`c_¡r
+());
+
+75 
+	`ex™
+(1);
+
+78 
+Îvm
+::
+FunùiÚPassMªag”
+ 
+	`OurFPM
+(
+kÏng
+::
+TheModuË
+);
+
+82 
+OurFPM
+.
+	`add
+(
+Ãw
+ 
+Îvm
+::
+	`T¬g‘D©a
+(*
+kÏng
+::
+TheExecutiÚEngše
+->
+	`g‘T¬g‘D©a
+()));
+
+84 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹BasicAlŸsAÇlysisPass
+());
+
+86 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹PromÙeMemÜyToRegi¡”Pass
+());
+
+88 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹In¡ruùiÚCombššgPass
+());
+
+90 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹R—ssocŸ‹Pass
+());
+
+92 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹GVNPass
+());
+
+94 
+OurFPM
+.
+	`add
+(
+Îvm
+::
+	`ü—‹CFGSim¶ifiÿtiÚPass
+());
+
+96 
+OurFPM
+.
+	`doIn™Ÿliz©iÚ
+();
+
+99 
+kÏng
+::
+TheFPM
+ = &
+OurFPM
+;
+
+103 
+myP¬£r
+.
+	`Go
+();
+
+105 
+kÏng
+::
+TheFPM
+ = 0;
+
+108 
+kÏng
+::
+TheModuË
+->
+	`dump
+();
+
+112 
+	`putch¬d
+(100);
+
+115 
+	}
+}
+
+	@/home/hum/Projects/llvm31_pure/llvm/projects/klang/tools/driver/Utils.cpp
+
+14 
+	~"kÏng/Driv”/Uts.h
+"
+
+15 
+	~"Îvm/ModuË.h
+"
+
+16 
+	~<c¡dio
+>
+
+18 
+Çme¥aû
+ 
+	gkÏng
+ {
+
+21 
+Ex´AST
+ *
+E¼Ü
+(cÚ¡ *
+SŒ
+) {
+
+22 
+årštf
+(
+¡d”r
+, "E¼Ü: %s\n", 
+SŒ
+);
+
+26 
+PrÙÙy³AST
+ *
+E¼ÜP
+(cÚ¡ *
+SŒ
+) {
+
+27 
+E¼Ü
+(
+SŒ
+);
+
+31 
+FunùiÚAST
+ *
+E¼ÜF
+(cÚ¡ *
+SŒ
+) {
+
+32 
+E¼Ü
+(
+SŒ
+);
+
+36 
+	gÎvm
+::
+V®ue
+ *
+E¼ÜV
+(cÚ¡ *
+SŒ
+) {
+
+37 
+E¼Ü
+(
+SŒ
+);
+
+	@
+1
+.
+1
+/usr/include
+15
+1148
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/AST/ASTNodes.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Builtin/Tutorial.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Driver/Driver.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Driver/Utils.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/Lexer.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/Token.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Lex/TokenKinds.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/include/klang/Parse/Parser.h
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/AST/ASTNodes.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Builtin/Tutorial.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Lex/Lexer.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Lex/Token.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/lib/Parse/Parser.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/tools/driver/Driver.cpp
+/home/hum/Projects/llvm31_pure/llvm/projects/klang/tools/driver/Utils.cpp
