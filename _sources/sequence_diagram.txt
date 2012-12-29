@@ -1,5 +1,6 @@
-Sequence Diagram of Klang
-=========================
+
+Sequence Diagram
+================
 
 **input code**::
 
