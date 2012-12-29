@@ -12,11 +12,7 @@ This small project is one of the means of studying LLVM and Clang.
 
 News
 ====
-Klang's website is now open, thanks to the very kind helper(https://github.com/chisophugis), though contents are poor yet.
-
-http://journeyer.github.com/klang/
-
-http://journeyer.github.com/klang/doxygen
+`Klang's website<http://journeyer.github.com/klang/>`_ is now open, thanks to `the very kind helper<https://github.com/chisophugis>`_, though contents are poor yet.
 
 
 Guide
@@ -140,10 +136,10 @@ on terminal::
 
 References
 ==========
-* LLVM tutorial               http://llvm.org/docs/tutorial/
-* Creating an LLVM Project    http://llvm.org/docs/Projects.html
-* LLVM Makefile Guide         http://llvm.org/docs/MakefileGuide.html#makefile-guide
-* Sphinx Quickstart Template  http://www.llvm.org/docs/SphinxQuickstartTemplate.html
-* Mandelbrot set              http://en.wikipedia.org/wiki/Mandelbrot_set
-* How to set up LLVM-style RTTI for your class hierarchy http://llvm.org/docs/HowToSetUpLLVMStyleRTTI.html#how-to-set-up-llvm-style-rtti
+* `LLVM tutorial<http://llvm.org/docs/tutorial/>`_
+* `Creating an LLVM Project<http://llvm.org/docs/Projects.html>`_
+* `LLVM Makefile Guide<http://llvm.org/docs/MakefileGuide.html#makefile-guide>`_
+* `Sphinx Quickstart Template<http://www.llvm.org/docs/SphinxQuickstartTemplate.html>`_
+* `Mandelbrot set<http://en.wikipedia.org/wiki/Mandelbrot_set>`_
+* `How to set up LLVM-style RTTI for your class hierarchy<http://llvm.org/docs/HowToSetUpLLVMStyleRTTI.html#how-to-set-up-llvm-style-rtti>`_
 
