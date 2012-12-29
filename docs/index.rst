@@ -6,15 +6,16 @@
 Welcome to klang's documentation!
 =================================
 
+
 Contents:
 
 .. toctree::
-   :maxdepth: 2
-   
-   class_diagram.rst
-   sequence_diagram.rst
-   sequence_diagram_llvm.rst
+  :maxdepth: 2
 
+  uml.rst
+  
+
+You can view :download:`Doxygen Document<_static/linktodoxygen.html>`.
 
 
 Indices and tables
