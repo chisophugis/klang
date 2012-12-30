@@ -20,7 +20,7 @@
 #include "llvm/Module.h"
 #include "llvm/PassManager.h"
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
-#include "llvm/Support/IRBuilder.h"
+#include "llvm/IRBuilder.h"
 #include <map>
 
 
