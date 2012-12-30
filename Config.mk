@@ -1,8 +1,8 @@
-CC	    := /home/hum/Projects/llvm31_pure/build/Release/bin/clang
-CXX	    := /home/hum/Projects/llvm31_pure/build/Release/bin/clang++
+CC	    := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/clang
+CXX	    := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/clang++
 LD	    := ld
 
-LLVM_CONFIG := /home/hum/Projects/llvm31_pure/build/Release/bin/llvm-config
+LLVM_CONFIG := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/llvm-config
 
 INCLUDES    := -I.\
 	-I$(TOPDIR)/include

@@ -6,7 +6,7 @@
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
 #include "llvm/Module.h"
-#include "llvm/Support/IRBuilder.h"
+#include "llvm/IRBuilder.h"
 #include <map>
 
 
