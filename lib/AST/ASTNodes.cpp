@@ -8,7 +8,7 @@
 #include "llvm/Module.h"
 #include "llvm/Type.h"
 #include "llvm/Analysis/Verifier.h"
-#include "llvm/Support/IRBuilder.h"
+#include "llvm/IRBuilder.h"
 #include <map>
 
 //===----------------------------------------------------------------------===//
