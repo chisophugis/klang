@@ -7,9 +7,9 @@
 #include "llvm/ExecutionEngine/JIT.h"
 #include "llvm/Module.h"
 #include "llvm/PassManager.h"
-#include "llvm/Support/IRBuilder.h"
+#include "llvm/IRBuilder.h"
 #include "llvm/Support/TargetSelect.h"
-#include "llvm/Target/TargetData.h"
+#include "llvm/DataLayout.h"
 #include "llvm/Transforms/Scalar.h"
 #include <map>
 
@@ -63,7 +63,7 @@ int main() {
 
   // Set up the optimizer pipeline.  Start with registering info about how the
   // target lays out data structures.
-  OurFPM.add(new llvm::TargetData(*klang::TheExecutionEngine->getTargetData()));
+  OurFPM.add(new llvm::DataLayout(*klang::TheExecutionEngine->getDataLayout()));
   // Provide basic AliasAnalysis support for GVN.
   OurFPM.add(llvm::createBasicAliasAnalysisPass());
   // Do simple "peephole" optimizations and bit-twiddling optzns.

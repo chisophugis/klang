@@ -5,7 +5,7 @@
 #include "llvm/Analysis/Verifier.h"
 #include "llvm/Constants.h"
 #include "llvm/Module.h"
-#include "llvm/Support/IRBuilder.h"
+#include "llvm/IRBuilder.h"
 #include <map>
 
 //===----------------------------------------------------------------------===//
