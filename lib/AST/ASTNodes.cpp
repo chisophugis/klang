@@ -8,6 +8,7 @@
 #include "llvm/Module.h"
 #include "llvm/Type.h"
 #include "llvm/Analysis/Verifier.h"
+#include "llvm/Support/Casting.h"
 #include "llvm/IRBuilder.h"
 #include <map>
 
@@ -60,7 +61,7 @@ llvm::Value *BinaryExprAST::Codegen() {
   // Special case '=' because we don't want to emit the LHS as an expression.
   if (Op == '=') {
     // Assignment requires the LHS to be an identifier.
-    VariableExprAST *LHSE = dynamic_cast<VariableExprAST*>(LHS);
+    VariableExprAST *LHSE = llvm::dyn_cast<VariableExprAST>(LHS);
     if (!LHSE)
       return ErrorV("destination of '=' must be a variable");
     // Codegen the RHS.
