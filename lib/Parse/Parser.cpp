@@ -16,6 +16,10 @@
 #include "klang/Parse/Parser.h"
 #include "llvm/Function.h"
 #include <cstdio>
+#include <iostream>
+
+using std::cerr;
+using std::endl;
 
 using namespace klang;
 
@@ -378,8 +382,10 @@ PrototypeAST *Parser::ParseExtern() {
 void Parser::HandleDefinition() {
   if (FunctionAST *F = ParseDefinition()) {
     if (llvm::Function *LF = F->Codegen()) {
-      fprintf(stderr, "Read function definition:");
-      LF->dump();
+			if (!klang::bUseFile) {
+				cerr << "Read function definition:" << endl;
+				LF->dump();
+			}
     }
     //	if (ParseDefinition()) {}
     //		fprintf(stderr, "Parsed a function definition.\n");
@@ -392,8 +398,10 @@ void Parser::HandleDefinition() {
 void Parser::HandleExtern() {
   if (PrototypeAST *P = ParseExtern()) {
     if (llvm::Function *F = P->Codegen()) {
-      fprintf(stderr, "Read extern: ");
-      F->dump();
+			if (!klang::bUseFile) {
+				cerr << "Read extern: " << endl;
+				F->dump();
+			}
     }
     //	if (ParseExtern()) {}
     //		fprintf(stderr, "Parsed an extern\n");
@@ -420,7 +428,10 @@ void Parser::HandleTopLevelExpression() {
       // can call it as a native function.
       //------------------------------------------------
       double (*FP)() = (double (*)())(intptr_t)FPtr;
-      fprintf(stderr, "Evaluated to %f\n", FP());
+			if (!klang::bUseFile)
+				cerr << "Evaluated to " << FP() << endl;
+			else
+				FP();
     }
     //	if (ParseTopLevelExpr()) {}
     //		fprintf(stderr, "Parsed a top-level expr\n");
@@ -435,11 +446,13 @@ void Parser::HandleTopLevelExpression() {
 void Parser::Go() {
 
   // Prime the first token.
-  fprintf(stderr, "ready> ");
+	if (!klang::bUseFile)
+		cerr << "ready> " << endl;
   GetNextToken();
 
   while (1) {
-    fprintf(stderr, "ready> ");
+		if (!klang::bUseFile)
+			cerr << "ready> " << endl;
     switch (Tok.Kind) {
     case tok::tok_eof:
       return;

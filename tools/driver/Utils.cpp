@@ -14,12 +14,16 @@
 #include "klang/Driver/Utils.h"
 #include "llvm/Module.h"
 #include <cstdio>
+#include <iostream>
+
+using std::cerr;
+using std::endl;
 
 namespace klang {
 
   //Error* - These are little helper functions for error handling.
   ExprAST *Error(const char *Str) {
-    fprintf(stderr, "Error: %s\n", Str);
+		cerr << "Error: " << Str << endl;
     return 0;
   }
 

@@ -32,7 +32,11 @@ namespace klang {
 
   extern llvm::FunctionPassManager *TheFPM;
   extern llvm::ExecutionEngine *TheExecutionEngine;
+
+	extern bool bUseFile;
 }
+
+extern FILE*	fpInStream;
 
 #endif//#ifndef KLANG_DRIVER_H
 

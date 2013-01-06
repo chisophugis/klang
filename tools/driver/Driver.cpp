@@ -15,6 +15,7 @@
 #include "klang/Builtin/Tutorial.h"
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
+
 #include "llvm/Module.h"
 #include "llvm/PassManager.h"
 #include "llvm/Analysis/Passes.h"
@@ -24,9 +25,17 @@
 #include "llvm/Support/TargetSelect.h"
 #include "llvm/DataLayout.h"
 #include "llvm/Transforms/Scalar.h"
+
 #include <cstdio>
 #include <map>
+#include <iostream>
+#include <cstring>
 
+#include <getopt.h>
+#include <stdio.h>
+
+using std::cerr;
+using std::endl;
 
 //===----------------------------------------------------------------------===//
 // Main driver code.
@@ -43,10 +52,74 @@ namespace klang {
   llvm::FunctionPassManager *TheFPM;
   llvm::ExecutionEngine *TheExecutionEngine;
 
+	bool bUseFile = false;
 }
 
+#define ARRAY_SIZE_OF_FILE_PATH	256
+FILE*	fpInStream = 0;
 
-int main() {
+int main(int argc, char* const argv[]) {
+
+	int oc = 0;
+	int do_help = 0;
+	int do_verbose = 0;
+	int do_emit_llvm = 0;
+	int do_emit_llvm_only = 0;
+	char input_file[ARRAY_SIZE_OF_FILE_PATH] = {0,};
+	char output_file[ARRAY_SIZE_OF_FILE_PATH] = {0,};
+
+
+	struct option longopts[] = {
+		{"help",						no_argument,				&do_help,						1},
+		{"verbose",					no_argument,				&do_verbose,				1},
+		{"emit-llvm",				no_argument,				&do_emit_llvm,			1},
+		{"emit-llvm-only",	no_argument,				&do_emit_llvm_only,	1},
+		{0,0,0,0},
+	};
+
+	while ((oc = getopt_long(argc, argv, ":hvo:", longopts, NULL)) != -1) {
+		switch(oc) {
+			case 'h':
+				do_help = 1;
+				break;
+			case 'v':
+				do_verbose = 1;
+				break;
+			case 'o':
+				if (optarg)
+					std::strncpy(output_file, optarg, ARRAY_SIZE_OF_FILE_PATH-1);
+				break;
+			case 0:
+				break;
+			case ':':
+				// missing option argument
+				cerr << "Argument is needed!" << endl;
+				break;
+			case '?':
+			default:
+				// invalid option
+				cerr << "Invalid argument!" << endl;
+				break;
+		}
+	}
+
+
+	fpInStream = fdopen(0, "r");
+
+	if (argc > 1 && argc == optind + 1) {
+		// Last argument after options specifies the input file name.
+		if (!std::strcmp(argv[argc-1], "-")) {
+			// Placing '-' instead of file name makes klang take STDIN as it's input file.
+			// This is one of POSIX convention.
+			klang::bUseFile  = false;
+		} else {
+			if (argv[argc-1]) {
+				std::strncpy(input_file, argv[argc-1], ARRAY_SIZE_OF_FILE_PATH-1);
+				fpInStream = freopen(input_file, "r", fpInStream);
+				klang::bUseFile  = true;
+			}
+		}
+	}
 
   llvm::InitializeNativeTarget();
   llvm::LLVMContext &Context = llvm::getGlobalContext();
@@ -71,7 +144,7 @@ int main() {
   klang::TheExecutionEngine =
     llvm::EngineBuilder(klang::TheModule).setErrorStr(&ErrStr).create();
   if (!klang::TheExecutionEngine) {
-    fprintf(stderr, "Could not create ExecutionEngine: %s\n", ErrStr.c_str());
+		cerr << "Could not create ExecutionEngine: " << ErrStr.c_str() << endl;
     exit(1);
   }
 
@@ -105,11 +178,14 @@ int main() {
   klang::TheFPM = 0;
 
   // Print out all of the generated code.
-  klang::TheModule->dump();
+	if (!klang::bUseFile)
+  	klang::TheModule->dump();
 
 	// Calls an unused function just not to lose it in the final binary
 	// Without this call klangBuiltin.a is just ignored during linking
-	putchard(100);
+	putchard('\n');
+
+	fclose(fpInStream);
 
   return 0;
 }

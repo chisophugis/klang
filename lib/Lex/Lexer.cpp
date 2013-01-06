@@ -11,9 +11,12 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "klang/Driver/Driver.h"
 #include "klang/Lex/Lexer.h"
 #include <cstdio>
 #include <cstdlib>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace klang;
 
@@ -23,11 +26,11 @@ Lexer::Lex(Token &Result) {
 
   // Skip any whitespace.
   while (isspace(LastChar))
-    LastChar = getchar();
+    LastChar = fgetc(fpInStream);
 
   if (isalpha(LastChar)) { // identifier: [a-zA-Z][a-zA-Z0-9]*
     Result.IdentifierStr = LastChar;
-    while (isalnum((LastChar = getchar())))
+    while (isalnum((LastChar = fgetc(fpInStream))))
       Result.IdentifierStr += LastChar;
 
     if (Result.IdentifierStr == "def") {
@@ -69,7 +72,7 @@ Lexer::Lex(Token &Result) {
     std::string NumStr;
     do {
       NumStr += LastChar;
-      LastChar = getchar();
+      LastChar = fgetc(fpInStream);
     } while (isdigit(LastChar) || LastChar == '.');
 
     Result.NumVal = strtod(NumStr.c_str(), 0);
@@ -80,7 +83,7 @@ Lexer::Lex(Token &Result) {
 
   if (LastChar == '#') {
     // Comment until end of line.
-    do LastChar = getchar();
+    do LastChar = fgetc(fpInStream);
     while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
 
     if (LastChar != EOF) {
@@ -97,7 +100,7 @@ Lexer::Lex(Token &Result) {
 
   // Otherwise, just return the character as its ascii value.
   int ThisChar = LastChar;
-  LastChar = getchar();
+  LastChar = fgetc(fpInStream);
   Result.Kind = ThisChar;
   return;
 }
