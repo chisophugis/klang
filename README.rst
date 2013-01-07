@@ -17,7 +17,15 @@ are not supported at this moment!
 
 News
 ====
-`Klang's website <http://journeyer.github.com/klang/>`_ is now open, thanks to
+* Klang now supports file input. You can write Kaleidoscope source code in any
+  file and feed it to Klang! Klang will compile and execute it!::
+ $ ./klang mandel.k
+ $ ./klang fib.k
+ $ ./klang sin.k
+ $ ./klang for.k
+ $ cat for.k | ./klang
+ $ cat for.k | ./klang -
+* `Klang's website <http://journeyer.github.com/klang/>`_ is now open, thanks to
 `the very kind helper <https://github.com/chisophugis>`_, though contents are
 poor yet.
 
