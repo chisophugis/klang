@@ -17,8 +17,9 @@ are not supported at this moment!
 
 News
 ====
+
 Klang now supports file input. You can write Kaleidoscope source code in any
-  file and feed it to Klang! Klang will compile and execute it!::
+file and feed it to Klang! Klang will compile and execute it!::
 
  $ ./klang mandel.k
  $ ./klang fib.k
