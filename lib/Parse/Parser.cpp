@@ -429,7 +429,9 @@ void Parser::HandleTopLevelExpression() {
       //------------------------------------------------
       double (*FP)() = (double (*)())(intptr_t)FPtr;
       //if (!klang::UseFile)
-      cerr << "Evaluated to " << FP() << endl;
+
+      double Result = FP();
+      cerr << "\nEvaluated to " << Result << endl;
       //else
       //	FP();
     }
