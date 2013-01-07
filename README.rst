@@ -6,13 +6,18 @@ The structure of klang is meant to be similar to the one of clang's.
 
 
 **Purpose of this work**
-
 This small project is one of the means of studying LLVM and Clang.
 
+**Watch out**
+This project aims to support most systems. But at this early stage, only Ubuntu
+environment is supported and tested. Other linux would be OK but Mac and Windows
+are not supported at this moment!
 
 News
 ====
-`Klang's website <http://journeyer.github.com/klang/>`_ is now open, thanks to `the very kind helper <https://github.com/chisophugis>`_, though contents are poor yet.
+`Klang's website <http://journeyer.github.com/klang/>`_ is now open, thanks to
+`the very kind helper <https://github.com/chisophugis>`_, though contents are
+poor yet.
 
 
 Guide
@@ -32,7 +37,7 @@ Guide
  jit ........... ch.4 Adding JIT and Optimizer Support
  cf  ........... ch.5 Extending the language: control flow
  userop ........ ch.6 Extending the language: user-defined operators
- ssa   ......... ch.7 Extending the language: mutable variables 
+ ssa   ......... ch.7 Extending the language: mutable variables
                                                / SSA construction
  master ........ up-to-date
 
@@ -86,10 +91,11 @@ Later on, you can compile klang under ``LLVM_OBJ_DIR/projects/klang``
 
 Mandelbrot set plotted out using Klang!
 =======================================
-on terminal::
+::
 
- ready> mandel(-2.3, -1.3, 0.05, 0.07);
- ready>
+ $ cd Release+Asserts/bin/
+ $ ./klang ../../../../../llvm/projects/klang/sample/mandel.k
+
  *******************************************************************************
  *******************************************************************************
  ****************************************++++++*********************************
@@ -132,6 +138,8 @@ on terminal::
  *******************************************************************************
  *******************************************************************************
  Evaluated to 0.000000
+
+ .......
 
 
 References
