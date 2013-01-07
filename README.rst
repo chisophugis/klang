@@ -6,9 +6,11 @@ The structure of klang is meant to be similar to the one of clang's.
 
 
 **Purpose of this work**
+
 This small project is one of the means of studying LLVM and Clang.
 
 **Watch out**
+
 This project aims to support most systems. But at this early stage, only Ubuntu
 environment is supported and tested. Other linux would be OK but Mac and Windows
 are not supported at this moment!
