@@ -35,7 +35,6 @@
 #include <stdio.h>
 
 using std::cerr;
-using std::endl;
 
 //===----------------------------------------------------------------------===//
 // Main driver code.
@@ -93,12 +92,12 @@ int main(int argc, char* const argv[]) {
       break;
     case ':':
       // missing option argument
-      cerr << "Argument is needed!" << endl;
+      cerr << "Argument is needed!\n";
       break;
     case '?':
     default:
       // invalid option
-      cerr << "Invalid argument!" << endl;
+      cerr << "Invalid argument!\n";
       break;
     }
   }
@@ -145,7 +144,7 @@ int main(int argc, char* const argv[]) {
   klang::TheExecutionEngine =
     llvm::EngineBuilder(klang::TheModule).setErrorStr(&ErrStr).create();
   if (!klang::TheExecutionEngine) {
-    cerr << "Could not create ExecutionEngine: " << ErrStr.c_str() << endl;
+    cerr << "Could not create ExecutionEngine: " << ErrStr.c_str() << "\n";
     exit(1);
   }
 

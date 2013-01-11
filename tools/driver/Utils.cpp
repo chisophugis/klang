@@ -17,13 +17,12 @@
 #include <iostream>
 
 using std::cerr;
-using std::endl;
 
 namespace klang {
 
   //Error* - These are little helper functions for error handling.
   ExprAST *Error(const char *Str) {
-    cerr << "Error: " << Str << endl;
+    cerr << "Error: " << Str << "\n";
     return 0;
   }
 

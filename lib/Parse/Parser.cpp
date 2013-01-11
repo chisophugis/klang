@@ -19,7 +19,6 @@
 #include <iostream>
 
 using std::cerr;
-using std::endl;
 
 using namespace klang;
 
@@ -383,7 +382,7 @@ void Parser::HandleDefinition() {
   if (FunctionAST *F = ParseDefinition()) {
     if (llvm::Function *LF = F->Codegen()) {
       if (!klang::UseFile) {
-        cerr << "Read function definition:" << endl;
+        cerr << "Read function definition:\n";
         LF->dump();
       }
     }
@@ -399,7 +398,7 @@ void Parser::HandleExtern() {
   if (PrototypeAST *P = ParseExtern()) {
     if (llvm::Function *F = P->Codegen()) {
       if (!klang::UseFile) {
-        cerr << "Read extern: " << endl;
+        cerr << "Read extern: \n";
         F->dump();
       }
     }
@@ -431,7 +430,7 @@ void Parser::HandleTopLevelExpression() {
       //if (!klang::UseFile)
 
       double Result = FP();
-      cerr << "\nEvaluated to " << Result << endl;
+      cerr << "\nEvaluated to " << Result << "\n";
       //else
       //	FP();
     }
@@ -449,12 +448,12 @@ void Parser::Go() {
 
   // Prime the first token.
   if (!klang::UseFile)
-    cerr << "ready> " << endl;
+    cerr << "ready> \n";
   GetNextToken();
 
   while (1) {
     if (!klang::UseFile)
-      cerr << "ready> " << endl;
+      cerr << "ready> \n";
     switch (Tok.Kind) {
     case tok::tok_eof:
       return;
