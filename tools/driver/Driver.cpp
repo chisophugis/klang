@@ -22,19 +22,18 @@
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
 #include "llvm/ExecutionEngine/JIT.h"
 #include "llvm/IRBuilder.h"
+#include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/TargetSelect.h"
 #include "llvm/DataLayout.h"
 #include "llvm/Transforms/Scalar.h"
 
 #include <cstdio>
 #include <map>
-#include <iostream>
 #include <cstring>
 
 #include <getopt.h>
 #include <stdio.h>
 
-using std::cerr;
 
 //===----------------------------------------------------------------------===//
 // Main driver code.
@@ -92,12 +91,12 @@ int main(int argc, char* const argv[]) {
       break;
     case ':':
       // missing option argument
-      cerr << "Argument is needed!\n";
+      llvm::errs() << "Argument is needed!\n";
       break;
     case '?':
     default:
       // invalid option
-      cerr << "Invalid argument!\n";
+      llvm::errs() << "Invalid argument!\n";
       break;
     }
   }
@@ -144,7 +143,8 @@ int main(int argc, char* const argv[]) {
   klang::TheExecutionEngine =
     llvm::EngineBuilder(klang::TheModule).setErrorStr(&ErrStr).create();
   if (!klang::TheExecutionEngine) {
-    cerr << "Could not create ExecutionEngine: " << ErrStr.c_str() << "\n";
+    llvm::errs() << "Could not create ExecutionEngine: " << ErrStr.c_str()
+      << "\n";
     exit(1);
   }
 

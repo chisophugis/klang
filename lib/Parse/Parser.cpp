@@ -15,10 +15,9 @@
 #include "klang/Driver/Utils.h"
 #include "klang/Parse/Parser.h"
 #include "llvm/Function.h"
+#include "llvm/Support/raw_ostream.h"
 #include <cstdio>
-#include <iostream>
 
-using std::cerr;
 
 using namespace klang;
 
@@ -382,7 +381,7 @@ void Parser::HandleDefinition() {
   if (FunctionAST *F = ParseDefinition()) {
     if (llvm::Function *LF = F->Codegen()) {
       if (!klang::UseFile) {
-        cerr << "Read function definition:\n";
+        llvm::errs() << "Read function definition:\n";
         LF->dump();
       }
     }
@@ -398,7 +397,7 @@ void Parser::HandleExtern() {
   if (PrototypeAST *P = ParseExtern()) {
     if (llvm::Function *F = P->Codegen()) {
       if (!klang::UseFile) {
-        cerr << "Read extern: \n";
+        llvm::errs() << "Read extern: \n";
         F->dump();
       }
     }
@@ -430,7 +429,7 @@ void Parser::HandleTopLevelExpression() {
       //if (!klang::UseFile)
 
       double Result = FP();
-      cerr << "\nEvaluated to " << Result << "\n";
+      llvm::errs() << "\nEvaluated to " << Result << "\n";
       //else
       //	FP();
     }
@@ -448,12 +447,12 @@ void Parser::Go() {
 
   // Prime the first token.
   if (!klang::UseFile)
-    cerr << "ready> \n";
+    llvm::errs() << "ready> \n";
   GetNextToken();
 
   while (1) {
     if (!klang::UseFile)
-      cerr << "ready> \n";
+      llvm::errs() << "ready> \n";
     switch (Tok.Kind) {
     case tok::tok_eof:
       return;
