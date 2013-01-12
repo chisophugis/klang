@@ -14,14 +14,14 @@
 #include "klang/AST/ASTNodes.h"
 #include "klang/Driver/Driver.h"
 #include "klang/Driver/Utils.h"
-#include "llvm/Constant.h"
-#include "llvm/Constants.h"
-#include "llvm/Instructions.h"
-#include "llvm/Module.h"
-#include "llvm/Type.h"
 #include "llvm/Analysis/Verifier.h"
+#include "llvm/IR/Constant.h"
+#include "llvm/IR/Constants.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/Instructions.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Type.h"
 #include "llvm/Support/Casting.h"
-#include "llvm/IRBuilder.h"
 #include <map>
 
 //===----------------------------------------------------------------------===//

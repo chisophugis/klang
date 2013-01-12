@@ -16,15 +16,15 @@
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
 
-#include "llvm/Module.h"
-#include "llvm/PassManager.h"
 #include "llvm/Analysis/Passes.h"
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
 #include "llvm/ExecutionEngine/JIT.h"
-#include "llvm/IRBuilder.h"
+#include "llvm/IR/DataLayout.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/Module.h"
+#include "llvm/PassManager.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/TargetSelect.h"
-#include "llvm/DataLayout.h"
 #include "llvm/Transforms/Scalar.h"
 
 #include <cstdio>

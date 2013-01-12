@@ -14,7 +14,7 @@
 #include "klang/Driver/Driver.h"
 #include "klang/Driver/Utils.h"
 #include "klang/Parse/Parser.h"
-#include "llvm/Function.h"
+#include "llvm/IR/Function.h"
 #include "llvm/Support/raw_ostream.h"
 #include <cstdio>
 
