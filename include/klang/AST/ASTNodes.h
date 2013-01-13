@@ -1,7 +1,7 @@
 #ifndef KLANG_ASTNODES_H
 #define KLANG_ASTNODES_H
 
-#include "llvm/Module.h"
+#include "llvm/IR/Module.h"
 #include "llvm/Support/Casting.h"
 #include <string>
 #include <vector>
