@@ -1,8 +1,9 @@
-CC	    := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/clang
-CXX	    := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/clang++
+KLANG_LLVM_PATH := /home/hum/Projects/build/Debug+Asserts/bin
+CC	    := $(KLANG_LLVM_PATH)/clang
+CXX	    := $(KLANG_LLVM_PATH)/clang++
 LD	    := ld
 
-LLVM_CONFIG := /home/abuild/Projects/llvm32/build/Release+Asserts/bin/llvm-config
+LLVM_CONFIG := $(KLANG_LLVM_PATH)/llvm-config
 
 INCLUDES    := -I.\
 	-I$(TOPDIR)/include
