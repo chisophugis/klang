@@ -2,7 +2,7 @@
 #define KLANG_UTIL_H
 
 #include "klang/AST/ASTNodes.h"
-#include "llvm/Module.h"
+#include "llvm/IR/Module.h"
 
 namespace klang {
 
