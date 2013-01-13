@@ -1,7 +1,7 @@
 
 #include "klang/Driver/Utils.h"
 #include "klang/Parse/Parser.h"
-#include "llvm/Function.h"
+#include "llvm/IR/Function.h"
 #include <cstdio>
 
 using namespace klang;

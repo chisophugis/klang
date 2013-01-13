@@ -3,9 +3,9 @@
 #include "klang/Driver/Driver.h"
 #include "klang/Driver/Utils.h"
 #include "llvm/Analysis/Verifier.h"
-#include "llvm/Constants.h"
-#include "llvm/Module.h"
-#include "llvm/IRBuilder.h"
+#include "llvm/IR/Constants.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/Module.h"
 #include <map>
 
 //===----------------------------------------------------------------------===//

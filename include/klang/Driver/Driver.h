@@ -5,8 +5,8 @@
 #include "klang/AST/ASTNodes.h"
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
-#include "llvm/Module.h"
-#include "llvm/IRBuilder.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/Module.h"
 #include <map>
 
 

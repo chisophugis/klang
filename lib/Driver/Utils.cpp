@@ -1,6 +1,6 @@
 
 #include "klang/Driver/Utils.h"
-#include "llvm/Module.h"
+#include "llvm/IR/Module.h"
 #include <cstdio>
 
 namespace klang {
