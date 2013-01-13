@@ -107,7 +107,7 @@ Mandelbrot set plotted out using Klang!
 ::
 
  $ cd Release+Asserts/bin/
- $ ./klang ../../../../../llvm/projects/klang/sample/mandel.k
+ $ ./klang ../../../../../llvm/projects/klang/samples/mandel.k
 
  *******************************************************************************
  *******************************************************************************
