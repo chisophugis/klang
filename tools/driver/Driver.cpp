@@ -23,16 +23,16 @@
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/Module.h"
 #include "llvm/PassManager.h"
+#include "llvm/Support/CommandLine.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Support/TargetSelect.h"
 #include "llvm/Transforms/Scalar.h"
 
 #include <cstdio>
-#include <map>
 #include <cstring>
-
-#include <getopt.h>
-#include <stdio.h>
+#include <fstream>
+#include <map>
+#include <string>
 
 
 //===----------------------------------------------------------------------===//
@@ -53,71 +53,27 @@ namespace klang {
   bool UseFile = false;
 }
 
-#define ARRAY_SIZE_OF_FILE_PATH	256
 FILE*	InputStream = 0;
+
+llvm::cl::opt<std::string>
+OutputFilename("o",
+               llvm::cl::desc("Specify output filename"),
+               llvm::cl::value_desc("filename"));
+
+llvm::cl::opt<std::string>
+InputFilename(llvm::cl::Positional,
+              llvm::cl::desc("<input file>"),
+              llvm::cl::init("-"));
+
 
 int main(int argc, char* const argv[]) {
 
-  int oc = 0;
-  int do_help = 0;
-  int do_verbose = 0;
-  int do_emit_llvm = 0;
-  int do_emit_llvm_only = 0;
-  char input_file[ARRAY_SIZE_OF_FILE_PATH] = {0,};
-  char output_file[ARRAY_SIZE_OF_FILE_PATH] = {0,};
-
-
-  struct option longopts[] = {
-    {"help",           no_argument, &do_help,           1},
-    {"verbose",        no_argument, &do_verbose,        1},
-    {"emit-llvm",      no_argument, &do_emit_llvm,      1},
-    {"emit-llvm-only", no_argument, &do_emit_llvm_only, 1},
-    {0,0,0,0},
-  };
-
-  while ((oc = getopt_long(argc, argv, ":hvo:", longopts, NULL)) != -1) {
-    switch(oc) {
-    case 'h':
-      do_help = 1;
-      break;
-    case 'v':
-      do_verbose = 1;
-      break;
-    case 'o':
-      if (optarg)
-        std::strncpy(output_file, optarg, ARRAY_SIZE_OF_FILE_PATH-1);
-      break;
-    case 0:
-      break;
-    case ':':
-      // missing option argument
-      llvm::errs() << "Argument is needed!\n";
-      break;
-    case '?':
-    default:
-      // invalid option
-      llvm::errs() << "Invalid argument!\n";
-      break;
-    }
-  }
-
+  llvm::cl::ParseCommandLineOptions(argc, argv);
 
   InputStream = fdopen(0, "r");
-
-  if (argc > 1 && argc == optind + 1) {
-    // Last argument after options specifies the input file name.
-    if (!std::strcmp(argv[argc-1], "-")) {
-      // Placing '-' instead of file name makes klang take STDIN
-      // as it's input file.
-      // This is one of POSIX convention.
-      klang::UseFile  = false;
-    } else {
-      if (argv[argc-1]) {
-        std::strncpy(input_file, argv[argc-1], ARRAY_SIZE_OF_FILE_PATH-1);
-        InputStream = freopen(input_file, "r", InputStream);
-        klang::UseFile  = true;
-      }
-    }
+  if (InputFilename != "-") {
+    InputStream = freopen(InputFilename.c_str(), "r", InputStream);
+    klang::UseFile  = true;
   }
 
   llvm::InitializeNativeTarget();
