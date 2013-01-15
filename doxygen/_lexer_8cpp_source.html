@@ -105,11 +105,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027   <span class="comment">// Skip any whitespace.</span>
 <a name="l00028"></a>00028   <span class="keywordflow">while</span> (isspace(LastChar))
-<a name="l00029"></a>00029     LastChar = fgetc(InputStream);
+<a name="l00029"></a>00029     LastChar = GetCharFromBuffer();
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031   <span class="keywordflow">if</span> (isalpha(LastChar)) { <span class="comment">// identifier: [a-zA-Z][a-zA-Z0-9]*</span>
 <a name="l00032"></a>00032     Result.IdentifierStr = LastChar;
-<a name="l00033"></a>00033     <span class="keywordflow">while</span> (isalnum((LastChar = fgetc(InputStream))))
+<a name="l00033"></a>00033     <span class="keywordflow">while</span> (isalnum((LastChar = GetCharFromBuffer())))
 <a name="l00034"></a>00034       Result.IdentifierStr += LastChar;
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036     <span class="keywordflow">if</span> (Result.IdentifierStr == <span class="stringliteral">&quot;def&quot;</span>) {
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00072"></a>00072     std::string NumStr;
 <a name="l00073"></a>00073     <span class="keywordflow">do</span> {
 <a name="l00074"></a>00074       NumStr += LastChar;
-<a name="l00075"></a>00075       LastChar = fgetc(InputStream);
+<a name="l00075"></a>00075       LastChar = GetCharFromBuffer();
 <a name="l00076"></a>00076     } <span class="keywordflow">while</span> (isdigit(LastChar) || LastChar == <span class="charliteral">&#39;.&#39;</span>);
 <a name="l00077"></a>00077 
 <a name="l00078"></a>00078     Result.NumVal = strtod(NumStr.c_str(), 0);
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00083"></a>00083 
 <a name="l00084"></a>00084   <span class="keywordflow">if</span> (LastChar == <span class="charliteral">&#39;#&#39;</span>) {
 <a name="l00085"></a>00085     <span class="comment">// Comment until end of line.</span>
-<a name="l00086"></a>00086     <span class="keywordflow">do</span> LastChar = fgetc(InputStream);
+<a name="l00086"></a>00086     <span class="keywordflow">do</span> LastChar = GetCharFromBuffer();
 <a name="l00087"></a>00087     <span class="keywordflow">while</span> (LastChar != EOF &amp;&amp; LastChar != <span class="charliteral">&#39;\n&#39;</span> &amp;&amp; LastChar != <span class="charliteral">&#39;\r&#39;</span>);
 <a name="l00088"></a>00088 
 <a name="l00089"></a>00089     <span class="keywordflow">if</span> (LastChar != EOF) {
@@ -179,18 +179,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00100"></a>00100 
 <a name="l00101"></a>00101   <span class="comment">// Otherwise, just return the character as its ascii value.</span>
 <a name="l00102"></a>00102   <span class="keywordtype">int</span> ThisChar = LastChar;
-<a name="l00103"></a>00103   LastChar = fgetc(InputStream);
+<a name="l00103"></a>00103   LastChar = GetCharFromBuffer();
 <a name="l00104"></a>00104   Result.Kind = ThisChar;
 <a name="l00105"></a>00105   <span class="keywordflow">return</span>;
 <a name="l00106"></a>00106 }
 <a name="l00107"></a>00107 
 <a name="l00108"></a>00108 
-<a name="l00109"></a>00109 Lexer::Lexer()
-<a name="l00110"></a>00110   : LastChar(<span class="stringliteral">&#39; &#39;</span>)
+<a name="l00109"></a>00109 <span class="keywordtype">int</span>
+<a name="l00110"></a>00110 Lexer::GetCharFromBuffer(<span class="keywordtype">void</span>)
 <a name="l00111"></a>00111 {
-<a name="l00112"></a>00112 }
+<a name="l00112"></a>00112   <span class="keyword">static</span> <span class="keywordtype">int</span> index = 0;
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 
+<a name="l00114"></a>00114   <span class="comment">//returns EOF for the character after the last one in the Buffer</span>
+<a name="l00115"></a>00115   <span class="keywordflow">return</span> ((<span class="keywordtype">unsigned</span>)(index+1) &lt;= Buffer.size()) ? (<span class="keywordtype">int</span>)Buffer[index++] : EOF;
+<a name="l00116"></a>00116 }
+<a name="l00117"></a>00117 
+<a name="l00118"></a>00118 
+<a name="l00119"></a>00119 Lexer::Lexer(llvm::StringRef _Buffer)
+<a name="l00120"></a>00120   : LastChar(<span class="stringliteral">&#39; &#39;</span>), Buffer(_Buffer)
+<a name="l00121"></a>00121 {
+<a name="l00122"></a>00122 }
+<a name="l00123"></a>00123 
+<a name="l00124"></a>00124 
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -209,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 7 2013 22:12:29 for klang by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 15 2013 20:41:38 for klang by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
