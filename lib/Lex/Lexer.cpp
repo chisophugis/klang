@@ -13,10 +13,6 @@
 
 #include "klang/Driver/Driver.h"
 #include "klang/Lex/Lexer.h"
-#include <cstdio>
-#include <cstdlib>
-#include <stdio.h>
-#include <stdlib.h>
 
 using namespace klang;
 
@@ -84,16 +80,16 @@ Lexer::Lex(Token &Result) {
   if (LastChar == '#') {
     // Comment until end of line.
     do LastChar = GetCharFromBuffer();
-    while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
+    while (LastChar != KLANG_LEXER_EOF && LastChar != '\n' && LastChar != '\r');
 
-    if (LastChar != EOF) {
+    if (LastChar != KLANG_LEXER_EOF) {
       Lex(Result);
       return;
     }
   }
 
-  // Check for end of file.  Don't eat the EOF.
-  if (LastChar == EOF) {
+  // Check for end of file.  Don't eat the KLANG_LEXER_EOF.
+  if (LastChar == KLANG_LEXER_EOF) {
     Result.Kind = tok::tok_eof;
     return;
   }
@@ -111,8 +107,9 @@ Lexer::GetCharFromBuffer(void)
 {
   static int index = 0;
 
-  //returns EOF for the character after the last one in the Buffer
-  return ((unsigned)(index+1) <= Buffer.size()) ? (int)Buffer[index++] : EOF;
+  //returns KLANG_LEXER_EOF for the character after the last one in the Buffer
+  return ((unsigned)(index+1) <= Buffer.size()) ?
+    (int)Buffer[index++] : KLANG_LEXER_EOF;
 }
 
 

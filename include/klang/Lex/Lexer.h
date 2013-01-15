@@ -16,6 +16,8 @@
 
 #include "klang/Lex/Token.h"
 
+#define KLANG_LEXER_EOF 0x1a
+
 namespace klang {
 
   class Lexer {
