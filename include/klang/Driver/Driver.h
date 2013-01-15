@@ -32,8 +32,6 @@ namespace klang {
 
   extern llvm::FunctionPassManager *TheFPM;
   extern llvm::ExecutionEngine *TheExecutionEngine;
-
-  extern bool UseFile;
 }
 
 extern FILE*	InputStream;

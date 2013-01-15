@@ -49,8 +49,6 @@ namespace klang {
 
   llvm::FunctionPassManager *TheFPM;
   llvm::ExecutionEngine *TheExecutionEngine;
-
-  bool UseFile = false;
 }
 
 FILE*	InputStream = 0;
@@ -73,7 +71,6 @@ int main(int argc, char* const argv[]) {
   InputStream = fdopen(0, "r");
   if (InputFilename != "-") {
     InputStream = freopen(InputFilename.c_str(), "r", InputStream);
-    klang::UseFile  = true;
   }
 
   llvm::InitializeNativeTarget();
@@ -134,8 +131,9 @@ int main(int argc, char* const argv[]) {
   klang::TheFPM = 0;
 
   // Print out all of the generated code.
-  if (!klang::UseFile)
-    klang::TheModule->dump();
+  //FIXME
+  //IR dumping will be done via a new frontendaction emit-llvm
+  //klang::TheModule->dump();
 
   // Calls an unused function just not to lose it in the final binary
   // Without this call klangBuiltin.a is just ignored during linking

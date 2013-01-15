@@ -380,10 +380,10 @@ PrototypeAST *Parser::ParseExtern() {
 void Parser::HandleDefinition() {
   if (FunctionAST *F = ParseDefinition()) {
     if (llvm::Function *LF = F->Codegen()) {
-      if (!klang::UseFile) {
-        llvm::errs() << "Read function definition:\n";
-        LF->dump();
-      }
+      //FIXME
+      //IR dumping will be done via a new frontendaction emit-llvm
+      //llvm::errs() << "Read function definition:\n";
+      //LF->dump();
     }
     //	if (ParseDefinition()) {}
     //		fprintf(stderr, "Parsed a function definition.\n");
@@ -396,10 +396,10 @@ void Parser::HandleDefinition() {
 void Parser::HandleExtern() {
   if (PrototypeAST *P = ParseExtern()) {
     if (llvm::Function *F = P->Codegen()) {
-      if (!klang::UseFile) {
-        llvm::errs() << "Read extern: \n";
-        F->dump();
-      }
+      //FIXME
+      //IR dumping will be done via a new frontendaction emit-llvm
+      //llvm::errs() << "Read extern: \n";
+      //F->dump();
     }
     //	if (ParseExtern()) {}
     //		fprintf(stderr, "Parsed an extern\n");
@@ -426,12 +426,9 @@ void Parser::HandleTopLevelExpression() {
       // can call it as a native function.
       //------------------------------------------------
       double (*FP)() = (double (*)())(intptr_t)FPtr;
-      //if (!klang::UseFile)
 
       double Result = FP();
       llvm::errs() << "\nEvaluated to " << Result << "\n";
-      //else
-      //	FP();
     }
     //	if (ParseTopLevelExpr()) {}
     //		fprintf(stderr, "Parsed a top-level expr\n");
@@ -446,13 +443,17 @@ void Parser::HandleTopLevelExpression() {
 void Parser::Go() {
 
   // Prime the first token.
-  if (!klang::UseFile)
-    llvm::errs() << "ready> \n";
+  //FIXME
+  //User prompt will appear in case of interactive mode which will be
+  //implemented soon
+  //llvm::errs() << "ready> \n";
   GetNextToken();
 
   while (1) {
-    if (!klang::UseFile)
-      llvm::errs() << "ready> \n";
+    //FIXME
+    //User prompt will appear in case of interactive mode which will be
+    //implemented soon
+    //llvm::errs() << "ready> \n";
     switch (Tok.Kind) {
     case tok::tok_eof:
       return;
