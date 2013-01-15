@@ -31,9 +31,6 @@
 #include "llvm/Support/system_error.h"
 #include "llvm/Transforms/Scalar.h"
 
-#include <cstdio>
-#include <cstring>
-#include <fstream>
 #include <map>
 #include <string>
 
