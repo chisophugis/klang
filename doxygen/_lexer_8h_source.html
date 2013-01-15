@@ -96,25 +96,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 <span class="preprocessor"></span>
 <a name="l00017"></a>00017 <span class="preprocessor">#include &quot;klang/Lex/Token.h&quot;</span>
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">namespace </span>klang {
-<a name="l00020"></a>00020 
-<a name="l00021"></a><a class="code" href="classklang_1_1_lexer.html">00021</a>   <span class="keyword">class </span><a class="code" href="classklang_1_1_lexer.html">Lexer</a> {
+<a name="l00019"></a>00019 <span class="preprocessor">#define KLANG_LEXER_EOF 0x1a</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="keyword">namespace </span>klang {
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023     <span class="keywordtype">int</span> LastChar;
+<a name="l00023"></a><a class="code" href="classklang_1_1_lexer.html">00023</a>   <span class="keyword">class </span><a class="code" href="classklang_1_1_lexer.html">Lexer</a> {
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025     llvm::StringRef Buffer;
-<a name="l00026"></a>00026     <span class="keywordtype">int</span> GetCharFromBuffer(<span class="keywordtype">void</span>);
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028   <span class="keyword">public</span>:
-<a name="l00029"></a>00029     <a class="code" href="classklang_1_1_lexer.html">Lexer</a>(llvm::StringRef _Buffer);
-<a name="l00030"></a>00030 
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classklang_1_1_lexer.html#a4271821d7fa8760ddce0b3ba569998ae" title="Return the next token from standard input.">Lex</a>(<a class="code" href="classklang_1_1_token.html">Token</a> &amp;Result);
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034   };
+<a name="l00025"></a>00025     <span class="keywordtype">int</span> LastChar;
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     llvm::StringRef Buffer;
+<a name="l00028"></a>00028     <span class="keywordtype">int</span> GetCharFromBuffer(<span class="keywordtype">void</span>);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030   <span class="keyword">public</span>:
+<a name="l00031"></a>00031     <a class="code" href="classklang_1_1_lexer.html">Lexer</a>(llvm::StringRef _Buffer);
+<a name="l00032"></a>00032 
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classklang_1_1_lexer.html#a4271821d7fa8760ddce0b3ba569998ae" title="Return the next token from standard input.">Lex</a>(<a class="code" href="classklang_1_1_token.html">Token</a> &amp;Result);
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 }
+<a name="l00036"></a>00036   };
 <a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#endif //#ifndef KLANG_LEXER_H</span>
+<a name="l00038"></a>00038 }
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 <span class="preprocessor">#endif //#ifndef KLANG_LEXER_H</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -133,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 15 2013 20:47:12 for klang by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 15 2013 21:08:17 for klang by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
