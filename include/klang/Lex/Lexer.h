@@ -22,8 +22,11 @@ namespace klang {
 
     int LastChar;
 
+    llvm::StringRef Buffer;
+    int GetCharFromBuffer(void);
+
   public:
-    Lexer();
+    Lexer(llvm::StringRef _Buffer);
 
     /// Return the next token from standard input.
     void Lex(Token &Result);

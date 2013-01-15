@@ -26,11 +26,11 @@ Lexer::Lex(Token &Result) {
 
   // Skip any whitespace.
   while (isspace(LastChar))
-    LastChar = fgetc(InputStream);
+    LastChar = GetCharFromBuffer();
 
   if (isalpha(LastChar)) { // identifier: [a-zA-Z][a-zA-Z0-9]*
     Result.IdentifierStr = LastChar;
-    while (isalnum((LastChar = fgetc(InputStream))))
+    while (isalnum((LastChar = GetCharFromBuffer())))
       Result.IdentifierStr += LastChar;
 
     if (Result.IdentifierStr == "def") {
@@ -72,7 +72,7 @@ Lexer::Lex(Token &Result) {
     std::string NumStr;
     do {
       NumStr += LastChar;
-      LastChar = fgetc(InputStream);
+      LastChar = GetCharFromBuffer();
     } while (isdigit(LastChar) || LastChar == '.');
 
     Result.NumVal = strtod(NumStr.c_str(), 0);
@@ -83,7 +83,7 @@ Lexer::Lex(Token &Result) {
 
   if (LastChar == '#') {
     // Comment until end of line.
-    do LastChar = fgetc(InputStream);
+    do LastChar = GetCharFromBuffer();
     while (LastChar != EOF && LastChar != '\n' && LastChar != '\r');
 
     if (LastChar != EOF) {
@@ -100,14 +100,24 @@ Lexer::Lex(Token &Result) {
 
   // Otherwise, just return the character as its ascii value.
   int ThisChar = LastChar;
-  LastChar = fgetc(InputStream);
+  LastChar = GetCharFromBuffer();
   Result.Kind = ThisChar;
   return;
 }
 
 
-Lexer::Lexer()
-  : LastChar(' ')
+int
+Lexer::GetCharFromBuffer(void)
+{
+  static int index = 0;
+
+  //returns EOF for the character after the last one in the Buffer
+  return ((unsigned)(index+1) <= Buffer.size()) ? (int)Buffer[index++] : EOF;
+}
+
+
+Lexer::Lexer(llvm::StringRef _Buffer)
+  : LastChar(' '), Buffer(_Buffer)
 {
 }
 

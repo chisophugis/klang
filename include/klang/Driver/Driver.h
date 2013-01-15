@@ -34,7 +34,6 @@ namespace klang {
   extern llvm::ExecutionEngine *TheExecutionEngine;
 }
 
-extern FILE*	InputStream;
 
 #endif//#ifndef KLANG_DRIVER_H
 

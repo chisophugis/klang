@@ -16,6 +16,7 @@
 #include "klang/Lex/Lexer.h"
 #include "klang/Parse/Parser.h"
 
+#include "llvm/ADT/OwningPtr.h"
 #include "llvm/Analysis/Passes.h"
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
 #include "llvm/ExecutionEngine/JIT.h"
@@ -24,8 +25,10 @@
 #include "llvm/IR/Module.h"
 #include "llvm/PassManager.h"
 #include "llvm/Support/CommandLine.h"
-#include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/TargetSelect.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/system_error.h"
 #include "llvm/Transforms/Scalar.h"
 
 #include <cstdio>
@@ -51,7 +54,6 @@ namespace klang {
   llvm::ExecutionEngine *TheExecutionEngine;
 }
 
-FILE*	InputStream = 0;
 
 llvm::cl::opt<std::string>
 OutputFilename("o",
@@ -68,15 +70,15 @@ int main(int argc, char* const argv[]) {
 
   llvm::cl::ParseCommandLineOptions(argc, argv);
 
-  InputStream = fdopen(0, "r");
-  if (InputFilename != "-") {
-    InputStream = freopen(InputFilename.c_str(), "r", InputStream);
-  }
+  llvm::OwningPtr<llvm::MemoryBuffer> Buf;
+
+  if (llvm::MemoryBuffer::getFileOrSTDIN(InputFilename, Buf))
+    return 1;
 
   llvm::InitializeNativeTarget();
   llvm::LLVMContext &Context = llvm::getGlobalContext();
 
-  klang::Lexer myLexer;
+  klang::Lexer myLexer(Buf->getBuffer());
   klang::Parser myParser(myLexer);
 
   // Install standard binary operators.
@@ -138,8 +140,6 @@ int main(int argc, char* const argv[]) {
   // Calls an unused function just not to lose it in the final binary
   // Without this call klangBuiltin.a is just ignored during linking
   putchard('\n');
-
-  fclose(InputStream);
 
   return 0;
 }
