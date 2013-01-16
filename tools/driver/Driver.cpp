@@ -52,15 +52,17 @@ namespace klang {
 }
 
 
-llvm::cl::opt<std::string>
-OutputFilename("o",
-               llvm::cl::desc("Specify output filename"),
-               llvm::cl::value_desc("filename"));
+namespace {
+  llvm::cl::opt<std::string>
+    OutputFilename("o",
+                   llvm::cl::desc("Specify output filename"),
+                   llvm::cl::value_desc("filename"));
 
-llvm::cl::opt<std::string>
-InputFilename(llvm::cl::Positional,
-              llvm::cl::desc("<input file>"),
-              llvm::cl::init("-"));
+  llvm::cl::opt<std::string>
+    InputFilename(llvm::cl::Positional,
+                  llvm::cl::desc("<input file>"),
+                  llvm::cl::init("-"));
+}
 
 
 int main(int argc, char* const argv[]) {
