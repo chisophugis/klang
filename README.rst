@@ -1,3 +1,64 @@
+Information About this Project
+==============================
+
+Hi, I have taken over custody of this project from its original author
+`Journeyer <https://github.com/Journeyer>`_ who had to stop working on it
+due to other priorities.
+
+The brilliant idea that Journeyer came up with is to implement the `LLVM
+Kaleidoscope tutorial <http://llvm.org/docs/tutorial/>`_ with a design that
+mimics Clang's organization. That means that this project will
+simultaneously teach you about both LLVM and Clang!
+Unfortunately the project wasn't fully completed when I took custody of it,
+but Journeyer set a solid foundation to build on. I'm hoping that
+interested LLVM newbies will be able to cut their teeth developing on this
+foundation.
+
+This is a *really* good way to get acquainted with LLVM and Clang. I
+seriously wish I had come up with this idea when I was first starting out
+learning about them. Working on this will have a very high learning/effort
+ratio if your goal is to become familiar with LLVM and Clang, and there are
+lots of easy changes to be made.
+
+I would be very happy to provide guidance for anyone interested in working
+on this project, but I cannot commit to lots of coding (I already
+have a long queue of things that I'm working on upstream on LLVM trunk).
+This project naturally lends itself to newcomers since you can learn as you
+go, so if I did all the coding on this project then someone else is losing
+the learning/resume opportunity of implementing those parts! (which might
+jumpstart a career working on LLVM, perhaps.) Feel free to send me email
+(chisophugis@gmail.com or silvas@purdue.edu) if you are looking for
+ideas/guidance, or check out our `Issues on github
+<https://github.com/chisophugis/klang/issues>`_  (there are currently only
+a few issues there, but if you email me I can add plenty of good things to
+work on).
+
+Fork the project and send pull requests, or star it to indicate interest! I
+will review your code with exactly the same eye that I use to review code
+that goes into LLVM trunk, so if you find upstream LLVM development
+intimidating or confusing compared to github, this may be an easy way to
+get your feet wet before diving into upstream (which you should; we are
+nice people!).
+
+And remember that you can always ask on `LLVMdev
+<http://lists.cs.uiuc.edu/mailman/listinfo/llvmdev>`_  about LLVM or
+`cfe-dev <http://lists.cs.uiuc.edu/mailman/listinfo/cfe-dev>`_  about
+Clang.
+
+We really need an example of a *simple* (but well-written) compiler built
+on LLVM and harnessing LLVM's capabilities. This project, if (when?)
+brought to fruition, will likely be merged into the official LLVM tree (and
+you could continue working on it there).
+
+Please contribute! Even filing bugs is helpful! A super-simple way to get
+started is to clone the repo and try to build it on your machine; file a
+bug if it doesn't work! (Bonus points for pull-requesting a fix!)
+
+
+
+Below is the README as it was when I took custody of the project:
+
+
 About
 =====
 This project has been started from LLVM tutorial and being implemented to be the
