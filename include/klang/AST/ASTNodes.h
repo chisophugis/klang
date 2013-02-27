@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines the AST classes.
-//
+///
+/// \file
+/// \brief This file defines the AST classes.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_ASTNODES_H

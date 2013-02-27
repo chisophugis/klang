@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file implements the AST classes.
-//
+///
+/// \file
+/// \brief This file implements the AST classes.
+///
 //===----------------------------------------------------------------------===//
 
 #include "klang/AST/ASTNodes.h"

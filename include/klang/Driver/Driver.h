@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines global identifiers used globally.
-//
+///
+/// \file
+/// \brief This file defines global identifiers used globally.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_DRIVER_H

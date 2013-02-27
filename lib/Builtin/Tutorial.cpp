@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file implements the builtin functions.
-//
+///
+/// \file
+/// \brief This file implements the builtin functions.
+///
 //===----------------------------------------------------------------------===//
 
 #include "klang/Builtin/Tutorial.h"

@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file implements lexer class.
-//
+///
+/// \file
+/// \brief This file implements lexer class.
+///
 //===----------------------------------------------------------------------===//
 
 #include "klang/Driver/Driver.h"

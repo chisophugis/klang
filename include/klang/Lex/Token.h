@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines Token class.
-//
+///
+/// \file
+/// \brief This file defines Token class.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_TOKEN_H

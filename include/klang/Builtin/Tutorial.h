@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines the builtin functions.
-//
+///
+/// \file
+/// \brief This file defines the builtin functions.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_TUTORIAL_H

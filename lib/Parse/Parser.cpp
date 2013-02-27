@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file implements the Parser class.
-//
+///
+/// \file
+/// \brief This file implements the Parser class.
+///
 //===----------------------------------------------------------------------===//
 
 #include "klang/Driver/Driver.h"

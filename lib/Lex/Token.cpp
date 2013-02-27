@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file implements Token class.
-//
+///
+/// \file
+/// \brief This file implements Token class.
+///
 //===----------------------------------------------------------------------===//
 
 #include "klang/Lex/Token.h"

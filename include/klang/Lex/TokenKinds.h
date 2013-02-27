@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines the enumeration, TokenKind.
-//
+///
+/// \file
+/// \brief This file defines the enumeration, TokenKind.
+///
 //===----------------------------------------------------------------------===//
 
 

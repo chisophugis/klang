@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines lexer class.
-//
+///
+/// \file
+/// \brief This file defines lexer class.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_LEXER_H

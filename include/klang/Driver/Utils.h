@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines utility functions.
-//
+///
+/// \file
+/// \brief This file defines utility functions.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_UTIL_H

@@ -6,9 +6,10 @@
 // License. See LICENSE.TXT for details.
 //
 //===----------------------------------------------------------------------===//
-//
-// This file defines the Parser class.
-//
+///
+/// \file
+/// \brief This file defines the Parser class.
+///
 //===----------------------------------------------------------------------===//
 
 #ifndef KLANG_PARSER_H
