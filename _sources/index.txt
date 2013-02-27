@@ -20,8 +20,10 @@ Contents:
   uml.rst
   
 
-You can view :download:`Doxygen Document<_static/linktodoxygen.html>`.
+You can also browse our `Doxygen documentation`_, which still needs some
+work.
 
+.. _`Doxygen documentation`: doxygen/index.html
 
 Indices and tables
 ==================
