@@ -13,5 +13,7 @@ var searchData=
   ['parseprototype',['ParsePrototype',['../classklang_1_1_parser.html#ad26cd22e65cb89053b214045f429e57a',1,'klang::Parser']]],
   ['parsetoplevelexpr',['ParseTopLevelExpr',['../classklang_1_1_parser.html#ae1e9ba97281bb9159106461d9f50ff57',1,'klang::Parser']]],
   ['parseunary',['ParseUnary',['../classklang_1_1_parser.html#a419986e9863884fdb72cecd552450965',1,'klang::Parser']]],
-  ['parsevarexpr',['ParseVarExpr',['../classklang_1_1_parser.html#a5e4dda7694746d82edad5e4408e16e1f',1,'klang::Parser']]]
+  ['parsevarexpr',['ParseVarExpr',['../classklang_1_1_parser.html#a5e4dda7694746d82edad5e4408e16e1f',1,'klang::Parser']]],
+  ['printd',['printd',['../_tutorial_8h.html#add38b26ef2ed2c7c4b04a057ff5c4162',1,'printd(double X):&#160;Tutorial.cpp'],['../_tutorial_8cpp.html#add38b26ef2ed2c7c4b04a057ff5c4162',1,'printd(double X):&#160;Tutorial.cpp']]],
+  ['putchard',['putchard',['../_tutorial_8h.html#a530e5d4a1438f6a5b3d86dc57b4c5489',1,'putchard(double X):&#160;Tutorial.cpp'],['../_tutorial_8cpp.html#a530e5d4a1438f6a5b3d86dc57b4c5489',1,'putchard(double X):&#160;Tutorial.cpp']]]
 ];

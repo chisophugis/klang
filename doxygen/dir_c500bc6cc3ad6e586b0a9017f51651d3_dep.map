@@ -1,0 +1,14 @@
+<map id="include/klang/" name="include/klang/">
+<area shape="rect" id="node4" href="dir_73c1b5bad5225f0f93280916b43c1def.html" title="AST" alt="" coords="37,257,109,305"/>
+<area shape="rect" id="node5" href="dir_9b567b7194bd97ff5278881da1abbc9e.html" title="Builtin" alt="" coords="133,65,205,113"/>
+<area shape="rect" id="node6" href="dir_943b0045697d45c7b3d74ee2be4058f4.html" title="Driver" alt="" coords="37,65,109,113"/>
+<area shape="rect" id="edge8" href="dir_000005_000003.html" title="2" alt="" coords="68,229,76,246"/>
+<area shape="rect" id="node7" href="dir_d8310b1e09f4c272416d13aa486ddf74.html" title="Lex" alt="" coords="133,257,205,305"/>
+<area shape="rect" id="edge12" href="dir_000005_000006.html" title="1" alt="" coords="177,231,185,248"/>
+<area shape="rect" id="node8" href="dir_289bb2a112c4eb57c098ab5bc89cd300.html" title="Parse" alt="" coords="72,161,144,209"/>
+<area shape="rect" id="edge10" href="dir_000005_000007.html" title="1" alt="" coords="97,132,105,150"/>
+<area shape="rect" id="edge4" href="dir_000007_000003.html" title="1" alt="" coords="92,234,100,251"/>
+<area shape="rect" id="edge6" href="dir_000007_000006.html" title="1" alt="" coords="147,228,155,246"/>
+<area shape="rect" id="graph3" href="dir_c500bc6cc3ad6e586b0a9017f51651d3.html" alt="" coords="27,55,312,316"/>
+<area shape="rect" id="graph2" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="16,16,323,327"/>
+</map>
